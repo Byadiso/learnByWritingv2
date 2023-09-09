@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LearnByWriting</title>
-    <link rel="stylesheet" href="../css/blog.css" />
-    <link rel="stylesheet" href="../css/blog_single.css" />
+    <!-- <link rel="stylesheet" href="../css/blog.css" />
+    <link rel="stylesheet" href="../css/blog_single.css" /> -->
     <link rel="stylesheet" href="../css/vocabulary.css" />
     <!-- for roboto font -->
     <link
@@ -28,152 +28,106 @@
   </head>
   <body>
     <header>
-      <nav>
+      <nav class="main_nav">
         <div class="menu">
-          <h1 class="ngana_logo">LearnByWriting</h1>
-          <a href="../index.html" class="menu_nav">Home</a>
-          <a href="./blog.html" class="menu_nav">Blogs</a>
-          <a href="./stories.html" class="menu_nav">Stories</a>
-          <a href="./dashboard.html" class="menu_nav" id="dashboard"
-            >Dashboard</a
+          <h2 class="ngana_logo">
+            <a href="../index.html" class="menu_nav">LearnByWriting</a>
+          </h2>
+          <a href="../index.html" class="menu_nav">
+            <i class="fa fa-search"></i>Learn</a
           >
-          <a href="./vocabulary.html" class="menu_nav hire_now" id="join_us"
-            >Vocabularies</a
+          <a href="./stories.html" class="menu_nav">
+            <i class="fa fa-book"></i>Stories</a
           >
+          <a href="./blog.html" class="menu_nav">
+            <i class="fa fa-globe"></i>Your blog</a
+          >
+          <a href="./vocabulary.html" class="menu_nav">
+            <i class="fa fa-list"></i>Vocabulary Lists</a
+          >
+          <a href="./login.html" class="menu_nav hire_now">Login</a>
         </div>
       </nav>
     </header>
     <section>
-      <div class="hero_section">
-        <div class="hero_content">
-          <h2>Our vocabularies</h2>
-          <h1>Learn new word today</h1>
-        </div>
-      </div>
+     
 
       <!-- Vocabulary section -->
-      <div class="blog_section">
-        <div class="blog_content single_blog">
-          <div class="blog_item_left blog_item_left_single">
+      <div class="vocabulary_main">
+        <div class="vocabulary_content">         
             <!-- Search box for vocabulary-->
+            <div class="header_vocabulary">
+              <h3>Vocabulary Lists</h3>
+              <p>
+                Explore our library of over
+                <span id="number_of_vocabulary">0</span> curated lists.
+              </p>
+              <div class="vocabulary_search">
+                <i class="fa fa-search"></i>
+                <input
+                  type="text"
+                  placeholder="search vocabulary list"
+                  name="search"
+                />
+              </div>
+            </div>  
+            
+            <div class="sample_vocabulary">
+              <div class="sample_vocabulary_header">
+                <div>
+                  <h1>September Sample</h1>
+                  <p>Vocabulary for this month, Occassions, and Events</p>
+                </div>
+                <div>
+                  <button>Explore collection</button>
+                </div>               
 
-            <h3>Vocabulary Lists</h3>
-            <p>
-              Explore our library of over
-              <span id="number_of_vocabulary">0</span> curated lists.
-            </p>
-            <div class="blog_search vocabulary_search">
-              <input
-                type="text"
-                placeholder="search a vocabulary"
-                name="search"
-              />
-              <i class="fa fa-search"></i>
+              </div>
+              <div class="sample_vocabulary_content">
+                <div>
+                  <img src="../images/blog.jpg" width="100px" alt="">
+                </div>
+              </div>
+
             </div>
+
+            <div class="sample_vocabulary">
+              <div class="sample_vocabulary_header">
+                <div>
+                  <h1>September Sample</h1>
+                  <p>Vocabulary for this month, Occassions, and Events</p>
+                </div>
+                <div>
+                  <button>Explore collection</button>
+                </div>               
+
+              </div>
+              <div class="sample_vocabulary_content">
+                <div>
+                  <img src="../images/blog.jpg" width="100px" alt="">
+                </div>
+              </div>
+
+            </div>
+            
+            
+           
 
             <div class="vocabulary_item_content" id="vocabulary_item_content">
               <!-- vocabulary will go here -->
-            </div>
+            </div>         
 
-            <div id="pages-numbers"></div>
-
-            <!--my edit modal -->
-            <div class="dashboard_item_rigt hide" id="from_edit">
-              <div class="add_blog edit_modal" id="form_blog">
-                <input
-                  type="text"
-                  name="title"
-                  id="title"
-                  placeholder="add title"
-                />
-
-                <textarea
-                  type="text"
-                  name="body"
-                  id="body"
-                  placeholder="Add your content here"
-                >
-                </textarea>
-
-                <input
-                  type="file"
-                  name="image"
-                  id="image"
-                  placeholder="add image"
-                />
-
-                <input
-                  class="addBlog add_blog_button"
-                  type="submit"
-                  value="Update Blog"
-                  id="updateBlog"
-                />
-              </div>
-            </div>
-
-            <hr />
-              <!-- remove as we no longer need them -->
-            <!-- for related blog -->
-                       <!-- <div class="related_blog">
-              <div class="header_related">
-                <h4>Recently added story</h4>
-              </div>
-
-              <div id="related_blog_item">
-                
-              </div>
-            </div> -->
+            
           </div>
 
-          <!-- for categories -->
-          <div class="blog_item_rigt">
-            <div class="blog_item">
-              <div class="dashboard_categories">
-                <h1>Dashboard</h1>
-                <a href="./dashboard.html" id="add"
-                  ><i class="fa fa-plus"></i>Add Blog</a
-                >
-                <a href="./user.html" id="info"
-                  ><i class="fa fa-info"></i>My info</a
-                >
-                <a href="./vocabulary.html" id="vocabulary"
-                  ><i class="fa-solid fa-floppy-disk"></i>Your Vocabulary</a
-                >
-                <a href="./settings.html" id="settings"
-                  ><i class="fa fa-gear"></i>Settings</a
-                >
-                <a href="#" id="logout" class="logout"
-                  ><i class="fa fa-sign-out"></i>logout</a
-                >
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
     </section>
 
     <!-- footer info and details -->
     <footer>
-      <div class="footer support">
-        <h3>Phone support</h3>
-        <p>24 hours a day</p>
-        <p>+2507887573743</p>
-      </div>
-      <div class="footer social_media">
-        <h3>Get intouch with us</h3>
-        <i class="fa fa-facebook"></i>
-        <i class="fa fa-instagram"></i>
-        <i class="fa fa-twitter"></i>
-      </div>
-      <div class="footer subscribe">
-        <h3>Subscribe to our blog</h3>
-        <p>Singup for our offer</p>
-
-        <div class="footer_input">
-          <input type="text" name="email" id="email_subscribution" />
-          <input class="footer_submit" type="submit" value="Subscribe" />
-        </div>
-      </div>
+      
     </footer>
   </body>
 

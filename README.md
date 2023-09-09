@@ -35,7 +35,7 @@ LearnBywritingV2 is a project made to improve langauge learning process via writ
 # Installation
 
 - \$ git clone https://github.com/Byadiso/learnByWritingv2.git
-- \$ cd UI
+- \$ cd myBrand
 
 # Contributing
 
