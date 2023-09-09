@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LearnByWriting</title>
-    <link rel="stylesheet" href="../css/login.css" />
+    <title>LearnByWriting v2</title>
+    <link rel="stylesheet" href="../css/register.css" />
     <!-- for roboto font -->
     <link
       href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
@@ -22,251 +22,300 @@
   </head>
   <body>
     <header>
-      <nav>
+      <nav class="main_nav">
         <div class="menu">
-          <h1 class="ngana_logo">LearnByWriting</h1>
-          <a href="../index.html" class="menu_nav">Home</a>
-          <a href="./blog.html" class="menu_nav">Blogs</a>        
-          <a href="./stories.html" class="menu_nav">Stories</a>
-          <a href="./login.html" class="menu_nav">login</a>
-          <a href="./register.html" class="menu_nav hire_now">You are joinning us</a>
-          <!-- <button class="hire_now menu_nav">Hire me</button> -->
+          <h2 class="ngana_logo">
+            <a href="../index.html" class="menu_nav">LearnByWriting</a>
+          </h2>
+          <a href="../index.html" class="menu_nav">
+            <i class="fa fa-search"></i>Learn</a
+          >
+          <a href="./stories.html" class="menu_nav">
+            <i class="fa fa-book"></i>Stories</a
+          >
+          <a href="./blog.html" class="menu_nav">
+            <i class="fa fa-globe"></i>Your blog</a
+          >
+          <a href="./vocabulary.html" class="menu_nav">
+            <i class="fa fa-list"></i>Vocabulary Lists</a
+          >
+          <a href="./login.html" class="menu_nav hire_now">Login</a>
         </div>
       </nav>
     </header>
     <section>
-      <div class="hero_section hero_login_section">
-        <div class="hero_content hero_login_content">
-          <h1>Have fun by learning your favorite language! Just write something today...</h1>         
-        </div>
-      </div>
-
       <!-- Services section -->
+      <div class="service_section">
+        <!-- for register -->
+        <div class="register_content">
+          <h1 >Start mastering</h1>
+          <h5>Create an account to:</h5>
 
-      <div class="service_section">        
-        <div class="service_content">
-            
-          
-          <!-- for register -->
-          <div class="service_item_left register_form" id="register_form">
-            <div class="Service_form">
-              <h5 id="alert_message_register" class="hide"></h5>
-             <div class="service_form_item form_login">
-               <input type="text" name="firstname" id="firstname" placeholder="firstname"/>
-               <input type="text" name="lastname" id="lastname" placeholder="lastname"/>
-               <input type="text" name="email" class="email" placeholder="email" id="email-register"/> 
-               <input type="password" name="password" class="password" placeholder="password" id="password-register"/>
-               <div class="login_register">
-                <input class="register" type="submit" value="register" id="registerSubmit"/>
-                <a href=".\login.html">
-                 <input class="login" type="submit" value="login" />      
-                </a>          
-               </div>      
-             </div>
-           </div>
-         </div>
+          <p>
+            <i class="fa fa-check-circle"></i>
+            Start learning with vocabulary lists related to your favorite
+            subject, seasonal themes, or the book you’re reading
+          </p>
 
+          <p>
+            <i class="fa fa-check-circle"></i>
+            Create your own custom lists and flashcards to learn the words you
+            want to know
+          </p>
+
+          <p>
+            <i class="fa fa-check-circle"></i>Chart your points, achievements,
+            and trouble words
+          </p>
+          <img src="../images/tellstory.png" width="214px" alt="">
+        </div>
+        <div class="register_form" id="register_form">
+          <div class="Service_form">
+            <h5 id="alert_message_register" class="hide"></h5>
+            <div class="service_form_item form_login">
+              <!-- <label for="name">Your name</label> -->
+              <input
+                type="text"
+                name="firstname"
+                id="firstname"
+                placeholder="First Name"
+              />
+              <!-- <label for="name">Your name</label> -->
+              <input
+                type="text"
+                name="lastname"
+                id="lastname"
+                placeholder="Last Name"
+              />
+              <!-- <label for="name">Your Email</label> -->
+              <input
+                type="text"
+                name="email"
+                class="email"
+                placeholder="Email"
+                id="email-register"
+              />
+              <!-- <label for="password">Your password</label> -->
+              <input
+                type="password"
+                name="password"
+                class="password"
+                placeholder="Password"
+                id="password-register"
+              />
+              <div class="login_register">
+                <input
+                  class="register"
+                  type="submit"
+                  value="Create your account"
+                  id="registerSubmit"
+                />
+
+                <div class="login_content">
+                  <p>Already have an account?</p>
+                  <a href=".\login.html">Login</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- footer info and details -->
-
     <footer>
-      <div class="footer support">
-        <h3>Phone support</h3>
-        <p>24 hours a day</p>
-        <p>+2507887573743</p>
-      </div>
-      <div class="footer social_media">
-        <h3>Get intouch with us</h3>
-        <i class="fa fa-facebook"></i>
-        <i class="fa fa-instagram"></i>
-        <i class="fa fa-twitter"></i>
-      </div>
-      <div class="footer subscribe">
-        <h3>Subscribe to our blog</h3>
-        <p>Singup for our offer</p>
-
-        <div class="footer_input">
-          <input type="text" name="email" id="email_subscribution" />
-          <input class="footer_submit" type="submit" value="Subscribe" />
-        </div>
-      </div>
+      <div class="copyright"> <p> <i class="fa fa-copyright"></i>2023 Ngana Tech</p></div>
+     
     </footer>
   </body>
   <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-storage.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase.js" defer></script>
+  <script
+    src="https://www.gstatic.com/firebasejs/8.4.3/firebase.js"
+    defer
+  ></script>
   <!-- <script src="../Js/firebase.js"></script>  -->
   <script src="../Js/login.js"></script>
 
   <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
-    import { getDatabase,set,ref,update } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
-    import { getAuth,onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
+    import {
+      getDatabase,
+      set,
+      ref,
+      update,
+    } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+    import {
+      getAuth,
+      onAuthStateChanged,
+      createUserWithEmailAndPassword,
+      signInWithEmailAndPassword,
+    } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
     // import { initializeApp } from "firebase/app";
-    
+
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
-  
+
     // Your web app's Firebase configuration
     const firebaseConfig = {
-       apiKey: "AIzaSyA5sPlupW_n1XEt6xsw_Y7aAZKltGEFyXw",
+      apiKey: "AIzaSyA5sPlupW_n1XEt6xsw_Y7aAZKltGEFyXw",
       authDomain: "mybrand-df7b7.firebaseapp.com",
       projectId: "mybrand-df7b7",
       storageBucket: "mybrand-df7b7.appspot.com",
       messagingSenderId: "1073877765217",
       appId: "1:1073877765217:web:7f63596f42c5d4ca18ae20",
     };
-  
+
     // Initialize Firebase
     const app = firebase.initializeApp(firebaseConfig);
     const database = getDatabase(initializeApp(firebaseConfig));
     const auth = getAuth();
-    
 
-
-    console.log(app)
-    console.log(auth)
+    console.log(app);
+    console.log(auth);
     //refernce a collection
     // const loginRef = database.ref("User");
 
-//my login button
+    //my login button
 
-const registerSubmit = document.getElementById("registerSubmit");
-const loginSubmit = document.getElementById("loginSubmit");
+    const registerSubmit = document.getElementById("registerSubmit");
+    const loginSubmit = document.getElementById("loginSubmit");
 
+    //function to get inpu value
 
-
-//function to get inpu value
-
-function getInputValue(id) {
-  return document.getElementById(id).value;
-}
-
-
-// register
-
-
-registerSubmit.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  const firstname = getInputValue("firstname");
-  const lastname = getInputValue("lastname");
-  const email = getInputValue("email-register");
-  const password = getInputValue("password-register");
-
-  if(!email || ! password ||!lastname || !firstname){
-    console.log("no password, email, firstname or lastname entered");
-    return
-  } 
-
-  createUserWithEmailAndPassword( auth, email.trim(), password.trim(), firstname.trim(),lastname.trim())
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    const userData = {
-      firstname:firstname,
-      lastname:lastname, 
-      displayName:firstname, 
-      email:email,
+    function getInputValue(id) {
+      return document.getElementById(id).value;
     }
-        // Store the user data in Firestore using the same UID as document ID
-    firebase.firestore().collection('users').doc(user.uid).set(userData)
-      .then((user) => {
-        // User data stored in Firestore successfully
-        console.log('User data stored in Firestore.');
-        console.log(user);
-      })
-      .catch((error) => {
-        // Handle error
-        console.error('Error storing user data in Firestore:', error);
+
+    // register
+
+    registerSubmit.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const firstname = getInputValue("firstname");
+      const lastname = getInputValue("lastname");
+      const email = getInputValue("email-register");
+      const password = getInputValue("password-register");
+
+      if (!email || !password || !lastname || !firstname) {
+        console.log("no password, email, firstname or lastname entered");
+        return;
+      }
+
+      createUserWithEmailAndPassword(
+        auth,
+        email.trim(),
+        password.trim(),
+        firstname.trim(),
+        lastname.trim()
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          const userData = {
+            firstname: firstname,
+            lastname: lastname,
+            displayName: firstname,
+            email: email,
+          };
+          // Store the user data in Firestore using the same UID as document ID
+          firebase
+            .firestore()
+            .collection("users")
+            .doc(user.uid)
+            .set(userData)
+            .then((user) => {
+              // User data stored in Firestore successfully
+              console.log("User data stored in Firestore.");
+              console.log(user);
+            })
+            .catch((error) => {
+              // Handle error
+              console.error("Error storing user data in Firestore:", error);
+            });
+
+          // set((ref(database,'users/'+ user.uid), {
+          //   firstname:firstname.trim(),
+          //   lastname:lastname.trim(),
+          //   displayName:firstname.trim(),
+          //   email:email.trim(),
+          // }))
+          alert("User created");
+
+          //   const alert_message_register = document.querySelector(
+          //   "#alert_message_register"
+          // );
+
+          //         alert_message_login.innerHTML = "User created";
+          //         setTimeout(() => {
+          //           alert_message_login.style.display = "none";
+          //         }, 3000);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          alert(errorMessage);
+          console.log(email.trim());
+          // ..
+        });
+    });
+
+    // login feature
+    loginSubmit.addEventListener("click", (e) => {
+      e.preventDefault();
+      const email = getInputValue("email_login");
+      const password = getInputValue("password_login");
+
+      if (!email || !password) {
+        console.log("no password or email entered");
+        return;
+      }
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          alert("User logged successfully");
+          window.location.href = "../html/dashboard.html";
+
+          const dt = new Date();
+          firebase
+            .database()
+            .ref("users/" + user.uid)
+            .update({
+              last_login: dt,
+            });
+          // update((ref(database,'users/'+user.uid), {
+          //   last_login:dt,
+          //      }))
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          alert(errorMessage);
+        });
+
+      //if user logged show some file
+      // const auth = getAuth();
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          const uid = user.uid;
+
+          console.log(user);
+
+          // ...
+        } else {
+          // User is signed out
+          // ...
+        }
       });
-   
-    // set((ref(database,'users/'+ user.uid), {
-    //   firstname:firstname.trim(),
-    //   lastname:lastname.trim(), 
-    //   displayName:firstname.trim(), 
-    //   email:email.trim(),
-    // }))
-    alert('User created');
-
-  //   const alert_message_register = document.querySelector(
-  //   "#alert_message_register"
-  // );
-         
-  //         alert_message_login.innerHTML = "User created";
-  //         setTimeout(() => {
-  //           alert_message_login.style.display = "none";
-  //         }, 3000);
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    alert(errorMessage)
-    console.log(email.trim())
-    // ..
-  });
-
-})
-
-// login feature
-loginSubmit.addEventListener("click", (e) => {
-  e.preventDefault();
-  const email = getInputValue("email_login");
-  const password = getInputValue("password_login");
-  
-  if(!email || ! password){
-    console.log("no password or email entered");
-    return
-  } 
-
-  signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    alert('User logged successfully');
-    window.location.href = "../html/dashboard.html";
-
-    const dt = new Date();
-    firebase.database().ref('users/'+user.uid).update({
-      last_login:dt,
-         })
-    // update((ref(database,'users/'+user.uid), {
-    //   last_login:dt,
-    //      }))
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    alert(errorMessage)
-  });
-
-  //if user logged show some file
-  // const auth = getAuth();
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    const uid = user.uid;
-
-    console.log(user)
-
-    // ...
-  } else {
-    // User is signed out
-    // ...
-  }
-});
-
-})
-
+    });
   </script>
-   
-  
 </html>
