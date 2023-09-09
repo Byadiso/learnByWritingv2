@@ -1,8 +1,8 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/003a35f0-a46a-4730-aa51-2518029a4c4d/deploy-status)](https://app.netlify.com/sites/learnbywritingv2/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/bfc4eb23-4749-4753-8708-d8eac0c3594a/deploy-status)](https://app.netlify.com/sites/learnbywritingv2/deploys)
 
-# LearnBywriting
+# LearnBywritingV2
 
-LearnBywriting is a project made to improve langauge learning process via writing and reading.
+LearnBywritingV2 is a project made to improve langauge learning process via writing and reading.
 
 # TABLE OF CONTENTS
 
