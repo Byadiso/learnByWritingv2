@@ -1,8 +1,8 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/fd61de40-c3c6-4f99-a1e2-615f821803e3/deploy-status)](https://app.netlify.com/sites/learnbywritting-project/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/003a35f0-a46a-4730-aa51-2518029a4c4d/deploy-status)](https://app.netlify.com/sites/learnbywritingv2/deploys)
 
 # LearnBywriting
 
-LearnBywriting is a project made to improve my english via writing and reading.
+LearnBywriting is a project made to improve langauge learning process via writing and reading.
 
 # TABLE OF CONTENTS
 
@@ -18,8 +18,8 @@ LearnBywriting is a project made to improve my english via writing and reading.
 
 ### My live project can be access by visit this link 
 
-- Github Pages: https://byadiso.github.io/learnbywritting/index.html
-- Netlify : https://learnbywritting.netlify.app/index.html
+- Github Pages: https://byadiso.github.io/learnbywrittingV2/index.html
+- Netlify : https://learnbywritingv2.netlify.app/index.html
 
 # Build With
 
@@ -34,7 +34,7 @@ LearnBywriting is a project made to improve my english via writing and reading.
 
 # Installation
 
-- \$ git clone https://github.com/Byadiso/learnbywritting.git
+- \$ git clone https://github.com/Byadiso/learnByWritingv2.git
 - \$ cd UI
 
 # Contributing
