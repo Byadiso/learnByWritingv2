@@ -6,13 +6,19 @@
 /* my variables style */
 
 :root {
-    --blueColor: #5BD4FB;
+    --blueColor: #5ca4bc;
+    --blueColorBC: #d7f4fde3;
+    --blueColorWhite: #80dfff88;
+    --OrangeColor: #be530bef;
+    --OrangeColorBlack : #713209ef;
+    --OrangeColorWhite: #977761ef;
+    --BlackBC: #5ca4bc;
     --colorHover: #0f4e8d;
     --whiteColor: #ffffff;
     --activeColorHeader: rgb(97, 97, 87);
     --buttonColor: rgb(97, 97, 87);
     --textColorWhite: #ffffff;
-    --textColorGrey: #676a6bbe;
+    --textColorGrey: #4A4D4E;
     --spacing: 10px;
     --spacingMargin: 35px;
     --error: rgb(204, 14, 14);
@@ -22,6 +28,7 @@
     --textColorGreyParagraph: #818181;
     --inputColor: #5F6466;
     --colorforWeakGrey: #74777769;
+    --colorforWeakGreyBackground: #3c3f3fc5;
     --linkColor: rgb(0, 0, 0);
     --lowerBackground: #f3f3f3;
     --colorActive: #29b4e2;
@@ -51,73 +58,29 @@ body {
 }
 
 /* menu */
-
-nav {
-    display: flex;
-    justify-content: space-around;
-    background: var(--whiteColor);
-}
-
-nav a, .hire_now a {
-    text-decoration: none;
-    padding: 10px;
-    color: var(--linkColor);
-
-}
-
-nav a:active {
-    background: var(--activeColorHeader);
-}
-
-.hire_now a {
-    color: var(--whiteColor)
-}
-
-nav a:hover {
-    background: var(--blueColor);
+.main_nav a {
     color: var(--whiteColor);
-    border: none;
-    border-radius: 25px;
-    padding: 10px;
-    cursor: pointer;
 }
 
-.hire_now {
-    color: var(--whiteColor);
-    background-color: var(--blueColor);
-    border: none;
-    border-radius: 25px;
-    /* padding: 15px; */
-    cursor: pointer;
+.main_nav {
+    color: var(--textColorWhite);
+    background-color: var(--colorforWeakGrey);
 }
 
-.hire_text {
-    font-size: 18px;
-}
-
-.ngana_logo {
-    margin-right: 200px;
-    font-size: 30px;
-    color: black;
-
+.menu .fa {
+    margin: 10px;
 }
 
 .menu {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    /* margin: 10px; */
+    color: var(--whiteColor);
 
-    /* padding:20px            */
 }
 
-/* to hide burger menu */
-.burger_menu {
-    display: none;
-}
-
-.menu_nav {
-    margin-right: var(--spacingMargin);
+.menu a {
+    text-decoration: none;
 }
 
 
@@ -729,7 +692,7 @@ footer input[type=text] {
         display: flex;
         justify-content: center;
         align-items: center;
-        background: white;
+        background-color: var(--colorforWeakGrey);
     }
 
     .nav_small {
