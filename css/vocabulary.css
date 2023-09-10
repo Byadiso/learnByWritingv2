@@ -5,6 +5,8 @@
     --blueColorBC: #d7f4fde3;
     --blueColorWhite: #80dfff88;
     --OrangeColor: #be530bef;
+    --OrangeColorBlack : #713209ef;
+    --OrangeColorWhite: #977761ef;
     --BlackBC: #5ca4bc;
     --colorHover: #0f4e8d;
     --whiteColor: #ffffff;
@@ -138,6 +140,7 @@ body {
     padding: 20px;
     margin: 50px;
     width: 80%;
+    border-radius: 10px;
 }
 .sample_vocabulary_header{
     display: flex;
@@ -146,12 +149,64 @@ body {
     align-items: center;
     width: 100%;
 }
+
 .sample_vocabulary_header button{
     border: 1px solid var(--whiteColor);
     background-color: transparent;
     justify-content: flex-end;
     color: var(--whiteColor);
+    border-radius: 3px;
+    padding: 5px;
 }
+
+.sample_vocabulary_content{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.card_vocabulary{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;  
+    
+   
+}
+.card_vocabulary_container{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: var(--OrangeColorBlack);
+    color: var(--textColorGreyParagraph); */
+    padding: 10px;
+    margin: 5px;
+    border-radius: 2px;   
+    width: 100%; 
+}
+
+.card_vocabulary_header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--whiteColor);
+    background-color: var(--OrangeColorWhite);
+    width: 100%;
+    height: 5%;
+    /* padding: 10px; */
+}
+
+.card_vocabulary_body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--whiteColor);
+    background-color: var(--OrangeColorBlack);
+    /* width: 100%; */
+    padding: 10px;
+}
+
 
 
 .vocabulary_box {
@@ -169,10 +224,15 @@ body {
 }
 
 #header_vocabulary {
-    color: var(--colorActive);
+    /* color: var(--colorActive); */
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--textColorGreyParagraph);
+}
+
+.header_vocabulary {   
+    color: var(--textColorGreyParagraph);
 }
 
 .vocabulary_details {

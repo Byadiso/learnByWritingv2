@@ -50,85 +50,132 @@
       </nav>
     </header>
     <section>
-     
-
       <!-- Vocabulary section -->
       <div class="vocabulary_main">
-        <div class="vocabulary_content">         
-            <!-- Search box for vocabulary-->
-            <div class="header_vocabulary">
-              <h3>Vocabulary Lists</h3>
-              <p>
-                Explore our library of over
-                <span id="number_of_vocabulary">0</span> curated lists.
-              </p>
-              <div class="vocabulary_search">
-                <i class="fa fa-search"></i>
-                <input
-                  type="text"
-                  placeholder="search vocabulary list"
-                  name="search"
-                />
-              </div>
-            </div>  
-            
-            <div class="sample_vocabulary">
-              <div class="sample_vocabulary_header">
-                <div>
-                  <h1>September Sample</h1>
-                  <p>Vocabulary for this month, Occassions, and Events</p>
-                </div>
-                <div>
-                  <button>Explore collection</button>
-                </div>               
-
-              </div>
-              <div class="sample_vocabulary_content">
-                <div>
-                  <img src="../images/blog.jpg" width="100px" alt="">
-                </div>
-              </div>
-
+        <div class="vocabulary_content">
+          <!-- Search box for vocabulary-->
+          <div class="header_vocabulary">
+            <h3>Vocabulary Lists</h3>
+            <p>
+              Explore our library of over
+              <span id="number_of_vocabulary">0</span> curated lists.
+            </p>
+            <div class="vocabulary_search">
+              <i class="fa fa-search"></i>
+              <input
+                type="text"
+                placeholder="search vocabulary list"
+                name="search"
+              />
             </div>
-
-            <div class="sample_vocabulary">
-              <div class="sample_vocabulary_header">
-                <div>
-                  <h1>September Sample</h1>
-                  <p>Vocabulary for this month, Occassions, and Events</p>
-                </div>
-                <div>
-                  <button>Explore collection</button>
-                </div>               
-
-              </div>
-              <div class="sample_vocabulary_content">
-                <div>
-                  <img src="../images/blog.jpg" width="100px" alt="">
-                </div>
-              </div>
-
-            </div>
-            
-            
-           
-
-            <div class="vocabulary_item_content" id="vocabulary_item_content">
-              <!-- vocabulary will go here -->
-            </div>         
-
-            
           </div>
 
-          
+          <div class="sample_vocabulary">
+            <div class="sample_vocabulary_header">
+              <div>
+                <h1>September Sample</h1>
+                <p>Vocabulary for this month, Occassions, and Events</p>
+              </div>
+              <div class="buton">
+                <button>Explore collection</button>
+              </div>
+            </div>
+            <div class="sample_vocabulary_content">
+              <div>
+                <img src="../images/blog.jpg" width="100px" alt="" />
+              </div>
+              <div class="card_vocabulary">
+                <div class="card_vocabulary_container">
+                  <div class="card_vocabulary_header">
+                    <p>title</p>
+                  </div>
+                  <div class="card_vocabulary_body" >
+                    <p>yes it is content</p>
+                    
+                  </div>
+                  
+                </div>
+                <div class="card_vocabulary_container">
+                  <div class="card_vocabulary_header">
+                    <p>title</p>
+                  </div>
+                  <div class="card_vocabulary_body" >
+                    <p>yes it is content</p>
+                    
+                  </div>
+                  
+                </div>
+                <div class="card_vocabulary_container">
+                  <div class="card_vocabulary_header">
+                    <p>title</p>
+                  </div>
+                  <div class="card_vocabulary_body" >
+                    <p>yes it is content</p>
+                  
+                  </div>
+                  
+                </div>
+                <div class="card_vocabulary_container">
+                  <div class="card_vocabulary_header">
+                    <p>title</p>
+                  </div>
+                  <div class="card_vocabulary_body" >
+                    <p>yes it is content</p>
+                    
+                  </div>
+                  
+                </div>
+                <div class="card_vocabulary_container">
+                  <div class="card_vocabulary_header">
+                    <p>title</p>
+                  </div>
+                  <div class="card_vocabulary_body" >
+                    <p>yes it is content</p>
+                   
+                  </div>
+                  
+                </div>
+                <div class="card_vocabulary_container">
+                  <div class="card_vocabulary_header">
+                    <p>title</p>
+                  </div>
+                  <div class="card_vocabulary_body" >
+                    <p>yes it is content</p>
+                    
+                  </div>
+                  
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="sample_vocabulary">
+            <div class="sample_vocabulary_header">
+              <div>
+                <h1>September Sample</h1>
+                <p>Vocabulary for this month, Occassions, and Events</p>
+              </div>
+              <div>
+                <button>Explore collection</button>
+              </div>
+            </div>
+            <div class="sample_vocabulary_content">
+              <div>
+                <img src="../images/blog.jpg" width="100px" alt="" />
+              </div>
+            </div>
+          </div>
+
+          <div class="vocabulary_item_content" id="vocabulary_item_content">
+            <!-- vocabulary will go here -->
+          </div>
         </div>
       </div>
     </section>
 
     <!-- footer info and details -->
-    <footer>
-      
-    </footer>
+    <footer></footer>
   </body>
 
   <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
@@ -209,14 +256,12 @@
 
       //check if everything is okey then remove the error_display
       onValue(vacabularies, (snapshot) => {
-      const data = snapshot.val();
-      if (data) {
+        const data = snapshot.val();
+        if (data) {
           content_elt.style.display = "none";
         }
-    })
-
-    } 
-  
+      });
+    }
 
     onValue(vacabularies, (snapshot) => {
       const data = snapshot.val();
@@ -229,19 +274,13 @@
         <div class="vocabulary_content" id="vocabulary_content">
             
         </div>
-        <div class="vocabulary_form">
-          <input type="text" id="vocabulary_details" name="vocabulary_details"  placeholder="Enter a new word" />
-          <textarea class="vocabulary" id="vocabularyDetails" name="vocabularyDetails" rows="5" cols="33" placeholder="Add vocabulary details">
-          </textarea>
-          <input type="submit" value="Add a new Vocabulary" class="vocabulary_button" data-uid=${data.uuid} />
-        </div> 
+        
       </div>
     </div>
       `;
         // to be added later
         vocabulary_item_content.append(vocabulary_single);
       } else {
-       
         let vocabulary_single = document.createElement("DIV");
         vocabulary_single.innerHTML = `
       <div class="vocabulary_item_content">   
@@ -523,49 +562,7 @@
       }
     });
 
-    //showing story on our platform >>> removed as they are not needed anymore.
-    // const stories = ref(database, `blogs`);
-    // onValue(stories, (snapshot) => {
-    //   const data = snapshot.val();
-
-    //   if (data !== null) {
-    //     let numberOfBlogArray = [];
-
-    //     for (var [key, value] of Object.entries(data)) {
-    //       var obj = {
-    //         id: value.id,
-    //         title: value.title,
-    //         image: value.Image,
-    //         uid_key: key,
-    //       };
-
-    //       if (value) {
-    //         numberOfBlogArray.push(obj);
-    //       }
-    //     }
-
-    //     //show only five blog
-    //     const storyContent = document.getElementById("related_blog_item");
-
-    //     numberOfBlogArray.slice(0, 3).forEach((value) => {
-    //       let story = document.createElement("DIV");
-    //       story.innerHTML = `
-    //      <div class="sroty_item_content">
-    //               <div class="blog_relate_image">
-    //                 <img
-    //                   src="${value.image}"
-    //                   alt="${value.title}"
-    //                 />
-    //               </div>
-    //               <h3>${value.title}</h3>
-    //             </div>       
-    //      `;
-
-    //       //add vocabularies at the bottom ot the vocabulary box
-    //       storyContent.append(story);
-    //     });
-    //   }
-    // });
+    
 
     // check if user is logged in
     onAuthStateChanged(auth, (user) => {
