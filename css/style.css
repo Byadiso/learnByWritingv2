@@ -8,7 +8,12 @@
 :root {
     --blueColor: #5ca4bc;
     --blueColorBC: #d7f4fde3;
-    --blueColorWhite: #80dfff88;
+    --blueColorWhite: #e4f6fc88;
+    --blueColorWhiteLess: #e7f7fc;
+    --redColorWhiteLess:#fdeded;
+    --redColor: #fa1717;
+    --GreenColorWhiteLess: #f1faf0; 
+    --GreenColor: #36c729;
     --OrangeColor: #be530bef;
     --OrangeColorBlack : #713209ef;
     --OrangeColorWhite: #977761ef;
@@ -86,30 +91,57 @@ body {
 
 /* hero section */
 .hero_section {
-    background-image: url(../images/);
     background: var(--blueColor);
     color: var(--whiteColor);
+    align-items: center;
     display: flex;
     flex-direction: column;
-    padding: 145px;
-    background: linear-gradient(189deg, rgba(15, 15, 15, 0.76), rgb(0 0 0 / 38%)), url(../images/background.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-
+    padding: 50px;    
 }
 
-.hero_content {
-    border-left: 4px solid var(--blueColor);
-    padding-left: 30px;
-}
-
-.hire_text {
-    max-width: 200px;
+.hero_section_header{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
     padding: 2px;
 }
 
-.hero_content h2 {
-    font-family: 'Roboto Thin';
+.hero_section_header_title{    
+    display: flex;
+    justify-content: flex-start;
+}
+
+.hero_section_header_blue{
+    background-color: var(--blueColorWhiteLess);
+    color: var(--blueColor);
+}
+
+.hero_section_header_red{
+    background-color: var(--redColorWhiteLess);
+    color: var(--redColor);
+}
+
+.hero_section_header_green{
+    background-color: var(--GreenColorWhiteLess);
+    color: var(--GreenColor);
+}
+.hero_section_header_blue, .hero_section_header_green, .hero_section_header_red:hover {
+    cursor: pointer;
+}
+
+.hero_section_header div{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.main_content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--blueColor);
+    background-color: var(--whiteColor);
+    padding: 50px;    
 }
 
 
@@ -123,7 +155,7 @@ body {
     align-items: center;
     padding: var(--spacing);
     border-radius: 20px;
-    box-shadow: 0 0 3em rgba(0, 0, 0, 0.486);
+    border: 1px solid var(--blueColor);
     width: 35%;
     margin-left: 400px;
     margin-top: -35px;
