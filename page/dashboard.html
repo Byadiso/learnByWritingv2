@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LearnByWriting</title>
+    <title>V2</title>
     <link rel="stylesheet" href="../css/dashboard.css" />
     <!-- for roboto font -->
     <link
@@ -44,7 +44,7 @@
           <a href="./vocabulary.html" class="menu_nav">
             <i class="fa fa-list"></i>Vocabulary Lists</a
           >
-          <a href="./login.html" class="menu_nav hire_now">Login</a>
+          <a href="./login.html" class="menu_nav " id="loginMenu">User</a>
         </div>
       </nav>
     </header>
@@ -420,7 +420,11 @@
         const uid = user.uid;
         const UserName = document.getElementById("user_name");
         UserName.innerHTML = user.email;
-        console.log(user);
+        console.log(user);        
+        const loginMenu = document.getElementById("loginMenu");        
+        loginMenu.innerHTML = "User";
+        loginMenu.setAttribute("href", "./dashboard.html");        
+        console.log("Yes we are on Dashboard");
       }
       if (user == undefined) {
         // User is signed out
