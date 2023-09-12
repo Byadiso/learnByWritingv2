@@ -69,19 +69,20 @@
                   </a>
                 </div>
               </div>
-              <div class="bottom_login"><h6><a href="../index.html">LearnByWriting.com</a></h6></div>
+              <div class="bottom_login">
+                <h6><a href="../index.html">LearnByWriting.com</a></h6>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-   
-
-     <!-- footer info and details -->
-     <footer>
-      <div class="copyright"> <p> <i class="fa fa-copyright"></i>2023 Ngana Tech</p></div>
-     
+    <!-- footer info and details -->
+    <footer>
+      <div class="copyright">
+        <p><i class="fa fa-copyright"></i>2023 Ngana Tech</p>
+      </div>
     </footer>
   </body>
   <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
@@ -130,8 +131,6 @@
     const database = getDatabase(initializeApp(firebaseConfig));
     const auth = getAuth();
 
-    console.log(app);
-    console.log(auth);
     //refernce a collection
     // const loginRef = database.ref("User");
 
@@ -147,69 +146,6 @@
     }
 
     // register
-
-    // registerSubmit.addEventListener("click", (e) => {
-    //   e.preventDefault();
-
-    //   const firstname = getInputValue("firstname");
-    //   const lastname = getInputValue("lastname");
-    //   const email = getInputValue("email-register");
-    //   const password = getInputValue("password-register");
-
-    //   if(!email || ! password ||!lastname || !firstname){
-    //     console.log("no password, email, firstname or lastname entered");
-    //     return
-    //   }
-
-    //   createUserWithEmailAndPassword( auth, email.trim(), password.trim(), firstname.trim(),lastname.trim())
-    //   .then((userCredential) => {
-    //     // Signed in
-    //     const user = userCredential.user;
-    //     const userData = {
-    //       firstname:firstname,
-    //       lastname:lastname,
-    //       displayName:firstname,
-    //       email:email,
-    //     }
-    //         // Store the user data in Firestore using the same UID as document ID
-    //     firebase.firestore().collection('users').doc(user.uid).set(userData)
-    //       .then((user) => {
-    //         // User data stored in Firestore successfully
-    //         console.log('User data stored in Firestore.');
-    //         console.log(user);
-    //       })
-    //       .catch((error) => {
-    //         // Handle error
-    //         console.error('Error storing user data in Firestore:', error);
-    //       });
-
-    //     // set((ref(database,'users/'+ user.uid), {
-    //     //   firstname:firstname.trim(),
-    //     //   lastname:lastname.trim(),
-    //     //   displayName:firstname.trim(),
-    //     //   email:email.trim(),
-    //     // }))
-    //     alert('User created');
-
-    //   //   const alert_message_register = document.querySelector(
-    //   //   "#alert_message_register"
-    //   // );
-
-    //   //         alert_message_login.innerHTML = "User created";
-    //   //         setTimeout(() => {
-    //   //           alert_message_login.style.display = "none";
-    //   //         }, 3000);
-    //     // ...
-    //   })
-    //   .catch((error) => {
-    //     const errorCode = error.code;
-    //     const errorMessage = error.message;
-    //     alert(errorMessage)
-    //     console.log(email.trim())
-    //     // ..
-    //   });
-
-    // })
 
     // login feature
     loginSubmit.addEventListener("click", (e) => {
@@ -227,7 +163,7 @@
           // Signed in
           const user = userCredential.user;
           alert("User logged successfully");
-          window.location.href = "../html/dashboard.html";
+          window.location.href = "../page/dashboard.html";
 
           const dt = new Date();
           firebase
@@ -236,10 +172,6 @@
             .update({
               last_login: dt,
             });
-          // update((ref(database,'users/'+user.uid), {
-          //   last_login:dt,
-          //      }))
-          // ...
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -248,21 +180,18 @@
         });
 
       //if user logged show some file
-      // const auth = getAuth();
-      onAuthStateChanged(auth, (user) => {
+
+      
+    });
+
+    onAuthStateChanged(auth, (user) => {
         if (user) {
-          // User is signed in, see docs for a list of available properties
-          // https://firebase.google.com/docs/reference/js/firebase.User
           const uid = user.uid;
-
           console.log(user);
-
-          // ...
-        } else {
-          // User is signed out
+          console.log("User is logged in");
+          window.location.href = "../page/dashboard.html";
           // ...
         }
       });
-    });
   </script>
 </html>
