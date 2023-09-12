@@ -1,26 +1,39 @@
 /* my variables style */
 
-:root{
-    --blueColor: #5BD4FB;
-    --colorHover:  #0f4e8d;
+:root {
+    --blueColor: #5ca4bc;
+    --blueColorBC: #d7f4fde3;
+    --blueColorWhite: #e4f6fc88;
+    --blueColorWhiteLess: #e7f7fc;
+    --redColorWhiteLess:#fdeded;
+    --redColor: #fa1717;
+    --GreenColorWhiteLess: #f1faf0; 
+    --GreenColor: #36c729;
+    --OrangeColor: #be530bef;
+    --OrangeColorBlack : #713209ef;
+    --OrangeColorWhite: #977761ef;
+    --BlackBC: #5ca4bc;
+    --colorHover: #0f4e8d;
     --whiteColor: #ffffff;
-    --activeColorHeader:rgb(97, 97, 87);
-    --buttonColor:rgb(97, 97, 87);
-    --textColorWhite:#ffffff;
-    --textColorGrey:#4A4D4E;
+    --activeColorHeader: rgb(97, 97, 87);
+    --buttonColor: rgb(97, 97, 87);
+    --textColorWhite: #ffffff;
+    --textColorGrey: #4A4D4E;
     --spacing: 10px;
     --spacingMargin: 35px;
-    --error:rgb(204, 14, 14);
-    --background-color:rgb(251 251 251);
-    --colorHoverlink:rgba(0, 0, 0, 0.123);
-    --colorfooter:#424343;
-    --textColorGreyParagraph:#818181;
-    --inputColor:#5F6466;
+    --error: rgb(204, 14, 14);
+    --background-color: rgb(251 251 251);
+    --colorHoverlink: rgba(0, 0, 0, 0.123);
+    --colorfooter: #424343;
+    --textColorGreyParagraph: #818181;
+    --inputColor: #5F6466;
     --colorforWeakGrey: #74777769;
-    --linkColor:rgb(0, 0, 0);
-    --lowerBackground:#f3f3f3;
-    --colorActive: #29b4e2;;
-  }
+    --colorforWeakGreyBackground: #3c3f3fc5;
+    --linkColor: rgb(0, 0, 0);
+    --lowerBackground: #f3f3f3;
+    --colorActive: #29b4e2;
+    ;
+}
   
   /* all styles  ---------------------------*/
 
@@ -46,65 +59,31 @@
 
     /* menu */
 
-    nav{
-        display: flex;
-        justify-content: space-around;
-        background: var(--whiteColor);
-    }
+   /* menu */
+.main_nav a {
+    color: var(--whiteColor);
+}
 
-    nav a, .hire_now a{
-        text-decoration: none;
-        padding: 10px;
-        color:var(--linkColor);
-      
-    }
+.main_nav {
+    color: var(--textColorWhite);
+    background-color: var(--colorforWeakGrey);
+}
 
-    nav a:active{
-        background:var(--activeColorHeader);
-    }
+.menu .fa {
+    margin: 10px;
+}
 
-    .hire_now a{
-        color:var(--whiteColor)
-    }
-   
-    nav a:hover{
-        background:var(--blueColor);
-        color:var(--whiteColor);
-        border: none;
-        border-radius: 25px;
-        padding: 10px;
-        cursor: pointer;
-    }
+.menu {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: var(--whiteColor);
 
-    .hire_now{
-        color: var(--whiteColor);
-        background-color: var(--blueColor);
-        border: none;
-        border-radius: 25px;
-        /* padding: 15px; */
-        cursor: pointer;
-    }
-    .hire_text{
-        font-size:18px;
-    }
+}
 
-    .ngana_logo{
-        margin-right: 200px;
-        font-size:30px;
-        color: black;
-        
-    }
-
-    .menu{
-        display: flex;
-        justify-content:center;
-        align-items: center;
-        background: white;
-    }
-
-    .menu_nav{
-      margin-right: var(--spacingMargin);
-    }
+.menu a {
+    text-decoration: none;
+}
 
     
     /* hero section */
