@@ -21,7 +21,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <!-- fontawesome -->
-    <script src="https://kit.fontawesome.com/40109df241.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/40109df241.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <header>
@@ -42,7 +45,7 @@
           <a href="./vocabulary.html" class="menu_nav">
             <i class="fa fa-list"></i>Vocabulary Lists</a
           >
-          <a href="./login.html" class="menu_nav hire_now">Login</a>
+          <a href="./login.html" class="menu_nav " id="loginMenu"> <i class="fa fa-user"></i>User</a>
         </div>
       </nav>
     </header>
@@ -59,9 +62,7 @@
       <div class="blog_section">
         <div class="blog_content single_blog">
           <div class="blog_item_left blog_item_left_single">
-            <div class="blog_item_content" id="blog_item_content">
-             
-            </div>
+            <div class="blog_item_content" id="blog_item_content"></div>
 
             <!--my edit modal -->
 
@@ -73,7 +74,7 @@
                   id="title"
                   placeholder="add title"
                 />
-              
+
                 <textarea
                   type="text"
                   name="body"
@@ -115,8 +116,6 @@
                   </div>
                   <h3>Learn by doing</h3>
                 </div>
-                
-                
               </div>
             </div>
           </div>
@@ -130,10 +129,18 @@
               </div>
               <div class="dashboard_categories">
                 <h1>Dashboard</h1>
-                <a href="./dashboard.html" id="add"><i class="fa fa-plus"></i>Add Blog</a>
-                <a href="./user.html" id="info"><i class="fa fa-info"></i>My info</a>
-                <a href="./vocabulary.html" id="members"><i class="fa-solid fa-floppy-disk"></i>Your Vocabulary</a>
-                <a href="./settings.html" id="settings"><i class="fa fa-gear"></i>Settings</a>
+                <a href="./dashboard.html" id="add"
+                  ><i class="fa fa-plus"></i>Add Blog</a
+                >
+                <a href="./user.html" id="info"
+                  ><i class="fa fa-info"></i>My info</a
+                >
+                <a href="./vocabulary.html" id="members"
+                  ><i class="fa-solid fa-floppy-disk"></i>Your Vocabulary</a
+                >
+                <a href="./settings.html" id="settings"
+                  ><i class="fa fa-gear"></i>Settings</a
+                >
                 <a href="#" id="logout" class="logout"
                   ><i class="fa fa-sign-out"></i>logout</a
                 >
@@ -238,41 +245,36 @@
       const data = snapshot.val();
 
       const timeStamp = data.createdAt;
-     
+
       const time = new Date(timeStamp);
       var date = ("0" + time.getDate()).slice(-2);
       var yr = time.getFullYear();
       // extracting month from the date object as 2 digit
       var mth = ("0" + (time.getMonth() + 1)).slice(-2);
 
-          
-      let blogsArray = [];     
+      let blogsArray = [];
 
-      console.log(data)
+      console.log(data);
 
       // For view count logics
 
-    let count = 0;
+      let count = 0;
 
-    if (localStorage.getItem("count") !== null) {
-      count = localStorage.getItem("count");
-    }
+      if (localStorage.getItem("count") !== null) {
+        count = localStorage.getItem("count");
+      }
 
-    localStorage.setItem("count", count);
-
-    window.addEventListener("load", function() {
-      count+1;
       localStorage.setItem("count", count);
-      // document.getElementById("view-count").innerHTML = count;
-      console.log("Blog visited " + count) 
-    });
 
-    
+      window.addEventListener("load", function () {
+        count + 1;
+        localStorage.setItem("count", count);
+        // document.getElementById("view-count").innerHTML = count;
+        console.log("Blog visited " + count);
+      });
 
-    // --------------------End here--------------------
+      // --------------------End here--------------------
 
-
-        
       let blog_single = document.createElement("DIV");
       blog_single.innerHTML = `
       <div class="blog_item_content" data-uid=${blogById}>
@@ -287,8 +289,12 @@
       <div class="icon_blog">
         <p><i class="fa fa-heart"></i>Like</p>
         <p><i class="fa fa-comment"></i> <span id="comments_number"></span> comment</p>
-        <p class="dateStamp"><i class="fas fa-clock dateStamp"></i>${date + "/"+ mth +"/"+ yr}</p>
-        <p class="dateStamp"><i class="fas fa-clock dateStamp"></i>${data.body.match(/\b\w+\b/g).length+" words"}</p>
+        <p class="dateStamp"><i class="fas fa-clock dateStamp"></i>${
+          date + "/" + mth + "/" + yr
+        }</p>
+        <p class="dateStamp"><i class="fas fa-clock dateStamp"></i>${
+          data.body.match(/\b\w+\b/g).length + " words"
+        }</p>
       </div>
 
       <h3 class="blog_title">
@@ -310,135 +316,125 @@
     </div>
       `;
       // to be added later
-     blog_item_content.append(blog_single);    
+      blog_item_content.append(blog_single);
     });
 
-     //add comments content to the documents 
+    //add comments content to the documents
 
-     blog_item_content.addEventListener('click',(e)=>{    
-      if(e.target.className==="comment_button"){
-        const commentContent = document.getElementById('commentDetails');
+    blog_item_content.addEventListener("click", (e) => {
+      if (e.target.className === "comment_button") {
+        const commentContent = document.getElementById("commentDetails");
         e.preventDefault();
-       
-      if(commentContent.value.trim()!==""){
+
+        if (commentContent.value.trim() !== "") {
           //add comments field to the document
-          const id = e.target.dataset.uid
-         
-          firebase.database()
-                    .ref("comments/")
-                    .push()
-                    .set(
-                      {                        
-                       content:commentContent.value.trim(),
-                       postID: id,
-                       time:serverTimestamp(),
-                      },
-                      function (error) {
-                        if (error) {
-                          console.log("error whie uploading");
-                        } else {
-                          console.log("successfully uploaded");                       
-                                                 
-                        }
-                      }
-                    );
+          const id = e.target.dataset.uid;
+
+          firebase
+            .database()
+            .ref("comments/")
+            .push()
+            .set(
+              {
+                content: commentContent.value.trim(),
+                postID: id,
+                time: serverTimestamp(),
+              },
+              function (error) {
+                if (error) {
+                  console.log("error whie uploading");
+                } else {
+                  console.log("successfully uploaded");
+                }
+              }
+            );
+        } else {
+          return console.log("no value entered");
         }
-        else{
-          return console.log("no value entered")
-        }            
-
       }
-     });
+    });
 
+    //load comments
+    const getComments = () => {
+      const comments = ref(database, `comments`);
+      const blog = ref(database, `blogs/${blogById}`);
+      onValue(comments, (snapshot) => {
+        const data = snapshot.val();
 
-     //load comments
-     const getComments= ()=>{
-       const comments = ref(database, `comments`);
-       const blog = ref(database, `blogs/${blogById}`);
-    onValue(comments, (snapshot) => {
-      const data = snapshot.val();     
-     
+        let commentsArray = [];
+        let numberOfComment = [];
 
-      let commentsArray = [];
-      let numberOfComment = [] 
+        for (var [key, value] of Object.entries(data)) {
+          var obj = {
+            id: value.id,
+            title: value.content,
+            postID: value.postID,
+            timeStamp: value.time,
+            uid_key: key,
+          };
 
-      for (var [key, value] of Object.entries(data)){
+          if (value.postID === blogById) {
+            console.log(value.content + "we have them");
+            const commentContent = document.getElementById("comment_content");
+            const commentNumber = document.getElementById("comments_number");
 
-        
-        var obj = {
-          id: value.id,
-          title: value.content,
-          postID: value.postID,
-          timeStamp: value.time,
-          uid_key: key,
-        };
+            //number of comment added so far
+            numberOfComment.push(value.postID);
+            commentNumber.innerHTML = numberOfComment.length;
 
-        
-        if(value.postID === blogById){
-        console.log(value.content +"we have them");
-         const commentContent = document.getElementById('comment_content');
-         const commentNumber = document.getElementById('comments_number');
-         
-         //number of comment added so far
-         numberOfComment.push(value.postID)         
-         commentNumber.innerHTML= numberOfComment.length;
+            /// for date
+            const timeStamp = value.time;
 
-        /// for date
-        const timeStamp = value.time;
-     
-      const time = new Date(timeStamp);
-      var date = ("0" + time.getDate()).slice(-2);
-      var yr = time.getFullYear();
-      // extracting month from the date object as 2 digit
-      var mth = ("0" + (time.getMonth() + 1)).slice(-2);
-        
-         
+            const time = new Date(timeStamp);
+            var date = ("0" + time.getDate()).slice(-2);
+            var yr = time.getFullYear();
+            // extracting month from the date object as 2 digit
+            var mth = ("0" + (time.getMonth() + 1)).slice(-2);
 
-         let comment = document.createElement("DIV");
-         comment.innerHTML = `
+            let comment = document.createElement("DIV");
+            comment.innerHTML = `
          <div class="comment_box">
 
           <p class="user_commented"><i class="fa fa-user"></i> commented by Desire <i class="fa fa-trash"></i></p>
-          <p class="comment_paragraph">${value.content? value.content : " no comments yet"}</p>
+          <p class="comment_paragraph">${
+            value.content ? value.content : " no comments yet"
+          }</p>
           <div class="comment_bottom_section">
-            <span class="comment_time">comment added on ${value.content? date + "/"+ mth +"/"+ yr : " "}</span>
+            <span class="comment_time">comment added on ${
+              value.content ? date + "/" + mth + "/" + yr : " "
+            }</span>
             
           </div>
          
           </div>
          
-         `
-         
-         //add comments at the bottom ot the comment box
-         commentContent.append(comment)
+         `;
 
+            //add comments at the bottom ot the comment box
+            commentContent.append(comment);
+          }
+        }
+      });
+    };
 
-      }
-      }     
-    
-    })
+    getComments();
 
-         }
-
-     getComments();    
-
-  // check if user is logged in
+    // check if user is logged in
     onAuthStateChanged(auth, (user) => {
       if (user) {
         // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
         const uid = user.uid;
-        console.log(user);
-
-        const loginMenu = document.getElementById("loginMenu");
-        loginMenu.innerHTML = "Dashboard";
-        loginMenu.setAttribute("href", "./dashboard.html");
-        
+        const UserName = document.getElementById("user_name");
+        UserName.innerHTML = user.email;
+        console.log(user);        
+        const loginMenu = document.getElementById("loginMenu");        
+        loginMenu.innerHTML = "User";
+        loginMenu.setAttribute("href", "./dashboard.html");        
+        console.log("Yes we are on Dashboard");
       }
       if (user == undefined) {
         // User is signed out
         location.href = "./login.html";
-        
       }
     });
   </script>
