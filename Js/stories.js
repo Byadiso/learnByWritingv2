@@ -7,11 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // const myRequest = 'https://openlibrary.org/works/OL45804W.json'
 
-  // const myRequest = "https://www.dbooks.org/api/subject/history";
+  // const myRequest = "https://www.dbooks.org/api/subject/history"
 
   // const myRequest = "https://www.dbooks.org/api/recent";
 
-  const myRequest = "https://shortstories-api.onrender.com/stories";
+  const myRequest = "https://shortstories-api.onrender.com/stories"; // NO LONGER WORRKING
 
   burger_menu.forEach((button) => {
     button.addEventListener("click", (e) => {
@@ -24,23 +24,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const getBooks = () => {    
     fetch(myRequest)
+   
       .then((response) => {
-        return response.json();
-
-        // if (!response.success) {
-        //   const content_elt = document.createElement("DIV");
-        //   content_elt.innerHTML = `
-        //     <p  class="book_error">Something went wrong...</p>
-        //     `;
-
-        //   content_elt.setAttribute("class", "book_item_error");
-        //   bookContainer.append(content_elt);
-        //   console.log(response);
-        // }
+        // response.header("Access-Control-Allow-Origin", "*")
+        return response.json();       
       })
       .then((data) => {
+        console.log(data)
         if (data) {
-          data.forEach((story) => {
+          data.books.forEach((story) => {
             const content_elt = document.createElement("DIV");
             content_elt.innerHTML = `          
           

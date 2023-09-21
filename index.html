@@ -49,7 +49,9 @@
           <a href="./page/vocabulary.html" class="menu_nav">
             <i class="fa fa-list"></i>Vocabulary Lists</a
           >
-          <a href="./page/login.html" class="menu_nav hire_now" id="loginMenu">Login</a>
+          <a href="./page/login.html" class="menu_nav hire_now" id="loginMenu"
+            >Login</a
+          >
         </div>
       </nav>
     </header>
@@ -58,31 +60,43 @@
         <div>
           <h3>I am looking for...</h3>
         </div>
-       
+
         <div class="hero_section_header">
           <div class="hero_section_header_blue">
-            <p>A story to <Strong>ready</Strong></p>
+            <p>
+              A story to <strong>ready</strong
+              ><i class="fa fa-arrow-circle-down"></i>
+            </p>
           </div>
           <div class="hero_section_header_red">
-            <p>To write <Strong>story</Strong></p>
+            <p>
+              To write <strong>story</strong
+              ><i class="fa fa-arrow-circle-down"></i>
+            </p>
           </div>
           <div class="hero_section_header_green">
-            <p>A vocabulary to <Strong>ready</Strong></p>
+            <p>
+              A vocabulary to <strong>ready</strong
+              ><i class="fa fa-arrow-circle-down"></i>
+            </p>
           </div>
         </div>
-       
       </div>
 
       <div class="main_content">
         <div>
           <p>
-            A dictionary for learning
-Whether you’re looking up a specific word or just browsing, you’ll find a universe of friendly explanations and fun activities designed to educate and entertain.
+            A dictionary for learning Whether you’re looking up a specific word
+            or just browsing, you’ll find a universe of friendly explanations
+            and fun activities designed to educate and entertain.
           </p>
         </div>
         <div>
-          <p>A dictionary for learning
-            Whether you’re looking up a specific word or just browsing, you’ll find a universe of friendly explanations and fun activities designed to educate and entertain.</p>
+          <p>
+            A dictionary for learning Whether you’re looking up a specific word
+            or just browsing, you’ll find a universe of friendly explanations
+            and fun activities designed to educate and entertain.
+          </p>
         </div>
       </div>
 
@@ -198,28 +212,10 @@ Whether you’re looking up a specific word or just browsing, you’ll find a un
       </div>
     </section>
 
-    <!-- footer info and details -->
-
-    <footer>
-      <div class="footer support">
-        <h3>Phone support if you are looking a way to join</h3>
-        <p>24 hours a day</p>
-        <p>+2507887573743</p>
-      </div>
-      <div class="footer social_media">
-        <h3>Get intouch with us</h3>
-        <i class="fa fa-facebook"></i>
-        <i class="fa fa-instagram"></i>
-        <i class="fa fa-twitter"></i>
-      </div>
-      <div class="footer subscribe">
-        <h3>Subscribe to our blog</h3>
-        <p>Singup for our offer</p>
-
-        <div class="footer_input">
-          <input type="text" name="email" id="email_subscribution" />
-          <input class="footer_submit" type="submit" value="Subscribe" />
-        </div>
+     <!-- footer info and details -->
+     <footer>
+      <div class="copyright">
+        <p><i class="fa fa-copyright"></i>2023 Ngana Tech</p>
       </div>
     </footer>
   </body>
@@ -375,9 +371,9 @@ Whether you’re looking up a specific word or just browsing, you’ll find a un
         const uid = user.uid;
         console.log(user);
         const loginMenu = document.getElementById("loginMenu");
-        
+
         loginMenu.innerHTML = "User";
-        loginMenu.setAttribute("href", "./page/dashboard.html");       
+        loginMenu.setAttribute("href", "./page/dashboard.html");
 
         console.log("yes it is logged in");
         // ...

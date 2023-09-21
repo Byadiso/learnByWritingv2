@@ -1,8 +1,3 @@
-/* esetting my box sizing */
-*, *::before, *::after {
-    box-sizing: border-box;
-}
-
 /* my variables style */
 
 :root {
@@ -69,7 +64,7 @@ body {
 
 .main_nav {
     color: var(--textColorWhite);
-    background-color: var(--colorforWeakGrey);
+    background-color: var(--colorforWeakGreyBackground);
 }
 
 .menu .fa {
@@ -99,49 +94,14 @@ body {
     padding: 50px;    
 }
 
-.hero_section_header{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    padding: 2px;
+
+.hero_content {
+    border-left: 4px solid var(--blueColor);
+    padding-left: 30px;
 }
 
-.hero_section_header_title{    
-    display: flex;
-    justify-content: flex-start;
-}
-
-.hero_section_header_blue{
-    background-color: var(--blueColorWhiteLess);
-    color: var(--blueColor);
-}
-
-.hero_section_header_red{
-    background-color: var(--redColorWhiteLess);
-    color: var(--redColor);
-}
-
-.hero_section_header_green{
-    background-color: var(--GreenColorWhiteLess);
-    color: var(--GreenColor);
-}
-.hero_section_header_blue, .hero_section_header_green, .hero_section_header_red:hover {
-    cursor: pointer;
-}
-
-.hero_section_header div{
-    margin: 10px;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.main_content{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--blueColor);
-    background-color: var(--whiteColor);
-    padding: 50px;    
+.hero_content h2 {
+    font-family: 'Roboto Thin';
 }
 
 
@@ -155,15 +115,15 @@ body {
     align-items: center;
     padding: var(--spacing);
     border-radius: 20px;
-    border: 1px solid var(--blueColor);
+    box-shadow: 0.10em 0.10em 0.2em;
     width: 35%;
     margin-left: 400px;
     margin-top: -35px;
 }
 
 .stat_content_middle {
-    border-left: 2px solid var(--blueColor);
-    border-right: 2px solid var(--blueColor);
+    border-left: 2px solid var(--colorforWeakGrey);
+    border-right: 2px solid var(--colorforWeakGrey);
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -181,7 +141,7 @@ body {
     margin-left: 30px;
     font-size: 40px;
     font-weight: 700;
-    color: var(--blueColor);
+    color: var(--colorforWeakGrey);
     line-height: 48px;
     display: block;
 
@@ -192,8 +152,8 @@ body {
     margin-bottom: 20px;
     font-size: 14px;
     font-weight: 400;
-    color: var(--blueColor);
-    font-family: "roboto", serif;
+    color: var(--colorforWeakGrey);
+    font-family: "Montserrat", serif;
 }
 
 /* who I am section */
@@ -207,8 +167,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--blueColor);
-    margin: 10px;
+    color: var(--textColorGreyParagraph);
+    margin: 20px;
 }
 
 .who_header {
@@ -216,11 +176,11 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    color: var(--whiteColor)
+    color: var(--textColorGreyParagraph)
 }
 
 .who_header p {
-    color: var(--whiteColor)
+    color: var(--colorforWeakGrey)
 }
 
 .main_who_items img {
@@ -232,11 +192,12 @@ body {
 }
 
 .main_who_items p {
-    color: var(--whiteColor);
+    color: var(--colorforWeakGrey);
 }
 
 /* 
     servicesection */
+
 
 .service_section {
     display: flex;
@@ -264,9 +225,10 @@ body {
     align-items: center;
     color: var(--whiteColor);
 
+
 }
 
-.app_link, .service_image {
+.service_text, .service_image {
     cursor: pointer;
 }
 
@@ -284,15 +246,6 @@ body {
 
 .Service_form_header h4 {
     margin-left: 5px;
-}
-
-/* banner */
-.banner_and_icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
 }
 
 .service_form_item {
@@ -319,32 +272,24 @@ body {
 
 }
 
-.app_link {
+.service_text {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 150px;
     height: 145px;
-    border: 1px solid var(--textColorGrey);
+    border: 1px solid var(--textColorGreyParagraph);
     color: var(--blueColor);
     padding: 25px;
 }
 
-.app_link:hover {
+.service_text:hover {
+
 
     background: var(--blueColor);
     color: var(--whiteColor);
     padding: 25px;
     border: none;
-}
-
-.app_link a {
-    text-decoration: none;
-    color: var(--blueColor);
-}
-
-.app_link a:hover {
-    color: var(--whiteColor);
 }
 
 .service_image img {
@@ -355,6 +300,7 @@ body {
 
 /* 
     input  */
+
 input[type=text], input[type=password], textarea {
     width: 100%;
     padding: 12px 20px;
@@ -366,7 +312,7 @@ input[type=text], input[type=password], textarea {
     box-sizing: border-box;
 }
 
-.app_link h3 {
+.service_text h3 {
     padding: 10px;
 }
 
@@ -385,6 +331,7 @@ input[type=text], input[type=password], textarea {
     flex-direction: column;
     color: var(--textColorGrey);
     background: var(--lowerBackground);
+
 }
 
 
@@ -402,10 +349,12 @@ input[type=text], input[type=password], textarea {
     margin-bottom: 20px;
     background: var(--textColorGrey);
     padding: 20px;
+
 }
 
 .blog_content {
     display: flex;
+
 }
 
 .blog_item {
@@ -415,6 +364,8 @@ input[type=text], input[type=password], textarea {
     align-items: center;
     margin-left: 20px;
     margin-bottom: 20px;
+    /* border:1px solid var(--colorforWeakGrey); */
+    /* box-shadow: 0.10em 0.10em 0.2em; */
     margin: 20px;
     padding: 10px
 }
@@ -450,6 +401,9 @@ input[type=text], input[type=password], textarea {
 .blog_item p {
     color: var(--textColorGreyParagraph);
     width: 220px;
+    /* height:145px;   */
+
+
 }
 
 .readmore {
@@ -478,6 +432,7 @@ input[type=text], input[type=password], textarea {
 }
 
 /* for single blog */
+
 .single_blog .blog_item_left {
     display: flex;
     justify-content: center;
@@ -599,7 +554,6 @@ input[type=text], input[type=password], textarea {
     align-items: center;
     flex-direction: column;
     color: var(--textColorGreyParagraph);
-    margin: 20px;
 }
 
 .header_portfolio h1 {
@@ -608,7 +562,7 @@ input[type=text], input[type=password], textarea {
 }
 
 .header_portfolio p {
-    color: var(--whiteColor)
+    color: var(--colorforWeakGrey)
 }
 
 .portfolio_nav {
@@ -654,10 +608,40 @@ input[type=text], input[type=password], textarea {
     border: 4px solid var(--colorforWeakGrey);
 }
 
+/* for contact page */
+
+.service_item_left {
+    margin: 20px;
+}
+
+.active {
+    background: var(--blueColor);
+    padding-left: 50px;
+    padding-right: 30px;
+}
+
+.contact_form_item {
+    color: var(--lowerBackground);
+}
+
+.contact_form_item i {
+    margin: 2px;
+}
+
+.text_R, .text_L:hover {
+    cursor: pointer;
+}
+
+/* 
+add error border when make a mistake to my form */
+
+.error_message {
+    border: 1px solid var(--error)
+}
 
 /* footer */
 
-footer .copyright{
+footer .copyright {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -670,14 +654,10 @@ footer .copyright{
 }
 
 
+
 /* for responsiveness */
 
-@media only screen and (max-width: 720px) {
-
-    body {
-        min-width: 360px;
-    }
-
+@media only screen and (max-width: 700px) {
     .ngana_logo {
         margin-right: 200px;
         font-size: 30px;
@@ -686,141 +666,10 @@ footer .copyright{
     .menu {
         display: flex;
         justify-content: center;
-        align-items: center;
-        background-color: var(--colorforWeakGrey);
-    }
-
-    .nav_small {
-        display: inline;
-    }
-
-    .small_device {
-        display: none;
-    }
-
-    .burger_menu {
-        display: block;
-        font-size: 30px;
-    }
-
-    .hide_burger {
-        display: none;
-    }
-
-    .hero_section {
-        font-size: .8rem;
-    }
-
-    .hire_text {
-        font-size: .7rem;
-        min-width: 130px;
-    }
-
-    .statistic_section {
-        background-color: var(--whiteColor);
-        display: flex;
-        /* flex-direction: column; */
-        color: var(--textColorGrey);
-        justify-content: center;
-        align-items: center;
-        padding: var(--spacing);
-        border-radius: 20px;
-        box-shadow: 0.1em 0.1em 0.2em;
-        box-shadow: none;
-        width: 100%;
-        margin-left: 5px;
-        margin-right: 10px;
-        margin-top: -35px;
-        padding: 10px
-    }
-
-
-    /* for main_who_items */
-    .main_who_items {
-        display: flex;
-        align-items: center;
-        justify-content: center;
         flex-direction: column;
-        color: var(--textColorGreyParagraph);
-        margin: 20px;
-    }
-
-    .main_who_items img {
-        width: 100%;
-    }
-
-    /* for services */
-    .service_content {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    /* remove link style on a tag */
-    a, button {
-
-        all: unset;
-    }
-
-    /* for portfolio */
-
-    .portfolio_nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .portfolio_nav h1 {
-        font-size: 1rem;
-        margin: 0px;
-    }
-
-    /* for footer section */
-
-    footer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        background: var(--colorfooter);
-        color: var(--whiteColor);
-        padding: 10px;
-    }
-
-    footer div {
-        margin-right: 0px;
-    }
-}
-
-/* 
-for ipods and tables */
-
-@media only screen and (max-width: 920px) {
-
-    body {
-        min-width: 360px;
-    }
-
-    .ngana_logo {
-        margin-right: 50px;
-        margin-left: 50px;
-        font-size: 30px;
-    }
-
-    .hire_now {
-        padding: 15px;
-    }
-
-    .menu {
-        display: flex;
-        justify-content: space-around;
-        /* flex-direction: column; */
         margin-bottom: 10px;
     }
 
-
     .hero_section {
         font-size: .8rem;
     }
@@ -868,7 +717,7 @@ for ipods and tables */
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-wrap: wrap;
+        flex-direction: column;
     }
 
     /* for portfolio */
@@ -900,25 +749,4 @@ for ipods and tables */
     footer div {
         margin-right: 0px;
     }
-}
-
-
-
-/* 
-  for dark mode */
-
-@media (prefers-color-scheme: dark) {
-    body {
-        background: #333;
-        color: white;
-    }
-
-}
-
-@media (prefers-color-scheme: light) {
-    body {
-        background: #ddd;
-        color: black;
-    }
-
 }
