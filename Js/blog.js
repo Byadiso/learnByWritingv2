@@ -20,11 +20,5 @@ block.addEventListener("click", (e) => {
   if (id_clicked) {
     window.location.href = `../page/single_blog.html?id=${id_clicked}`;
   }
-  //   //function to get inpu value
-
-  //   function getInputValue(id) {
-  //     return document.getElementById(id).value;
-  //   }
-
-  //   console.log("blog added successully");
+  
 });

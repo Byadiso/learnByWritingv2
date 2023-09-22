@@ -648,6 +648,14 @@ footer .copyright {
     color: var(--whiteColor);
     background-color: grey;
 }
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;    
+    color: white;
+    text-align: center;
+    }
 
 .social_media i {
     margin: var(--spacing);

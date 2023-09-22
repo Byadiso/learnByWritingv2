@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MyBrand</title>
     <link rel="stylesheet" href="../css/login.css" />
-    <!-- for roboto font -->
+    <link rel="stylesheet" href="../css/addBlog.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
       rel="stylesheet"
@@ -38,149 +38,282 @@
           <a href="./vocabulary.html" class="menu_nav">
             <i class="fa fa-list"></i>Vocabulary Lists</a
           >
-          <a href="./login.html" class="menu_nav " id="loginMenu"><i class="fa fa-user"></i>User</a>
+          <a href="./login.html" class="menu_nav" id="loginMenu"
+            ><i class="fa fa-user"></i>User</a
+          >
         </div>
       </nav>
     </header>
     <section>
-      <div class="hero_section">
-        <div class="hero_content">
-          <h2>Hello I'm</h2>
-          <h1>Desire BYAMUNGU</h1>
-          <h2>Full-stack Developer</h2>
-          <button class="hire_now hire_text">Hire me</button>
-        </div>
-      </div>
+      <div class="add_blog" id="form_blog">
+        <input type="text" name="title" id="title" placeholder="Your title" />
+        <textarea
+          type="text"
+          name="body"
+          id="body"
+          placeholder="Type more here..."
+        >
+        </textarea>
 
-      <!-- Top Promotions section-->
+        <input type="file" name="image" id="image" placeholder="Add image" />
 
-      <div class="statistic_section">
-        <div class="stat_content">
-          <span>10</span>
-          <h4>Happy Clients</h4>
-        </div>
-        <div class="stat_content stat_content_middle">
-          <span>10</span>
-          <h4>project completed</h4>
-        </div>
-        <div class="stat_content">
-          <span>10</span>
-          <h4>Achievement</h4>
-        </div>
-      </div>
+        <input
+          class="addBlog add_blog_button"
+          type="submit"
+          value="Save"
+          id="addBlog"
+        />
 
-      <!-- who I am section section-->
-
-      <div class="who_section">
-        <div class="who_header">
-          <h1>Who I am</h1>
-          <p>I am full stack developer, I like creating beautiful websites</p>
-        </div>
-        <div class="main_who">
-          <!-- main who -->
-          <div class="main_who_items">
-            <img
-              class="who_image"
-              src="../images/pexels-adrianna-calvo-4886824.jpg"
-              alt=""
-            />
-            <div>              
-              <p>I have been enjoying this website since.</p>
-              <p>I started this journey like hoping to be a story writer</p>
-            </div>
-          </div>
-        </div>
+        <div> <h5 id="alert_message_add_blog" class="hide">Added successfully</h5></div>
       </div>
 
       <!-- Services section -->
-
-      <div class="service_section">
-        <div class="Service_header">
-          <h2>services</h2>
-          <p>What I create</p>
-        </div>
-        <div class="service_content">
-          <div class="service_item_left">
-            <div class="Service_form_header">
-              <div class="text_L">
-                <h4>REQUEST</h4>
-              </div>
-              <div class="text_R">
-                <h4>Contact</h4>
-              </div>
-            </div>
-            <div class="Service_form">
-              <div class="service_form_item">
-                <input type="text" name="name" id="name" />
-                <input type="text" name="email" id="email" />
-                <textarea name="message" id="" cols="30" rows="10"></textarea>
-                <input class="hire_now" type="submit" value="SEND NOW" />
-              </div>
-            </div>
-          </div>
-          <div class="service_item_right">
-            <div class="service_item">
-              <div class="service_image">
-                <img
-                  src="../images/pexels-adrianna-calvo-4886824.jpg"
-                  alt="photo_service"
-                />
-              </div>
-
-              <div class="service_text">
-                <h3 class="service_title">website Development</h3>
-              </div>
-            </div>
-            <div class="service_item">
-              <div class="service_image">
-                <img
-                  src="../images/pexels-adrianna-calvo-4886824.jpg"
-                  alt="photo_service"
-                />
-              </div>
-              <div class="service_text">
-                <h3 class="service_title">App Development</h3>
-              </div>
-            </div>
-            <div class="service_item">
-              <div class="service_image">
-                <img
-                  src="../images/pexels-adrianna-calvo-4886824.jpg"
-                  alt="photo_service"
-                />
-              </div>
-              <div class="service_text">
-                <h3 class="service_title">SEO Optimization</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <!-- footer info and details -->
+    <!-- footer -->
 
     <footer>
-      <div class="footer support">
-        <h3>Phone support</h3>
-        <p>24 hours a day</p>
-        <p>+2507887573743</p>
-      </div>
-      <div class="footer social_media">
-        <h3>Get intouch with us</h3>
-        <i class="fa fa-facebook"></i>
-        <i class="fa fa-instagram"></i>
-        <i class="fa fa-twitter"></i>
-      </div>
-      <div class="footer subscribe">
-        <h3>Subscribe to our blog</h3>
-        <p>Singup for our offer</p>
-
-        <div class="footer_input">
-          <input type="text" name="email" id="email_subscribution" />
-          <input class="footer_submit" type="submit" value="Subscribe" />
-        </div>
+      <div class="copyright">
+        <p><i class="fa fa-copyright"></i>2023 Ngana Tech</p>
       </div>
     </footer>
   </body>
+
+  <script src="../Js/tinymce/tinymce.min.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-storage.js"></script>
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import {
+      getDatabase,
+      set,
+      ref,
+      serverTimestamp,
+      onValue,
+    } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+    import {
+      getAuth,
+      createUserWithEmailAndPassword,
+      signInWithEmailAndPassword,
+      onAuthStateChanged,
+    } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyA5sPlupW_n1XEt6xsw_Y7aAZKltGEFyXw",
+      authDomain: "mybrand-df7b7.firebaseapp.com",
+      projectId: "mybrand-df7b7",
+      storageBucket: "mybrand-df7b7.appspot.com",
+      messagingSenderId: "1073877765217",
+      appId: "1:1073877765217:web:7f63596f42c5d4ca18ae20",
+    };
+
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const database = getDatabase(initializeApp(firebaseConfig));
+    const auth = getAuth();
+
+    const addButton = document.getElementById("addBlog");
+
+    const form = document.getElementById("form_blog");
+
+    //get users
+    const users = ref(database, "users/");
+    onValue(users, (snapshot) => {
+      const data = snapshot.val();
+      console.log(data);
+      let blogsArray = [];
+    });
+
+    //get all blogs
+    const blogs = ref(database, "blogs/");
+
+    // check errors first
+    if ((Headers.status = 304)) {
+      const content_elt = document.createElement("DIV");
+
+      content_elt.innerHTML = `                     
+        <p class="story" data-id="no-data"><em>Ops, Nothing found! Try again later or switch your network! </em></p>
+        `;
+      content_elt.setAttribute("class", "book_item error_display");
+
+      //check if everything is okey then remove the error_display
+      onValue(blogs, (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+          content_elt.style.display = "none";
+        }
+      });
+    }
+
+    // the fetch data
+
+    onValue(blogs, (snapshot) => {
+      const data = snapshot.val();
+
+      let blogsArray = [];
+
+      for (var [key, value] of Object.entries(data)) {
+        console.log(key);
+        var obj = {
+          id: value.id,
+          title: value.title,
+          body: value.body,
+          Image: value.Image,
+          uid_key: key,
+        };
+
+        blogsArray.push(obj);
+        console.log(obj.uid_key);
+
+        const content_elt = document.createElement("DIV");
+        content_elt.innerHTML = `
+        <div class="blog_image blog" data-id=${value.id}>
+          <img src=${value.Image} alt="blog image blog" data-id=${value.id}>
+        </div>
+
+          <h3 class="blog" data-id=${value.id}>${value.title}</h3>
+          <div class="dashboard_bottom">
+        <i class="fa fa-trash admin_control_button removeBlog" id="removeBlog" data-uid=${obj.uid_key}></i><p class="removeBlog" data-uid=${obj.uid_key}>Delete</p>
+        <i class="fa fa-edit admin_control_button editBlog" id="editBlog" data-uid=${obj.uid_key}></i><p class="editBlog" data-uid=${obj.uid_key}>Edit</p>
+
+        </div>
+        `;
+        if (content_elt) {
+          console.log("yeseee");
+        }
+
+        content_elt.setAttribute("class", "blog_item");
+        content_elt.setAttribute("data-id", value.uid_key);
+      }
+
+      const dataSave = JSON.stringify(blogsArray);
+
+      // save to localStorage
+      localStorage.setItem("data", dataSave);
+    });
+
+    addButton.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      // image variable
+      const image = document.getElementById("image").files[0];
+      const imageName = image.name;
+
+      //refernce a collection
+      const storageRef = firebase.storage().ref("images/" + imageName);
+
+      // upload image to selected  storage reference
+      var uploadTask = storageRef.put(image);
+
+      uploadTask.on(
+        "state_changed",
+        function (snapshot) {
+          var progress =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log("Upload is " + progress + "done");
+        },
+        function (error) {
+          console.log(error.message);
+        },
+        function () {
+          // handle successfully upload here..
+          uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+            // getimage downloaded url here and upload to the database
+
+            const title = getInputValue("title");
+
+            const blogText = tinymce.activeEditor.getContent();
+            var id = Math.floor(Math.random() * 100);
+
+            firebase
+              .database()
+              .ref("blogs/")
+              .push()
+              .set(
+                {
+                  title: title,
+                  body: blogText,
+                  createdAt: serverTimestamp(),
+                  Image: downloadURL,
+                  id: id,
+                },
+                function (error) {
+                  if (error) {
+                    console.log("error whie uploading");
+                  } else {
+                    console.log("successfully uploaded");
+
+                    const alert_message_add_blog = document.getElementById(
+                      "alert_message_add_blog"
+                    );
+                    alert_message_add_blog.style.display = "flex";
+
+                    setTimeout(() => {
+                      location.href = "./blog.html";
+                    }, 3000);
+                  }
+                }
+              );
+          });
+
+          // <!--   for sign out  -->
+
+          //function to get input value
+
+          function getInputValue(id) {
+            return document.getElementById(id).value;
+          }
+          console.log("blog added successully");
+        }
+      );
+    });
+
+    // check if user is logged in
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        const uid = user.uid;
+        // const UserName = document.getElementById("user_name");
+        // UserName.innerHTML = user.email;
+        console.log(user);
+        const loginMenu = document.getElementById("loginMenu");
+        loginMenu.innerHTML = `<i class="fa fa-user"></i>User`;
+        loginMenu.setAttribute("href", "./dashboard.html");
+        console.log("Yes we are on Dashboard");
+      }
+      if (user == undefined) {
+        // User is signed out
+        location.href = "./login.html";
+      }
+    });
+
+    // for edit and delete item from firebase
+  </script>
+
+  <!-- adding tiny myce -->
+
+  <script>
+    console.log(tinymce);
+    tinymce.init({
+      selector: "#body",
+      width: 450,
+      height: 250,
+    });
+  </script>
+
+  <script>
+    console.log(tinymce);
+    tinymce.init({
+      selector: "#body_update",
+      width: 450,
+      height: 250,
+    });
+  </script>
 </html>

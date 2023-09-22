@@ -32,7 +32,7 @@
     --linkColor: rgb(0, 0, 0);
     --lowerBackground: #f3f3f3;
     --colorActive: #29b4e2;
-    
+
 }
 
 /* all styles  ---------------------------*/
@@ -58,7 +58,6 @@ body {
 }
 
 /* menu */
-
 
 .main_nav a {
     color: var(--whiteColor);
@@ -86,16 +85,10 @@ body {
 
 
 /* hero section */
-.hero_section {
-    background-image: url(../images/);
-    background: var(--blueColor);
-    color: var(--whiteColor);
-    display: flex;
-    flex-direction: column;
-    padding: 120px;
-    background: linear-gradient(0deg, rgba(15, 15, 15, 0.76), rgba(3, 3, 3, 0.774)), url(../images/background.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+section {
+   /* padding: 100px; */
+   background-color: #fff;
+   margin: 20px;
 }
 
 .hero_content {
@@ -271,6 +264,7 @@ input[type=text], input[type=password], textarea {
 
 /* for blog page */
 .blog_admin {
+   
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -278,6 +272,8 @@ input[type=text], input[type=password], textarea {
 }
 
 #blog_admin {
+    padding-top: 50px;
+    padding-left: 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
@@ -295,7 +291,7 @@ input[type=text], input[type=password], textarea {
     justify-content: center;
     flex-direction: column;
     color: var(--textColorGrey);
-    background: var(--lowerBackground);
+    /* background: var(--lowerBackground); */
 }
 
 .blog_text, .blog_image {
@@ -668,7 +664,7 @@ input[type=text], input[type=password], textarea {
 }
 
 .header_portfolio h1 {
-    /* padding:0px  10px 0px 10px; */
+
     margin: 0px
 }
 
@@ -908,9 +904,6 @@ footer .copyright {
         max-width: 100%;
     }
 
-    /* .dashboard_item_rigt .edit_modal{
-       width:50%
-    } */
 
     /* for icon */
 
