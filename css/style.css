@@ -196,6 +196,9 @@ body {
     font-family: "roboto", serif;
 }
 
+i {
+    color: #29b4e2;
+}
 /* who I am section */
 .who_section {
     display: block;

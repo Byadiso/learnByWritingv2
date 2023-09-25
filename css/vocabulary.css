@@ -78,6 +78,10 @@ body {
     text-decoration: none;
 }
 
+i {
+    color: #29b4e2;
+}
+
 /* vocabulary header */
 
 .header_vocabulary {

@@ -82,6 +82,10 @@ body {
     text-decoration: none;
 }
 
+i {
+    color: #29b4e2;
+}
+
 /* Section */
 section{
     display: flex;

@@ -13,8 +13,7 @@
       rel="stylesheet"
     />
 
-    <!-- 
-    bringing Icon for footer -->
+    <!--bringing Icon for footer -->
 
     <link
       rel="stylesheet"
@@ -101,7 +100,6 @@
 
             <hr />
             <!-- for related blog -->
-           
           </div>
 
           <!-- for categories -->
@@ -186,19 +184,18 @@
     };
 
     // Initialize Firebase
-    // const app = initializeApp(firebaseConfig);
+    
     const app = firebase.initializeApp(firebaseConfig);
     const database = getDatabase(initializeApp(firebaseConfig));
     const auth = getAuth();
-    // const database = getDatabase();
+    
 
     //my id in the localStorage
-
     const blog_id = JSON.parse(localStorage.getItem("id"));
     const blog_item_content = document.querySelector("#blog_item_content");
 
     console.log(blog_id);
-    //function to get inpu value
+    //function to get input value
 
     function getInputValue(id) {
       return document.getElementById(id).value;
@@ -236,7 +233,7 @@
       window.addEventListener("load", function () {
         count + 1;
         localStorage.setItem("count", count);
-        // document.getElementById("view-count").innerHTML = count;
+        
         console.log("Blog visited " + count);
       });
 
@@ -287,7 +284,6 @@
     });
 
     //add comments content to the documents
-
     blog_item_content.addEventListener("click", (e) => {
       if (e.target.className === "comment_button") {
         const commentContent = document.getElementById("commentDetails");
@@ -362,12 +358,12 @@
             comment.innerHTML = `
          <div class="comment_box">
 
-          <p class="user_commented"><i class="fa fa-user"></i> commented by Desire <i class="fa fa-trash"></i></p>
+          <p class="user_commented"><i class="fa fa-user"></i> Commented by Desire <i class="fa fa-trash"></i></p>
           <p class="comment_paragraph">${
             value.content ? value.content : " no comments yet"
           }</p>
           <div class="comment_bottom_section">
-            <span class="comment_time">comment added on ${
+            <span class="comment_time">Comment added on ${
               value.content ? date + "/" + mth + "/" + yr : " "
             }</span>
             

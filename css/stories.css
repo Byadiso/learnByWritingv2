@@ -76,13 +76,15 @@ body {
     justify-content: space-evenly;
     align-items: center;
     color: var(--whiteColor);
-
 }
 
 .menu a {
     text-decoration: none;
 }
 
+i {
+    color: #29b4e2;
+}
 
 /* hero section */
 .hero_section {
