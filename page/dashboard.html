@@ -12,8 +12,7 @@
       rel="stylesheet"
     />
 
-    <!-- 
-    bringing Icon for footer -->
+    <!-- bringing Icon for footer -->
 
     <link
       rel="stylesheet"
@@ -57,12 +56,7 @@
       </nav>
     </header>
     <section>
-      <div class="hero_section">
-        <div class="hero_content">
-          <h2>Hello</h2>
-          <h1 id="user_name"><span>...</span></h1>
-        </div>
-      </div>
+      
 
       <!-- dashboard section -->
 
@@ -159,7 +153,9 @@
               </div>
               <div class="dashboard_categories">
                 <h1>Dashboard</h1>
-                <a href="./add_blog.html" id="add"><i class="fa fa-plus"></i>Add Blog</a>
+                <a href="./add_blog.html" id="add"
+                  ><i class="fa fa-plus"></i>Add Blog</a
+                >
                 <a href="./user.html" id="info"
                   ><i class="fa fa-info"></i>My info</a
                 >
@@ -179,12 +175,12 @@
       </div>
     </section>
 
-   <!-- footer info and details -->
-   <footer>
-    <div class="copyright">
-      <p><i class="fa fa-copyright"></i>2023 Ngana Tech</p>
-    </div>
-  </footer>
+    <!-- footer info and details -->
+    <footer>
+      <div class="copyright">
+        <p><i class="fa fa-copyright"></i>2023 Ngana Tech</p>
+      </div>
+    </footer>
   </body>
   <script src="../Js/dashboard.js" defer></script>
   <script src="../Js/tinymce/tinymce.min.js"></script>
@@ -316,7 +312,6 @@
 
     addButton.addEventListener("click", (e) => {
       e.preventDefault();
-
       // image variable
       const image = document.getElementById("image").files[0];
       const imageName = image.name;
@@ -392,16 +387,16 @@
 
     const logoutButton = document.getElementById("logout");
 
-    logoutButton.addEventListener("click", (e) => {
-      e.preventDefault();
-      auth.signOut().then(() => {
-        console.log("User logged out");
+    // logoutButton.addEventListener("click", (e) => {
+    //   e.preventDefault();
+    //   auth.signOut().then(() => {
+    //     console.log("User logged out");
 
-        setTimeout(() => {
-          location.href = "./blog.html";
-        }, 3000);
-      });
-    });
+    //     setTimeout(() => {
+    //       location.href = "./blog.html";
+    //     }, 3000);
+    //   });
+    // });
 
     // check if user is logged in
     onAuthStateChanged(auth, (user) => {
@@ -409,11 +404,11 @@
         // User is signed in, see docs for a list of available properties
         const uid = user.uid;
         const UserName = document.getElementById("user_name");
-        UserName.innerHTML = user.email;
-        console.log(user);        
-        const userMenu = document.getElementById("userMenu");        
+        // UserName.innerHTML = user.email;
+
+        const userMenu = document.getElementById("userMenu");
         userMenu.innerHTML = `<i class="fa fa-dashboard"></i>Dashboard`;
-        userMenu.setAttribute("href", "./dashboard.html");        
+        userMenu.setAttribute("href", "./dashboard.html");
         console.log("Yes we are on Dashboard");
       }
       if (user == undefined) {
@@ -429,128 +424,144 @@
 
     // //remove blog
     blogAdmin.addEventListener("click", (e) => {
-      //let me get my uid
-      let key = e.target.dataset.uid;
+    e.preventDefault();
+    let id = e.target.dataset.uid;
+    console.log(e.target.dataset.uid);
+    
+  
+    const id_clicked = JSON.stringify(id);
+  
+    // save to localStorage
+    let idSave = localStorage.setItem("id", id_clicked);
+    if (e.target.className.includes("removeBlog")){
+      if (id_clicked) {
+      window.location.href = `../page/delete.html?id=${id_clicked}`;
+    }
+    }
+      
+  });
+    // blogAdmin.addEventListener("click", (e) => {
+    //   //let me get my uid
+    //   let key = e.target.dataset.uid;
 
-      //remove blog if I am the admin user
+    //   //remove blog if I am the admin user
 
-      const users = ref(database, "users/");
-      onValue(users, (snapshot) => {
-        const data = snapshot.val();
-        for (var [key, value] of Object.entries(data)) {
-          // if(key === e.target.dataset.uid && value.isAdmin==true ){
-          //   console.log(value.isAdmin== true)
-          // }
-        }
-      });
+    //   const users = ref(database, "users/");
+    //   onValue(users, (snapshot) => {
+    //     const data = snapshot.val();
+    //     for (var [key, value] of Object.entries(data)) {
+        
+    //     }
+    //   });
 
-      if (e.target.className.includes("removeBlog")) {
-        firebase
-          .database()
-          .ref("blogs/" + key)
-          .remove(function (error) {
-            if (error) {
-              console.log("delete error" + error);
-            } else {
-              window.location.href = "./dashboard.html";
-            }
-          });
-      } else if (e.target.className.includes("editBlog")) {
-        let key = e.target.dataset.uid;
+    //   if (e.target.className.includes("removeBlog")) {
+    //     firebase
+    //       .database()
+    //       .ref("blogs/" + key)
+    //       .remove(function (error) {
+    //         if (error) {
+    //           console.log("delete error" + error);
+    //         } else {
+    //           window.location.href = "./dashboard.html";
+    //         }
+    //       });
+    //   } else if (e.target.className.includes("editBlog")) {
+    //     let key = e.target.dataset.uid;
 
-        console.log("let edit this blog");
-        const updateBlogButton = document.getElementById("updateBlog");
-        const close_overlay_button = document.getElementById("cancel_button");
+    //     console.log("let edit this blog");
+    //     const updateBlogButton = document.getElementById("updateBlog");
+    //     const close_overlay_button = document.getElementById("cancel_button");
 
-        const title = document.getElementById("title_update");
-        const body = document.getElementById("body_update");
-        const imageEdit = document.getElementById("image_update");
-        const formEdit = document.getElementById("form_edit");
+    //     const title = document.getElementById("title_update");
+    //     const body = document.getElementById("body_update");
+    //     const imageEdit = document.getElementById("image_update");
+    //     const formEdit = document.getElementById("form_edit");
 
-        //get data from locastoragee
-        let data_single = JSON.parse(localStorage.getItem("data"));
+    //     //get data from locastoragee
+    //     let data_single = JSON.parse(localStorage.getItem("data"));
 
-        let tobeEddit = data_single.find((elt) => elt.uid_key === key);
-        // let see what we have here
-        formEdit.style.display = "block";
-        title.value = tobeEddit.title;
-        const blogText = tinymce.activeEditor.setContent(tobeEddit.body);
-        imageEdit.name = tobeEddit.Image;
+    //     let tobeEddit = data_single.find((elt) => elt.uid_key === key);
+    //     // let see what we have here
+    //     formEdit.style.display = "block";
+    //     title.value = tobeEddit.title;
+    //     const blogText = tinymce.activeEditor.setContent(tobeEddit.body);
+    //     imageEdit.name = tobeEddit.Image;
 
-        close_overlay_button.addEventListener("click", (e) => {
-          e.preventDefault();
-          console.log("yes let close this");
-          formEdit.style.display = "none";
-        });
+    //     close_overlay_button.addEventListener("click", (e) => {
+    //       e.preventDefault();
+    //       console.log("yes let close this");
+    //       formEdit.style.display = "none";
+    //     });
 
-        updateBlogButton.addEventListener("click", (e) => {
-          // image variable
-          const image = document.getElementById("image_update").files[0];
-          const imageName = image.name;
-          //refernce a collection
-          const storageRef = firebase.storage().ref("images/" + imageName);
+    //     updateBlogButton.addEventListener("click", (e) => {
+    //       // image variable
+    //       const image = document.getElementById("image_update").files[0];
+    //       const imageName = image.name;
+    //       //refernce a collection
+    //       const storageRef = firebase.storage().ref("images/" + imageName);
 
-          // upload image to selected  storage reference
-          var uploadTask = storageRef.put(image);
+    //       // upload image to selected  storage reference
+    //       var uploadTask = storageRef.put(image);
 
-          uploadTask.on(
-            "state_changed",
-            function (snapshot) {
-              var progress =
-                (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-              console.log("Upload is " + progress + "done");
-            },
-            function (error) {
-              console.log(error.message);
-            },
-            function () {
-              // handle successfully upload here..
-              uploadTask.snapshot.ref
-                .getDownloadURL()
-                .then(function (downloadURL) {
-                  const blogText = tinymce.activeEditor.getContent();
-                  // var id;
+    //       uploadTask.on(
+    //         "state_changed",
+    //         function (snapshot) {
+    //           var progress =
+    //             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    //           console.log("Upload is " + progress + "done");
+    //         },
+    //         function (error) {
+    //           console.log(error.message);
+    //         },
+    //         function () {
+    //           // handle successfully upload here..
+    //           uploadTask.snapshot.ref
+    //             .getDownloadURL()
+    //             .then(function (downloadURL) {
+    //               const blogText = tinymce.activeEditor.getContent();
+    //               // var id;
 
-                  var id = Math.floor(Math.random() * 100);
+    //               var id = Math.floor(Math.random() * 100);
 
-                  firebase
-                    .database()
-                    .ref("blogs/" + key)
-                    .update(
-                      {
-                        title: title.value,
-                        body: blogText,
-                        createdAt: serverTimestamp(),
-                        comments: [],
-                        Image: downloadURL,
-                        uid_key: key,
-                      },
-                      function (error) {
-                        if (error) {
-                          console.log("error whie uploading");
-                        } else {
-                          console.log("successfully uploaded");
-                          // window.location.href = "./dashboard.html";
-                          formEdit.style.display = "none";
-                          const alert_message_add_blog =
-                            document.getElementById("alert_message_add_blog");
-                          alert_message_add_blog.style.display = "flex";
+    //               firebase
+    //                 .database()
+    //                 .ref("blogs/" + key)
+    //                 .update(
+    //                   {
+    //                     title: title.value,
+    //                     body: blogText,
+    //                     createdAt: serverTimestamp(),
+    //                     comments: [],
+    //                     Image: downloadURL,
+    //                     uid_key: key,
+    //                   },
+    //                   function (error) {
+    //                     if (error) {
+    //                       console.log("error whie uploading");
+    //                     } else {
+    //                       console.log("successfully uploaded");
+    //                       // window.location.href = "./dashboard.html";
+    //                       formEdit.style.display = "none";
+    //                       const alert_message_add_blog =
+    //                         document.getElementById("alert_message_add_blog");
+    //                       alert_message_add_blog.style.display = "flex";
 
-                          setTimeout(() => {
-                            location.href = "./dashboard.html";
-                          }, 4000);
-                        }
-                      }
-                    );
-                });
-            }
-          );
-        });
-      } else if (e.target.className.includes("blog_item blog_image blog")) {
-        return console.log("yes yesoooo");
-      }
-    });
-  </script>
+    //                       setTimeout(() => {
+    //                         location.href = "./dashboard.html";
+    //                       }, 4000);
+    //                     }
+    //                   }
+    //                 );
+    //             });
+    //         }
+    //       );
+    //     });
+    //   } else if (e.target.className.includes("blog_item blog_image blog")) {
+    //     return console.log("yes yesoooo");
+    //   }
+    // });
+ 
+ </script>
 
   <!-- adding tiny myce -->
 

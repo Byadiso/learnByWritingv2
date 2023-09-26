@@ -163,14 +163,21 @@ footer {
     color: var(--whiteColor);
     padding: 10px;
 }
-
+#removeBlog{
+    border: none;
+    background-color: var(--redColor);
+    color: var(--whiteColor);
+    padding: 10px;
+}
 #return{
     border: none;
     background-color: var(--blueColor);
     color: var(--whiteColor);
     padding: 10px;
 }
-
+#removeBlog:hover{
+    cursor: pointer;
+}
 #logout, #return :hover{
 cursor: pointer;
 }
