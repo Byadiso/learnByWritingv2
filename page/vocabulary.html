@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LearnByWriting</title>   
+    <title>LearnByWriting</title>
     <link rel="stylesheet" href="../css/vocabulary.css" />
     <!-- for roboto font -->
     <link
@@ -43,7 +43,16 @@
           <a href="./vocabulary.html" class="menu_nav">
             <i class="fa fa-list"></i>Vocabulary Lists</a
           >
-          <a href="./user.html" class="menu_nav " id="loginMenu"><i class="fa fa-user"></i>User</a>
+
+          <div class="dropdown">
+            <a href="./user.html" class="dropbtn" id="username"
+              ><i class="fa fa-user"></i>User</a
+            >
+            <div class="dropdown-content">
+              <a href="./dashboard.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+              <a href="./logout.html"> <i class="fa fa-sign-out"></i>logout</a>
+            </div>
+          </div>
         </div>
       </nav>
     </header>
@@ -87,63 +96,50 @@
                   <div class="card_vocabulary_header">
                     <p>title</p>
                   </div>
-                  <div class="card_vocabulary_body" >
+                  <div class="card_vocabulary_body">
                     <p>yes it is content</p>
-                    
                   </div>
-                  
                 </div>
                 <div class="card_vocabulary_container">
                   <div class="card_vocabulary_header">
                     <p>title</p>
                   </div>
-                  <div class="card_vocabulary_body" >
+                  <div class="card_vocabulary_body">
                     <p>yes it is content</p>
-                    
                   </div>
-                  
                 </div>
                 <div class="card_vocabulary_container">
                   <div class="card_vocabulary_header">
                     <p>title</p>
                   </div>
-                  <div class="card_vocabulary_body" >
+                  <div class="card_vocabulary_body">
                     <p>yes it is content</p>
-                  
                   </div>
-                  
                 </div>
                 <div class="card_vocabulary_container">
                   <div class="card_vocabulary_header">
                     <p>title</p>
                   </div>
-                  <div class="card_vocabulary_body" >
+                  <div class="card_vocabulary_body">
                     <p>yes it is content</p>
-                    
                   </div>
-                  
                 </div>
                 <div class="card_vocabulary_container">
                   <div class="card_vocabulary_header">
                     <p>title</p>
                   </div>
-                  <div class="card_vocabulary_body" >
+                  <div class="card_vocabulary_body">
                     <p>yes it is content</p>
-                   
                   </div>
-                  
                 </div>
                 <div class="card_vocabulary_container">
                   <div class="card_vocabulary_header">
                     <p>title</p>
                   </div>
-                  <div class="card_vocabulary_body" >
+                  <div class="card_vocabulary_body">
                     <p>yes it is content</p>
-                    
                   </div>
-                  
                 </div>
-                
               </div>
             </div>
           </div>
@@ -564,14 +560,15 @@
       }
     });
 
-    
-
     // check if user is logged in
     onAuthStateChanged(auth, (user) => {
       if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
         const uid = user.uid;
+        const username = document.getElementById("username");
+        username.innerHTML = `<i class="fa fa-user"></i>${user.email}`;
+        username.setAttribute("href", "./dashboard.html");
       }
       if (user == undefined) {
         // User is signed out
