@@ -45,19 +45,18 @@
           <a href="./vocabulary.html" class="menu_nav">
             <i class="fa fa-list"></i>Vocabulary Lists</a
           >
-          <a href="./user.html" class="menu_nav " id="loginMenu"><i class="fa fa-user"></i>User</a>
+          <a href="./user.html" class="menu_nav" id="loginMenu"
+            ><i class="fa fa-user"></i>User</a
+          >
         </div>
       </nav>
     </header>
     <section>
-     
-
       <!-- blogs section -->
 
       <div class="blog_section">
         <div class="blog_content">
           <div class="blog_item_left">
-         
             <div id="blog_admin">
               <img
                 id="loading"
@@ -175,14 +174,16 @@
       const content_elt = document.createElement("DIV");
 
       content_elt.innerHTML = `                     
-        <p class="story" data-id="no-data"><em>Ops, No story found! Try again later or switch your network! </em></p>
+        <p class="story" data-id="no-data"><em>Ops, No blog found! Try again later or switch your network! </em></p>
         `;
       content_elt.setAttribute("class", "book_item error_display");
       content_elt.style.display = "block";
+      blogAdmin.removeAttribute("id", "blog_admin");
+      blogAdmin.setAttribute("class", "error_block");
       blogAdmin.append(content_elt);
 
       //check if everything is okey then remove the error_display
-      onValue(blogs, (snapshot) => {        
+      onValue(blogs, (snapshot) => {
         const data = snapshot.val();
         if (data) {
           content_elt.style.display = "none";
@@ -191,7 +192,7 @@
     }
 
     onValue(blogs, (snapshot) => {
-      console.log(snapshot + "data to check ");
+     
       const data = snapshot.val();
 
       let blogsArray = [];
@@ -221,15 +222,13 @@
 
         content_elt.setAttribute("class", "blog_item");
         content_elt.setAttribute("data-id", obj.uid_key);
+
+        blogAdmin.setAttribute("id", "blog_admin");
+        blogAdmin.removeAttribute("class", "error_block");
+
         blogAdmin.append(content_elt);
-
-        // if(!content_elt){
-        // console.log("error");
-
-        // }
-
-        if (content_elt) {
-          console.log("yeseee");
+        
+        if (content_elt) {          
           const loading = document.getElementById("loading");
           loading.style.display = "none";
         }
@@ -251,7 +250,7 @@
       if (user == undefined) {
         // User is signed out
         location.href = "./login.html";
-        console.log("no user");
+      
       }
     });
 

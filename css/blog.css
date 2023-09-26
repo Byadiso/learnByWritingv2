@@ -266,8 +266,7 @@ input[type=text], input[type=password], textarea {
 }
 
 /* for blog page */
-.blog_admin {
-   
+.blog_admin {   
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -279,6 +278,17 @@ input[type=text], input[type=password], textarea {
     padding-left: 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+}
+
+/* when error happens. */
+
+.error_block{
+    padding-top: 50px;
+    padding-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 200px;
 }
 
 
