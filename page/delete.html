@@ -122,15 +122,16 @@
     // for edit and delete item from firebase
     const removeBlogButton = document.getElementById("removeBlog");
     const blogAdmin = document.getElementById("blog_admin");
+    let myId = location.href.split("?id=")[1];
+    let blogById = decodeURIComponent(myId).replace(/['"]+/g, "");
 
-    //remove blog to work on this tomorrow 
+    //remove blog 
     blogAdmin.addEventListener("click", (e) => {
        //let me get my uid
-       let key = e.target.dataset.uid;
+       let key = blogById;
        if(key ==undefined){
-        console.log('check the id')
-       }
-       console.log(e.target);
+        console.log('check the id first')
+       }       
        //remove blog if I am the admin user    
        if (e.target.className.includes("removeBlog")){
          firebase
@@ -140,8 +141,8 @@
              if (error) {
                console.log("delete error" + error);
              } else {
-              //  window.location.href = "./dashboard.html";
-              console.log("deleted")
+               window.location.href = "./dashboard.html";
+              
               }
            });
          }
