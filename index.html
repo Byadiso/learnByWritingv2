@@ -49,11 +49,11 @@
           <a href="./page/vocabulary.html" class="menu_nav">
             <i class="fa fa-list"></i>Vocabulary Lists</a
           >
-          <div class="dropdown">
+          <div class="dropdown" id="dropdown">
             <a href="./page/login.html" class="dropbtn" id="username"
               ><i class="fa fa-sign-in"></i>Login</a
             >
-            <div class="dropdown-content">
+            <div class="dropdown-content" >
               <a href="./dashboard.html"><i class="fa fa-dashboard"></i> Dashboard</a>
               <a href="./logout.html"> <i class="fa fa-sign-out"></i>logout</a>
             </div>
@@ -374,15 +374,21 @@
     // check if user is logged in
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        const uid = user.uid;
-       
+        const uid = user.uid;       
         const username = document.getElementById("username");
         username.innerHTML = `<i class="fa fa-user"></i>${user.email}`;
-        username.setAttribute("href", "./dashboard.html");
-
-       
+        username.setAttribute("href", "./dashboard.html");       
         // ...
       }
+
+     else if (user== undefined){
+      console.log("no user")
+      const dropdown = document.getElementById("dropdown");     
+     
+      dropdown.innerHTML = `<a href="./page/login.html"><i class="fa fa-sign-in"></i>Login </a>`;
+       
+     }
+      
     });
   </script>
 </html>
