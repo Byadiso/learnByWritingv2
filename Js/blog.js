@@ -8,10 +8,6 @@ block.addEventListener("click", (e) => {
   console.log(e.target.dataset.id);
   console.log(e.target.dataset.id);
 
-  // if (e.target.className === "readme_button") {
-  //   console.log("yes");
-  // }
-
   const id_clicked = JSON.stringify(id);
 
   // save to localStorage

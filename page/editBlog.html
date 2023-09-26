@@ -4,10 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LearnByWriting</title>
-    <link rel="stylesheet" href="../css/blog.css" />
-    <link rel="stylesheet" href="../css/blog_single.css" />
-    <!-- for roboto font -->
+    <title>MyBrand</title>
+    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/addBlog.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
       rel="stylesheet"
@@ -15,16 +14,10 @@
 
     <!-- 
     bringing Icon for footer -->
-
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <!-- fontawesome -->
-    <script
-      src="https://kit.fontawesome.com/40109df241.js"
-      crossorigin="anonymous"
-    ></script>
   </head>
   <body>
     <header>
@@ -45,149 +38,56 @@
           <a href="./vocabulary.html" class="menu_nav">
             <i class="fa fa-list"></i>Vocabulary Lists</a
           >
-          <a href="./login.html" class="menu_nav " id="loginMenu"> <i class="fa fa-user"></i>User</a>
+          <a href="./login.html" class="menu_nav" id="loginMenu"
+            ><i class="fa fa-user"></i>User</a
+          >
         </div>
       </nav>
     </header>
     <section>
-      <div class="hero_section">
-        <div class="hero_content">
-          <h2>Our blog</h2>
-          <h1>My Latest blog</h1>
-        </div>
+      <div class="add_blog" id="form_blog">
+        <input type="text" name="title" id="title" placeholder="Your title" />
+        <textarea
+          type="text"
+          name="body"
+          id="body"
+          placeholder="Type more here..."
+        >
+        </textarea>
+
+        <input type="file" name="image" id="image" placeholder="Add image" />
+
+        <input
+          class="addBlog add_blog_button"
+          type="submit"
+          value="Save"
+          id="addBlog"
+        />
+
+        <div> <h5 id="alert_message_add_blog" class="hide">Added successfully</h5></div>
       </div>
 
-      <!-- blogs section -->
-
-      <div class="blog_section">
-        <div class="blog_content single_blog">
-          <div class="blog_item_left blog_item_left_single">
-            <div class="blog_item_content" id="blog_item_content"></div>
-
-            <!--my edit modal -->
-
-            <div class="dashboard_item_rigt hide" id="from_edit">
-              <div class="add_blog edit_modal" id="form_blog">
-                <input
-                  type="text"
-                  name="title"
-                  id="title"
-                  placeholder="add title"
-                />
-
-                <textarea
-                  type="text"
-                  name="body"
-                  id="body"
-                  placeholder="Add your content here"
-                >
-                </textarea>
-
-                <input
-                  type="file"
-                  name="image"
-                  id="image"
-                  placeholder="add image"
-                />
-
-                <input
-                  class="addBlog add_blog_button"
-                  type="submit"
-                  value="Update Blog"
-                  id="updateBlog"
-                />
-              </div>
-            </div>
-
-            <hr />
-            <!-- for related blog -->
-            <div class="related_blog">
-              <div class="header_related">
-                <h3>Next Blog</h3>
-              </div>
-
-              <div class="related_blog_item">
-                <div class="blog_item_content">
-                  <div class="blog_relate_image">
-                    <img
-                      src="../images/pexels-adrianna-calvo-4886824.jpg"
-                      alt="photo_blog"
-                    />
-                  </div>
-                  <h3>Learn by doing</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- for categories -->
-          <div class="blog_item_rigt">
-            <div class="blog_item">
-              <div class="blog_search">
-                <input type="text" placeholder="Search.." name="search" />
-                <i class="fa fa-search"></i>
-              </div>
-              <div class="dashboard_categories">
-                <h1>Dashboard</h1>
-                <a href="./dashboard.html" id="add"
-                  ><i class="fa fa-plus"></i>Add Blog</a
-                >
-                <a href="./user.html" id="info"
-                  ><i class="fa fa-info"></i>My info</a
-                >
-                <a href="./vocabulary.html" id="members"
-                  ><i class="fa-solid fa-floppy-disk"></i>Your Vocabulary</a
-                >
-                <a href="./settings.html" id="settings"
-                  ><i class="fa fa-gear"></i>Settings</a
-                >
-                <a href="#" id="logout" class="logout"
-                  ><i class="fa fa-sign-out"></i>logout</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- Services section -->
     </section>
 
-    <!-- footer info and details -->
+    <!-- footer -->
 
     <footer>
-      <div class="footer support">
-        <h3>Phone support</h3>
-        <p>24 hours a day</p>
-        <p>+2507887573743</p>
-      </div>
-      <div class="footer social_media">
-        <h3>Get intouch with us</h3>
-        <i class="fa fa-facebook"></i>
-        <i class="fa fa-instagram"></i>
-        <i class="fa fa-twitter"></i>
-      </div>
-      <div class="footer subscribe">
-        <h3>Subscribe to our blog</h3>
-        <p>Singup for our offer</p>
-
-        <div class="footer_input">
-          <input type="text" name="email" id="email_subscribution" />
-          <input class="footer_submit" type="submit" value="Subscribe" />
-        </div>
+      <div class="copyright">
+        <p><i class="fa fa-copyright"></i>2023 Ngana Tech</p>
       </div>
     </footer>
   </body>
+
+  <script src="../Js/tinymce/tinymce.min.js"></script>
 
   <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-database.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-storage.js"></script>
-  <script src="../Js/singleBlog.js" defer></script>
 
-  <script src="../Js/tinymce/tinymce.min.js"></script>
-
-  <script type="module" defer>
+  <script type="module">
     // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
     import {
       getDatabase,
       set,
@@ -196,17 +96,13 @@
       onValue,
     } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
 
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
     import {
       getAuth,
       createUserWithEmailAndPassword,
       signInWithEmailAndPassword,
       onAuthStateChanged,
     } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
-
-    // import { initializeApp } from "firebase/app";
-
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
 
     // Your web app's Firebase configuration
     const firebaseConfig = {
@@ -219,217 +115,177 @@
     };
 
     // Initialize Firebase
-    // const app = initializeApp(firebaseConfig);
     const app = firebase.initializeApp(firebaseConfig);
     const database = getDatabase(initializeApp(firebaseConfig));
     const auth = getAuth();
-    // const database = getDatabase();
 
-    //my id in the localStorage
+    const addButton = document.getElementById("addBlog");
 
-    const blog_id = JSON.parse(localStorage.getItem("id"));
-    const blog_item_content = document.querySelector("#blog_item_content");
+    const form = document.getElementById("form_blog");
 
-    console.log(blog_id);
-    //function to get inpu value
+    //get users
+    const users = ref(database, "users/");
+    onValue(users, (snapshot) => {
+      const data = snapshot.val();
+      console.log(data);
+      let blogsArray = [];
+    });
 
-    function getInputValue(id) {
-      return document.getElementById(id).value;
+    //get all blogs
+    const blogs = ref(database, "blogs/");
+
+    // check errors first
+    if ((Headers.status = 304)) {
+      const content_elt = document.createElement("DIV");
+
+      content_elt.innerHTML = `                     
+        <p class="story" data-id="no-data"><em>Ops, Nothing found! Try again later or switch your network! </em></p>
+        `;
+      content_elt.setAttribute("class", "book_item error_display");
+
+      //check if everything is okey then remove the error_display
+      onValue(blogs, (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+          content_elt.style.display = "none";
+        }
+      });
     }
 
-    let myId = location.href.split("?id=")[1];
-    let blogById = decodeURIComponent(myId).replace(/['"]+/g, "");
-    const blogs = ref(database, `blogs/${blogById}`);
+    // the fetch data
 
     onValue(blogs, (snapshot) => {
       const data = snapshot.val();
 
-      const timeStamp = data.createdAt;
-
-      const time = new Date(timeStamp);
-      var date = ("0" + time.getDate()).slice(-2);
-      var yr = time.getFullYear();
-      // extracting month from the date object as 2 digit
-      var mth = ("0" + (time.getMonth() + 1)).slice(-2);
-
       let blogsArray = [];
 
-      console.log(data);
+      for (var [key, value] of Object.entries(data)) {
+        console.log(key);
+        var obj = {
+          id: value.id,
+          title: value.title,
+          body: value.body,
+          Image: value.Image,
+          uid_key: key,
+        };
 
-      // For view count logics
+        blogsArray.push(obj);
+        console.log(obj.uid_key);
 
-      let count = 0;
-
-      if (localStorage.getItem("count") !== null) {
-        count = localStorage.getItem("count");
-      }
-
-      localStorage.setItem("count", count);
-
-      window.addEventListener("load", function () {
-        count + 1;
-        localStorage.setItem("count", count);
-        // document.getElementById("view-count").innerHTML = count;
-        console.log("Blog visited " + count);
-      });
-
-      // --------------------End here--------------------
-
-      let blog_single = document.createElement("DIV");
-      blog_single.innerHTML = `
-      <div class="blog_item_content" data-uid=${blogById}>
-
-      <div class="single_blog_image">
-        <img
-          src=${data.Image}
-          alt="photo_blog"
-        />
-      </div>
-
-      <div class="icon_blog">
-        <p><i class="fa fa-heart"></i>Like</p>
-        <p><i class="fa fa-comment"></i> <span id="comments_number"></span> comment</p>
-        <p class="dateStamp"><i class="fas fa-clock dateStamp"></i>${
-          date + "/" + mth + "/" + yr
-        }</p>
-        <p class="dateStamp"><i class="fas fa-clock dateStamp"></i>${
-          data.body.match(/\b\w+\b/g).length + " words"
-        }</p>
-      </div>
-
-      <h3 class="blog_title">
-        ${data.title}
-      </h3>
-      <p class="blog_title">
-        ${data.body}
-      </p>
-      <div class="comment_section">
-        <div class="comment_content" id="comment_content">
-            
+        const content_elt = document.createElement("DIV");
+        content_elt.innerHTML = `
+        <div class="blog_image blog" data-id=${value.id}>
+          <img src=${value.Image} alt="blog image blog" data-id=${value.id}>
         </div>
-        <div class="comment_form">
-          <textarea class="comment" id="commentDetails" name="commentDetails" rows="5" cols="33" placeholder="add your comment">
-          </textarea>
-          <input type="submit" value="Add comment" class="comment_button" data-uid=${blogById} />
-        </div> 
-      </div>
-    </div>
-      `;
-      // to be added later
-      blog_item_content.append(blog_single);
-    });
 
-    //add comments content to the documents
+          <h3 class="blog" data-id=${value.id}>${value.title}</h3>
+          <div class="dashboard_bottom">
+        <i class="fa fa-trash admin_control_button removeBlog" id="removeBlog" data-uid=${obj.uid_key}></i><p class="removeBlog" data-uid=${obj.uid_key}>Delete</p>
+        <i class="fa fa-edit admin_control_button editBlog" id="editBlog" data-uid=${obj.uid_key}></i><p class="editBlog" data-uid=${obj.uid_key}>Edit</p>
 
-    blog_item_content.addEventListener("click", (e) => {
-      if (e.target.className === "comment_button") {
-        const commentContent = document.getElementById("commentDetails");
-        e.preventDefault();
-
-        if (commentContent.value.trim() !== "") {
-          //add comments field to the document
-          const id = e.target.dataset.uid;
-
-          firebase
-            .database()
-            .ref("comments/")
-            .push()
-            .set(
-              {
-                content: commentContent.value.trim(),
-                postID: id,
-                time: serverTimestamp(),
-              },
-              function (error) {
-                if (error) {
-                  console.log("error whie uploading");
-                } else {
-                  console.log("successfully uploaded");
-                }
-              }
-            );
-        } else {
-          return console.log("no value entered");
+        </div>
+        `;
+        if (content_elt) {
+          console.log("yeseee");
         }
+
+        content_elt.setAttribute("class", "blog_item");
+        content_elt.setAttribute("data-id", value.uid_key);
       }
+
+      const dataSave = JSON.stringify(blogsArray);
+
+      // save to localStorage
+      localStorage.setItem("data", dataSave);
     });
 
-    //load comments
-    const getComments = () => {
-      const comments = ref(database, `comments`);
-      const blog = ref(database, `blogs/${blogById}`);
-      onValue(comments, (snapshot) => {
-        const data = snapshot.val();
+    addButton.addEventListener("click", (e) => {
+      e.preventDefault();
 
-        let commentsArray = [];
-        let numberOfComment = [];
+      // image variable
+      const image = document.getElementById("image").files[0];
+      const imageName = image.name;
 
-        for (var [key, value] of Object.entries(data)) {
-          var obj = {
-            id: value.id,
-            title: value.content,
-            postID: value.postID,
-            timeStamp: value.time,
-            uid_key: key,
-          };
+      //refernce a collection
+      const storageRef = firebase.storage().ref("images/" + imageName);
 
-          if (value.postID === blogById) {
-            console.log(value.content + "we have them");
-            const commentContent = document.getElementById("comment_content");
-            const commentNumber = document.getElementById("comments_number");
+      // upload image to selected  storage reference
+      var uploadTask = storageRef.put(image);
 
-            //number of comment added so far
-            numberOfComment.push(value.postID);
-            commentNumber.innerHTML = numberOfComment.length;
+      uploadTask.on(
+        "state_changed",
+        function (snapshot) {
+          var progress =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log("Upload is " + progress + "done");
+        },
+        function (error) {
+          console.log(error.message);
+        },
+        function () {
+          // handle successfully upload here..
+          uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+            // getimage downloaded url here and upload to the database
 
-            /// for date
-            const timeStamp = value.time;
+            const title = getInputValue("title");
 
-            const time = new Date(timeStamp);
-            var date = ("0" + time.getDate()).slice(-2);
-            var yr = time.getFullYear();
-            // extracting month from the date object as 2 digit
-            var mth = ("0" + (time.getMonth() + 1)).slice(-2);
+            const blogText = tinymce.activeEditor.getContent();
+            var id = Math.floor(Math.random() * 100);
 
-            let comment = document.createElement("DIV");
-            comment.innerHTML = `
-         <div class="comment_box">
+            firebase
+              .database()
+              .ref("blogs/")
+              .push()
+              .set(
+                {
+                  title: title,
+                  body: blogText,
+                  createdAt: serverTimestamp(),
+                  Image: downloadURL,
+                  id: id,
+                },
+                function (error) {
+                  if (error) {
+                    console.log("error whie uploading");
+                  } else {
+                    console.log("successfully uploaded");
 
-          <p class="user_commented"><i class="fa fa-user"></i> commented by Desire <i class="fa fa-trash"></i></p>
-          <p class="comment_paragraph">${
-            value.content ? value.content : " no comments yet"
-          }</p>
-          <div class="comment_bottom_section">
-            <span class="comment_time">comment added on ${
-              value.content ? date + "/" + mth + "/" + yr : " "
-            }</span>
-            
-          </div>
-         
-          </div>
-         
-         `;
+                    const alert_message_add_blog = document.getElementById(
+                      "alert_message_add_blog"
+                    );
+                    alert_message_add_blog.style.display = "flex";
 
-            //add comments at the bottom ot the comment box
-            commentContent.append(comment);
+                    setTimeout(() => {
+                      location.href = "./blog.html";
+                    }, 3000);
+                  }
+                }
+              );
+          });
+
+          // <!--   for sign out  -->
+
+          //function to get input value
+
+          function getInputValue(id) {
+            return document.getElementById(id).value;
           }
+          console.log("blog added successully");
         }
-      });
-    };
-
-    getComments();
+      );
+    });
 
     // check if user is logged in
     onAuthStateChanged(auth, (user) => {
       if (user) {
         // User is signed in, see docs for a list of available properties
         const uid = user.uid;
-        const UserName = document.getElementById("user_name");
-        UserName.innerHTML = user.email;
-        console.log(user);        
-        const loginMenu = document.getElementById("loginMenu");        
-        loginMenu.innerHTML = "User";
-        loginMenu.setAttribute("href", "./dashboard.html");        
+        // const UserName = document.getElementById("user_name");
+        // UserName.innerHTML = user.email;
+        console.log(user);
+        const loginMenu = document.getElementById("loginMenu");
+        loginMenu.innerHTML = `<i class="fa fa-user"></i>User`;
+        loginMenu.setAttribute("href", "./dashboard.html");
         console.log("Yes we are on Dashboard");
       }
       if (user == undefined) {
@@ -437,6 +293,8 @@
         location.href = "./login.html";
       }
     });
+
+    // for edit and delete item from firebase
   </script>
 
   <!-- adding tiny myce -->
@@ -445,6 +303,15 @@
     console.log(tinymce);
     tinymce.init({
       selector: "#body",
+      width: 450,
+      height: 250,
+    });
+  </script>
+
+  <script>
+    console.log(tinymce);
+    tinymce.init({
+      selector: "#body_update",
       width: 450,
       height: 250,
     });

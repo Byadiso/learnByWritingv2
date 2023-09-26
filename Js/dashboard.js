@@ -12,4 +12,23 @@ document.addEventListener("DOMContentLoaded", () => {
     blogAdmin.style.display = "none";
     form_blog.classList.remove("hide");
   });
+
+  const block = document.getElementById("blog_admin");
+  block.addEventListener("click", (e) => {
+    e.preventDefault();
+    let id = e.target.dataset.id;
+    console.log(e.target.dataset.id);
+    console.log(e.target.dataset.id);
+  
+    const id_clicked = JSON.stringify(id);
+  
+    // save to localStorage
+    let idSave = localStorage.setItem("id", id_clicked);
+  
+    if (id_clicked) {
+      window.location.href = `../page/delete.html?id=${id_clicked}`;
+    }
+    
+  });
+
 });
