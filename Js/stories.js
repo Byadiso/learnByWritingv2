@@ -12,6 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const myRequest = "https://shortstories-api.onrender.com/stories"; // NO LONGER WORRKING
 
+  
+
   burger_menu.forEach((button) => {
     button.addEventListener("click", (e) => {
       for (var i = 0; i < small_nav.length; i++) {
@@ -31,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((data) => {
         console.log(data)
         if (data) {
-          data.books.forEach((story) => {
+          data.forEach((story) => {
             const content_elt = document.createElement("DIV");
             content_elt.innerHTML = `          
           
