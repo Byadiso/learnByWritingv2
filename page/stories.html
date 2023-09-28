@@ -6,16 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LearnByWriting</title>
     <link rel="stylesheet" href="../css/stories.css" />
-        
-   
+
     <!-- for roboto font -->
     <link
       href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
       rel="stylesheet"
     />
 
-    <!-- 
-    bringing Icon for footer -->
+    <!-- Bringing Icon for footer -->
 
     <link
       rel="stylesheet"
@@ -51,30 +49,24 @@
               ><i class="fa fa-user"></i>User</a
             >
             <div class="dropdown-content">
-              <a href="./dashboard.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+              <a href="./dashboard.html"
+                ><i class="fa fa-dashboard"></i> Dashboard</a
+              >
               <a href="./logout.html"> <i class="fa fa-sign-out"></i>logout</a>
             </div>
           </div>
         </div>
       </nav>
     </header>
-    <section>     
-
-      <!-- book section -->
-      <div class="blog_section book_section">
-        <!-- <div class="blog_content "> -->
-          <div class="book_item_left ">
-            <!-- for recent books -->
-            <div class="books_item_content" id="books_item_content"></div>
-      
-           
-          </div>       
-        
+    <section>
+      <!-- stories section -->
+      <div class="stories_section ">
+        <div class="stories_item_content" id="books_item_content"></div>
       </div>
     </section>
 
     <!-- footer info and details -->
-     <footer>
+    <footer>
       <div class="copyright">
         <p><i class="fa fa-copyright"></i>2023 Ngana Tech</p>
       </div>
@@ -126,18 +118,13 @@
     const database = getDatabase(initializeApp(firebaseConfig));
     const auth = getAuth();
 
-
     // check if user is logged in
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
-        
         const uid = user.uid;
         const username = document.getElementById("username");
         username.innerHTML = `<i class="fa fa-user"></i>${user.email}`;
         username.setAttribute("href", "./dashboard.html");
-
       }
       if (user == undefined) {
         // User is signed out
