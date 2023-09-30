@@ -74,6 +74,7 @@
 
         <div>
           <h5 id="alert_message_add_blog" class="hide">Added successfully</h5>
+          <p id="message_error" ></p>
         </div>
       </div>
 
@@ -133,8 +134,9 @@
 
     const addButton = document.getElementById("addBlog");
     const cancelButton = document.getElementById("cancel_Button");
-
     const form = document.getElementById("form_blog");
+    const message_error = document.getElementById("message_error");
+
 
     //get users
     const users = ref(database, "users/");
@@ -217,8 +219,16 @@
 
       // image variable
       const image = document.getElementById("image").files[0];
-      const imageName = image.name;
+      
 
+      if (image == undefined) {       
+       message_error.innerHTML = "Please add image as well or click cancel button";
+      }
+     else if(image.name){
+      message_error.style.display = "none";
+     }
+
+     const imageName = image.name;
       //refernce a collection
       const storageRef = firebase.storage().ref("images/" + imageName);
 
