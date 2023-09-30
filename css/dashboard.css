@@ -553,6 +553,10 @@ input[type=text], input[type=password], textarea {
 #loading {
     width: 80%;
     height: 80%;
+    margin-bottom: 100px;
+    padding-bottom: 100px;
+    justify-content: center;
+    display: flex;
 }
 
 #main_dashboard {

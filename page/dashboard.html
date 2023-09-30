@@ -56,8 +56,6 @@
       </nav>
     </header>
     <section>
-      
-
       <!-- dashboard section -->
 
       <div class="dashboard_section">
@@ -71,6 +69,8 @@
                 src="../images/loading.gif"
                 alt="loading trick"
                 srcset=""
+                width="100px"
+                margin-bottom="100px"
               />
             </div>
 
@@ -165,9 +165,6 @@
                 <a href="./settings.html" id="settings"
                   ><i class="fa fa-gear"></i>Settings</a
                 >
-                <a href="#" id="logout" class="logout"
-                  ><i class="fa fa-sign-out"></i>logout</a
-                >
               </div>
             </div>
           </div>
@@ -208,7 +205,7 @@
       onAuthStateChanged,
     } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
 
-    import FIREBASE_API_KEY from  '../Js/apikey.js';
+    import FIREBASE_API_KEY from "../Js/apikey.js";
 
     // Your web app's Firebase configuration
     const firebaseConfig = {
@@ -240,31 +237,11 @@
     //get all blogs
     const blogs = ref(database, "blogs/");
 
-    // check errors first
-    if ((Headers.status = 304)) {
-      const loading = document.getElementById("loading");
-      loading.style.display = "none";
-      console.log("say something there is an error loading");
-      const content_elt = document.createElement("DIV");
-      blog_admin.style.display = "flex";
-      content_elt.innerHTML = `                     
-        <p class="story" data-id="no-data"><em>Ops, Nothing found! Try again later or switch your network! </em></p>
-        `;
-      content_elt.setAttribute("class", "book_item error_display");
-      blogAdmin.append(content_elt);
-
-      //check if everything is okey then remove the error_display
-      onValue(blogs, (snapshot) => {
-        const data = snapshot.val();
-        if (data) {
-          content_elt.style.display = "none";
-        }
-      });
-    }
-
     // the fetch data
-
     onValue(blogs, (snapshot) => {
+      // check if there is an error
+      checkError();
+
       const data = snapshot.val();
 
       let blogsArray = [];
@@ -284,11 +261,11 @@
 
         const content_elt = document.createElement("DIV");
         content_elt.innerHTML = `
-        <div class="blog_image blog" data-id=${value.id}>
-          <img src=${value.Image} alt="blog image blog" data-id=${value.id}>
+        <div class="blog_image blog" data-id=${obj.uid_key}>
+          <img src=${value.Image} alt="blog image blog" data-id=${obj.uid_key}>
         </div>
 
-          <h3 class="blog" data-id=${value.id}>${value.title}</h3>
+          <h3 class="blog" data-id=${obj.uid_key}>${value.title}</h3>
           <div class="dashboard_bottom">
         <i class="fa fa-trash admin_control_button removeBlog" id="removeBlog" data-uid=${obj.uid_key}></i><p class="removeBlog" data-uid=${obj.uid_key}>Delete</p>
         <i class="fa fa-edit admin_control_button editBlog" id="editBlog" data-uid=${obj.uid_key}></i><p class="editBlog" data-uid=${obj.uid_key}>Edit</p>
@@ -302,7 +279,7 @@
         }
 
         content_elt.setAttribute("class", "blog_item");
-        content_elt.setAttribute("data-id", value.uid_key);
+        content_elt.setAttribute("data-id", obj.uid_key);
         blogAdmin.append(content_elt);
       }
 
@@ -387,19 +364,6 @@
       );
     });
 
-    const logoutButton = document.getElementById("logout");
-
-    // logoutButton.addEventListener("click", (e) => {
-    //   e.preventDefault();
-    //   auth.signOut().then(() => {
-    //     console.log("User logged out");
-
-    //     setTimeout(() => {
-    //       location.href = "./blog.html";
-    //     }, 3000);
-    //   });
-    // });
-
     // check if user is logged in
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -426,149 +390,56 @@
 
     // //remove blog
     blogAdmin.addEventListener("click", (e) => {
-    e.preventDefault();
-    let id = e.target.dataset.uid;
-    console.log(e.target.dataset.uid);
-    
-  
-    const id_clicked = JSON.stringify(id);
-  
-    // save to localStorage
-    let idSave = localStorage.setItem("id", id_clicked);
-    if (e.target.className.includes("removeBlog")){
-      if (id_clicked) {
-      window.location.href = `../page/delete.html?id=${id_clicked}`;
+      e.preventDefault();
+      let id = e.target.dataset.uid;
+      const id_clicked = JSON.stringify(id);
+
+      // save to localStorage
+      let idSave = localStorage.setItem("id", id);
+      if (e.target.className.includes("removeBlog")) {
+        // if (id_clicked) {
+        window.location.href = `../page/delete.html?id=${id}`;
+        // }
+      } else if (e.target.className.includes("editBlog")) {
+        // if (id_clicked) {
+        window.location.href = `../page/editBlog.html?id=${id}`;
+        // }
+      } else if (e.target.className.includes("blog_item")) {
+        window.location.href = `../page/single_blog.html?id=${id}`;
+      }
+    });
+
+    // check error first
+    function checkError() {
+      if (Error) {
+        const loading = document.getElementById("loading");
+        loading.style.display = "none";
+        console.log("say something there is an error loading");
+        const content_elt = document.createElement("DIV");
+
+        content_elt.innerHTML = `                     
+        <p class="story" data-id="no-data"><em>Ops, No blog found! Try again later or switch your network! </em></p>
+        `;
+        content_elt.setAttribute("class", "book_item error_display");
+        content_elt.style.display = "block";
+        blogAdmin.removeAttribute("id", "blog_admin");
+        blogAdmin.setAttribute("class", "error_block");
+        blogAdmin.append(content_elt);
+
+        //check if everything is okey then remove the error_display
+        onValue(blogs, (snapshot) => {
+          const data = snapshot.val();
+          if (data) {
+            content_elt.style.display = "none";
+          }
+        });
+      }
     }
-    }
-      
-  });
-    // blogAdmin.addEventListener("click", (e) => {
-    //   //let me get my uid
-    //   let key = e.target.dataset.uid;
-
-    //   //remove blog if I am the admin user
-
-    //   const users = ref(database, "users/");
-    //   onValue(users, (snapshot) => {
-    //     const data = snapshot.val();
-    //     for (var [key, value] of Object.entries(data)) {
-        
-    //     }
-    //   });
-
-    //   if (e.target.className.includes("removeBlog")) {
-    //     firebase
-    //       .database()
-    //       .ref("blogs/" + key)
-    //       .remove(function (error) {
-    //         if (error) {
-    //           console.log("delete error" + error);
-    //         } else {
-    //           window.location.href = "./dashboard.html";
-    //         }
-    //       });
-    //   } else if (e.target.className.includes("editBlog")) {
-    //     let key = e.target.dataset.uid;
-
-    //     console.log("let edit this blog");
-    //     const updateBlogButton = document.getElementById("updateBlog");
-    //     const close_overlay_button = document.getElementById("cancel_button");
-
-    //     const title = document.getElementById("title_update");
-    //     const body = document.getElementById("body_update");
-    //     const imageEdit = document.getElementById("image_update");
-    //     const formEdit = document.getElementById("form_edit");
-
-    //     //get data from locastoragee
-    //     let data_single = JSON.parse(localStorage.getItem("data"));
-
-    //     let tobeEddit = data_single.find((elt) => elt.uid_key === key);
-    //     // let see what we have here
-    //     formEdit.style.display = "block";
-    //     title.value = tobeEddit.title;
-    //     const blogText = tinymce.activeEditor.setContent(tobeEddit.body);
-    //     imageEdit.name = tobeEddit.Image;
-
-    //     close_overlay_button.addEventListener("click", (e) => {
-    //       e.preventDefault();
-    //       console.log("yes let close this");
-    //       formEdit.style.display = "none";
-    //     });
-
-    //     updateBlogButton.addEventListener("click", (e) => {
-    //       // image variable
-    //       const image = document.getElementById("image_update").files[0];
-    //       const imageName = image.name;
-    //       //refernce a collection
-    //       const storageRef = firebase.storage().ref("images/" + imageName);
-
-    //       // upload image to selected  storage reference
-    //       var uploadTask = storageRef.put(image);
-
-    //       uploadTask.on(
-    //         "state_changed",
-    //         function (snapshot) {
-    //           var progress =
-    //             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-    //           console.log("Upload is " + progress + "done");
-    //         },
-    //         function (error) {
-    //           console.log(error.message);
-    //         },
-    //         function () {
-    //           // handle successfully upload here..
-    //           uploadTask.snapshot.ref
-    //             .getDownloadURL()
-    //             .then(function (downloadURL) {
-    //               const blogText = tinymce.activeEditor.getContent();
-    //               // var id;
-
-    //               var id = Math.floor(Math.random() * 100);
-
-    //               firebase
-    //                 .database()
-    //                 .ref("blogs/" + key)
-    //                 .update(
-    //                   {
-    //                     title: title.value,
-    //                     body: blogText,
-    //                     createdAt: serverTimestamp(),
-    //                     comments: [],
-    //                     Image: downloadURL,
-    //                     uid_key: key,
-    //                   },
-    //                   function (error) {
-    //                     if (error) {
-    //                       console.log("error whie uploading");
-    //                     } else {
-    //                       console.log("successfully uploaded");
-    //                       // window.location.href = "./dashboard.html";
-    //                       formEdit.style.display = "none";
-    //                       const alert_message_add_blog =
-    //                         document.getElementById("alert_message_add_blog");
-    //                       alert_message_add_blog.style.display = "flex";
-
-    //                       setTimeout(() => {
-    //                         location.href = "./dashboard.html";
-    //                       }, 4000);
-    //                     }
-    //                   }
-    //                 );
-    //             });
-    //         }
-    //       );
-    //     });
-    //   } else if (e.target.className.includes("blog_item blog_image blog")) {
-    //     return console.log("yes yesoooo");
-    //   }
-    // });
- 
- </script>
+  </script>
 
   <!-- adding tiny myce -->
 
   <script>
-    console.log(tinymce);
     tinymce.init({
       selector: "#body",
       width: 450,
@@ -577,7 +448,6 @@
   </script>
 
   <script>
-    console.log(tinymce);
     tinymce.init({
       selector: "#body_update",
       width: 450,

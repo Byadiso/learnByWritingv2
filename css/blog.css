@@ -132,148 +132,12 @@ i {
 
 
 /* hero section */
-section {
-   /* padding: 100px; */
+section {  
    background-color: #fff;
+   color: var(--whiteColor);
    margin: 20px;
 }
 
-.hero_content {
-    border-left: 4px solid var(--blueColor);
-    padding-left: 30px;
-}
-
-.hero_content h2 {
-    font-family: 'Roboto Thin';
-}
-
-
-/* statistic section */
-
-.statistic_section {
-    background-color: var(--whiteColor);
-    display: flex;
-    color: var(--textColorGrey);
-    justify-content: center;
-    align-items: center;
-    padding: var(--spacing);
-    border-radius: 20px;
-    box-shadow: 0.10em 0.10em 0.2em;
-    width: 35%;
-    margin-left: 400px;
-    margin-top: -35px;
-}
-
-.stat_content_middle {
-    border-left: 2px solid var(--colorforWeakGrey);
-    border-right: 2px solid var(--colorforWeakGrey);
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-.stat_content {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin-right: var(--spacing);
-    margin-left: var(--spacing);
-
-}
-
-.stat_content span {
-    margin-left: 30px;
-    font-size: 40px;
-    font-weight: 700;
-    color: var(--colorforWeakGrey);
-    line-height: 48px;
-    display: block;
-
-}
-
-.stat_content h4 {
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--colorforWeakGrey);
-    font-family: "Montserrat", serif;
-}
-
-/* who I am section */
-.who_section {
-    display: block;
-    align-items: center;
-    justify-content: center
-}
-
-.main_who_items {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--textColorGreyParagraph);
-    margin: 20px;
-}
-
-.who_header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: var(--textColorGreyParagraph)
-}
-
-.who_header p {
-    color: var(--colorforWeakGrey)
-}
-
-.main_who_items img {
-    Width: 15%;
-    height: 100%;
-    border-radius: 20px;
-    padding: 10px;
-    margin: 20px
-}
-
-.main_who_items p {
-    color: var(--colorforWeakGrey);
-}
-
-/* 
-    servicesection */
-
-
-.service_section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: var(--textColorGrey);
-    background: var(--lowerBackground);
-
-}
-
-.Service_header {
-    margin: 20px;
-}
-
-.service_content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.Service_form_header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--whiteColor);
-
-
-}
-
-.service_text, .service_image {
-    cursor: pointer;
-}
 
 .text_L {
     background: var(--textColorGrey);
@@ -285,28 +149,6 @@ section {
     background: var(--blueColor);
     padding-left: 50px;
     padding-right: 30px;
-}
-
-
-
-/* 
-    input  */
-
-input[type=text], input[type=password], textarea {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    background: var(--inputColor);
-    border: 1px solid var(--inputColor);
-    border-radius: 4px;
-    box-sizing: border-box;
-    color: white;
-    font-size: medium;
-}
-
-.service_text h3 {
-    padding: 10px;
 }
 
 /* for blog page */
@@ -368,8 +210,7 @@ input[type=text], input[type=password], textarea {
 }
 
 .blog_content {
-    display: flex;
-
+    /* display: flex; */
 }
 
 
@@ -453,7 +294,7 @@ input[type=text], input[type=password], textarea {
 }
 
 .blog_item_left {
-    max-width: 100%;
+    max-width: 100%;   
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -621,20 +462,8 @@ input[type=text], input[type=password], textarea {
 }
 
 
-/* .................................... */
-.blog_categories a {
-    text-decoration: none;
-    color: var(--colorforWeakGrey);
-    padding: 5px;
-    border-bottom: 1px solid var(--colorforWeakGrey);
-}
 
-.blog_popular a, .blog_tags a {
-    text-decoration: none;
-    color: var(--colorforWeakGrey);
-    padding: 5px;
-    border-bottom: 1px solid var(--colorforWeakGrey);
-}
+
 
 /* .................blog and dashboard................... */
 .dashboard_categories {
@@ -660,118 +489,12 @@ input[type=text], input[type=password], textarea {
     border-bottom: 1px solid var(--colorforWeakGrey);
 }
 
-/* for login */
-.hero_login_section {
 
-    padding: 30px;
-    background: linear-gradient(0deg, rgba(15, 15, 15, 0.76), rgba(3, 3, 3, 0.774)), url(../images/background.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.hero_login_content {
-    display: flex;
-    justify-content: center;
-}
-
-.hero_login_content h1 {
-    padding: 20px
-}
-
-.form_login {
-    border-radius: 4px;
-    margin: 50px;
-}
-
-.form_login input {
-    border-radius: 20px;
-}
-
-.login, .register {
-    color: var(--whiteColor);
-    background-color: var(--blueColor);
-    border: none;
-    border-radius: px;
-    padding: 8px;
-    padding-left: 20px;
-    padding-right: 20px;
-    cursor: pointer;
-    margin-right: 5px;
-    margin-left: 10px;
-}
-
-.login_register {
-    display: inline;
-    margin: 20px;
-}
 
 /* ..........register.....section..... */
 .hide {
     display: none
 }
-
-/* for portfolio */
-
-.header_portfolio {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    color: var(--textColorGreyParagraph);
-}
-
-.header_portfolio h1 {
-
-    margin: 0px
-}
-
-.header_portfolio p {
-    color: var(--colorforWeakGrey)
-}
-
-.portfolio_nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.portfolio_nav h1 {
-    margin: 15px;
-    color: var(--textColorGreyParagraph);
-    cursor: pointer;
-    padding: 10px;
-}
-
-.portfolio_nav h1:hover {
-    /* background:var(--colorforWeakGrey) */
-    border-bottom: 1px solid var(--colorforWeakGrey);
-}
-
-.portfolio_content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.portfolio_image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 25px;
-
-}
-
-.portfolio_image img {
-    width: 200px;
-    height: 145px;
-    cursor: pointer;
-}
-
-.portfolio_image img:hover {
-    border: 4px solid var(--colorforWeakGrey);
-}
-
 
 .blog_item_content {
     margin-right: 20px;
@@ -807,6 +530,15 @@ footer .copyright {
     background-color: grey;
 }
 
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
 
 .social_media i {
     margin: var(--spacing);
@@ -829,74 +561,9 @@ footer .copyright {
         margin-bottom: 10px;
     }
 
-    .hero_section {
-        font-size: .8rem;
-    }
-
-    .hire_text {
-        font-size: .7rem;
-        min-width: 130px;
-    }
-
-    .statistic_section {
-        background-color: var(--whiteColor);
-        display: flex;
-        /* flex-direction: column; */
-        color: var(--textColorGrey);
-        justify-content: center;
-        align-items: center;
-        padding: var(--spacing);
-        border-radius: 20px;
-        box-shadow: 0.1em 0.1em 0.2em;
-        box-shadow: none;
-        width: 100%;
-        margin-left: 5px;
-        margin-right: 10px;
-        margin-top: -35px;
-        padding: 10px
-    }
-
-
-    /* for main_who_items */
-    .main_who_items {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        color: var(--textColorGreyParagraph);
-        margin: 20px;
-    }
-
-    .main_who_items img {
-        width: 100%;
-    }
-
-    /* for services */
-    .service_content {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    /* for portfolio */
-
-    .portfolio_nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .portfolio_nav h1 {
-        font-size: 1rem;
-        margin: 0px;
-    }
+     
 
     /* for blogs */
-
-
-
     .blog_item_left {
         margin: 0px;
         padding: 0px
@@ -918,15 +585,14 @@ footer .copyright {
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
+        flex-direction: column;       
+
     }
 
     .blog_content img {
         max-Width: 100%;
         height: 100%;
-        border-radius: 20px;
-        /* padding: 10px; */
-        /* margin:20px */
+        border-radius: 20px;       
     }
 
     .blog_item_content {
@@ -936,11 +602,22 @@ footer .copyright {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        
     }
 
     #loading {
-        width: 20px;
-        height: 20px;
+       margin-bottom: 100px;
+        padding-bottom: 100px;
+        justify-content: center;
+        display:flex;
+    }
+
+    .loading_image{
+        margin-bottom: 100px;
+        padding-bottom: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .readme_button {

@@ -56,15 +56,25 @@
         </textarea>
 
         <input type="file" name="image" id="image" placeholder="Add image" />
+        <div>
+          <input
+            class="addBlog add_blog_button"
+            type="submit"
+            value="Save"
+            id="addBlog"
+          />
 
-        <input
-          class="addBlog add_blog_button"
-          type="submit"
-          value="Save"
-          id="addBlog"
-        />
+          <input
+            class="cancel_button"
+            type="submit"
+            value="Return"
+            id="cancel_button"
+          />
+        </div>
 
-        <div> <h5 id="alert_message_add_blog" class="hide">Added successfully</h5></div>
+        <div>
+          <h5 id="alert_message_add_blog" class="hide">Added successfully</h5>
+        </div>
       </div>
 
       <!-- Services section -->
@@ -122,6 +132,7 @@
     const auth = getAuth();
 
     const addButton = document.getElementById("addBlog");
+    const cancelButton = document.getElementById("cancel_Button");
 
     const form = document.getElementById("form_blog");
 
@@ -140,7 +151,7 @@
     if ((Headers.status = 304)) {
       const content_elt = document.createElement("DIV");
 
-      content_elt.innerHTML = `                     
+      content_elt.innerHTML = `
         <p class="story" data-id="no-data"><em>Ops, Nothing found! Try again later or switch your network! </em></p>
         `;
       content_elt.setAttribute("class", "book_item error_display");
@@ -265,8 +276,16 @@
               );
           });
 
-          // <!--   for sign out  -->
 
+          // return functionality
+
+          cancelButton.addEventListener("click", (e) => {
+          e.preventDefault();
+          // console.log('cancelButton')
+          location.href = "./dashboard.html";
+    
+          });     
+          
           //function to get input value
 
           function getInputValue(id) {

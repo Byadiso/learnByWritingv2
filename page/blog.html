@@ -50,7 +50,9 @@
               ><i class="fa fa-user"></i>User</a
             >
             <div class="dropdown-content">
-              <a href="./dashboard.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+              <a href="./dashboard.html"
+                ><i class="fa fa-dashboard"></i> Dashboard</a
+              >
               <a href="./logout.html"> <i class="fa fa-sign-out"></i>logout</a>
             </div>
           </div>
@@ -69,38 +71,11 @@
                 src="../images/loading.gif"
                 alt="loading trick"
                 srcset=""
+                width="100px"
+                margin-bottom="100px"
               />
             </div>
           </div>
-
-          <!-- for categories -->
-          <!-- <div class="blog_item_rigt">
-            <div class="blog_item">
-              <div class="blog_search">
-                <input type="text" placeholder="Search.." name="search" />
-                <i class="fa fa-search"></i>
-              </div>
-
-              <div class="dashboard_categories">
-                <h1>Dashboard</h1>
-                <a href="./dashboard.html" id="add"
-                  ><i class="fa fa-plus"></i>Add Blog</a
-                >
-                <a href="./user.html" id="info"
-                  ><i class="fa fa-info"></i>My info</a
-                >
-                <a href="./vocabulary.html" id="vocabulary"
-                  ><i class="fa-solid fa-floppy-disk"></i>Your Vocabulary</a
-                >
-                <a href="./settings.html" id="settings"
-                  ><i class="fa fa-gear"></i>Settings</a
-                >
-                <a href="#" id="logout" class="logout"
-                  ><i class="fa fa-sign-out"></i>logout</a
-                >
-              </div>
-            </div>
-          </div> -->
         </div>
       </div>
     </section>
@@ -145,8 +120,7 @@
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
 
-
-    import FIREBASE_API_KEY from  '../Js/apikey.js';
+    import FIREBASE_API_KEY from "../Js/apikey.js";
 
     // Your web app's Firebase configuration
     const firebaseConfig = {
@@ -175,34 +149,11 @@
     //read data from database () firebase
     const blogs = ref(database, "blogs/");
 
-    // check error first
-    if ((Headers.status = 304)) {
-      const loading = document.getElementById("loading");
-      loading.style.display = "none";
-      console.log("say something there is an error loading");
-      const content_elt = document.createElement("DIV");
-
-      content_elt.innerHTML = `                     
-        <p class="story" data-id="no-data"><em>Ops, No blog found! Try again later or switch your network! </em></p>
-        `;
-      content_elt.setAttribute("class", "book_item error_display");
-      content_elt.style.display = "block";
-      blogAdmin.removeAttribute("id", "blog_admin");
-      blogAdmin.setAttribute("class", "error_block");
-      blogAdmin.append(content_elt);
-
-      //check if everything is okey then remove the error_display
-      onValue(blogs, (snapshot) => {
-        const data = snapshot.val();
-        if (data) {
-          content_elt.style.display = "none";
-        }
-      });
-    }
-
     onValue(blogs, (snapshot) => {
-     
       const data = snapshot.val();
+
+      // check if there is an error
+      checkError();
 
       let blogsArray = [];
 
@@ -223,9 +174,7 @@
           <img src=${value.Image} alt="blog image blog" data-id=${obj.uid_key}>
         </div>
         <h3 class="blog" data-id=${obj.uid_key}>${value.title}</h3>
-        <p class="blog_title blog" data-id=${obj.uid_key}>${firstSentence(
-          value.body
-        )}</p>
+        <p class="blog" data-id=${obj.uid_key}>${firstSentence(value.body)}</p>
         <p  data-id=${obj.uid_key} class="readme_button blog">Read more...</p>
         `;
 
@@ -236,8 +185,9 @@
         blogAdmin.removeAttribute("class", "error_block");
 
         blogAdmin.append(content_elt);
-        
-        if (content_elt) {          
+
+        if (content_elt) {
+          console.log("yeseee");
           const loading = document.getElementById("loading");
           loading.style.display = "none";
         }
@@ -257,13 +207,11 @@
         const username = document.getElementById("username");
         username.innerHTML = `<i class="fa fa-user"></i>${user.email}`;
         username.setAttribute("href", "./dashboard.html");
-
       }
 
       if (user == undefined) {
         // User is signed out
         location.href = "./login.html";
-      
       }
     });
 
@@ -273,6 +221,33 @@
       var sentenceRegex = /^[^.!?]*[.!?]/;
       var sentences = text.match(sentenceRegex);
       return sentences[0];
+    }
+
+    // check error first
+    function checkError() {
+      if (Error) {
+        const loading = document.getElementById("loading");
+        loading.style.display = "none";
+        console.log("say something there is an error loading");
+        const content_elt = document.createElement("DIV");
+
+        content_elt.innerHTML = `                     
+        <p class="story" data-id="no-data"><em>Ops, No blog found! Try again later or switch your network! </em></p>
+        `;
+        content_elt.setAttribute("class", "book_item error_display");
+        content_elt.style.display = "block";
+        blogAdmin.removeAttribute("id", "blog_admin");
+        blogAdmin.setAttribute("class", "error_block");
+        blogAdmin.append(content_elt);
+
+        //check if everything is okey then remove the error_display
+        onValue(blogs, (snapshot) => {
+          const data = snapshot.val();
+          if (data) {
+            content_elt.style.display = "none";
+          }
+        });
+      }
     }
   </script>
 </html>

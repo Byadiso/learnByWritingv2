@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LearnByWritingV2</title>
+   
+    <link rel="stylesheet" href="../css/user.css" />
+    <!-- for roboto font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 
+    bringing Icon for footer -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/40109df241.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <nav class="main_nav">
+        <div class="menu">
+          <h2 class="ngana_logo">
+            <a href="../index.html" class="menu_nav">LearnByWriting</a>
+          </h2>
+          <a href="../index.html" class="menu_nav">
+            <i class="fa fa-search"></i>Learn</a
+          >
+          <a href="./stories.html" class="menu_nav">
+            <i class="fa fa-book"></i>Stories</a
+          >
+          <a href="./blog.html" class="menu_nav">
+            <i class="fa fa-globe"></i>Blogs</a
+          >
+          <a href="./vocabulary.html" class="menu_nav">
+            <i class="fa fa-list"></i>Vocabulary Lists</a
+          >
+          <div class="dropdown">
+            <a href="./user.html" class="dropbtn" id="username"
+              ><i class="fa fa-user"></i>User</a
+            >
+            <div class="dropdown-content">
+              <a href="./dashboard.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+              <a href="./logout.html"> <i class="fa fa-sign-out"></i>logout</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section>
+      <div>
+        <h2>Welcome to Settings's page</h2>
+        <p>Welcome to Settings's page</p>
+      </div>
+    </section>
+
+    <!-- footer info and details -->
+
+    <footer>
+      <div class="copyright">
+        <p><i class="fa fa-copyright"></i>2023 Ngana Tech</p>
+      </div>
+    </footer>
+  </body>
+
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-storage.js"></script>
+  <script src="../Js/singleBlog.js" defer></script>
+
+  <script src="../Js/tinymce/tinymce.min.js"></script>
+
+  <script type="module" defer>
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+    import {
+      getDatabase,
+      set,
+      ref,
+      serverTimestamp,
+      onValue,
+    } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+
+    import {
+      getAuth,
+      createUserWithEmailAndPassword,
+      signInWithEmailAndPassword,
+      onAuthStateChanged,
+    } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
+
+    // import { initializeApp } from "firebase/app";
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    import FIREBASE_API_KEY from  '../Js/apikey.js';
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: FIREBASE_API_KEY,
+      authDomain: "mybrand-df7b7.firebaseapp.com",
+      projectId: "mybrand-df7b7",
+      storageBucket: "mybrand-df7b7.appspot.com",
+      messagingSenderId: "1073877765217",
+      appId: "1:1073877765217:web:7f63596f42c5d4ca18ae20",
+    };
+
+    // Initialize Firebase
+    // const app = initializeApp(firebaseConfig);
+    const app = firebase.initializeApp(firebaseConfig);
+    const database = getDatabase(initializeApp(firebaseConfig));
+    const auth = getAuth();
+    // const database = getDatabase();
+
+    //my id in the localStorage
+
+    const blog_id = JSON.parse(localStorage.getItem("id"));
+    const blog_item_content = document.querySelector("#blog_item_content");
+
+    console.log(blog_id);
+    //function to get inpu value
+
+    function getInputValue(id) {
+      return document.getElementById(id).value;
+    }
+
+    let myId = location.href.split("?id=")[1];
+    let blogById = decodeURIComponent(myId).replace(/['"]+/g, "");
+    const blogs = ref(database, `blogs/${blogById}`);
+
+      
+    // check if user is logged in
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        console.log(user);
+
+        const username = document.getElementById("username");
+        username.innerHTML = `<i class="fa fa-user"></i>${user.email}`;
+        username.setAttribute("href", "./dashboard.html");
+      }
+      if (user == undefined) {
+        // User is signed out
+        location.href = "./login.html";
+      }
+    });
+  </script>
+
+  <!-- adding tiny myce -->
+
+  <script>
+    console.log(tinymce);
+    tinymce.init({
+      selector: "#body",
+      width: 450,
+      height: 250,
+    });
+  </script>
+</html>

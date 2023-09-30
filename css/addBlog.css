@@ -91,6 +91,7 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 /* for form style */
@@ -117,6 +118,18 @@ section{
 }
 
 
+.cancel_button {
+    color: var(--whiteColor);
+    background-color: var(--colorforWeakGrey);
+    border: none;
+    border-radius: 20px;
+    padding: 8px;    
+    cursor: pointer;   
+    margin-top: 20px;
+    width: 100px;   
+}
+
+
 
 textarea{
     text-align: start;
@@ -134,6 +147,11 @@ textarea{
 }
 
 
+/* error */
+#message_error{
+    color: var(--redColor);
+    padding: 40px;
+}
 
 /* footer */
 footer {
