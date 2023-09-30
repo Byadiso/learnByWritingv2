@@ -73,7 +73,7 @@
         </div>
 
         <div>
-          <h5 id="alert_message_add_blog" class="hide">Added successfully</h5>
+          <h5 id="alert_message_add_blog" class="hide">Updated successfully</h5>
           <p id="message_error" ></p>
         </div>
       </div>
@@ -222,7 +222,7 @@
       
 
       if (image == undefined) {       
-       message_error.innerHTML = "Please add image as well or click cancel button";
+       message_error.innerHTML = "Please add image as well or click return button";
       }
      else if(image.name){
       message_error.style.display = "none";
@@ -288,16 +288,13 @@
 
 
           // return functionality
-
           cancelButton.addEventListener("click", (e) => {
-          e.preventDefault();
-          // console.log('cancelButton')
+          e.preventDefault();          
           location.href = "./dashboard.html";
     
           });     
           
           //function to get input value
-
           function getInputValue(id) {
             return document.getElementById(id).value;
           }
@@ -310,9 +307,7 @@
     onAuthStateChanged(auth, (user) => {
       if (user) {
         // User is signed in, see docs for a list of available properties
-        const uid = user.uid;
-        // const UserName = document.getElementById("user_name");
-        // UserName.innerHTML = user.email;
+        const uid = user.uid;       
         console.log(user);
         const loginMenu = document.getElementById("loginMenu");
         loginMenu.innerHTML = `<i class="fa fa-user"></i>User`;

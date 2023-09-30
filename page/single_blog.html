@@ -99,36 +99,10 @@
             </div>
 
             <hr />
-            <!-- for related blog -->
+            
           </div>
 
-          <!-- for categories -->
-          <!-- <div class="blog_item_rigt">
-            <div class="blog_item">
-              <div class="blog_search">
-                <input type="text" placeholder="Search.." name="search" />
-                <i class="fa fa-search"></i>
-              </div>
-              <div class="dashboard_categories">
-                <h1>Dashboard</h1>
-                <a href="./dashboard.html" id="add"
-                  ><i class="fa fa-plus"></i>Add Blog</a
-                >
-                <a href="./user.html" id="info"
-                  ><i class="fa fa-info"></i>My info</a
-                >
-                <a href="./vocabulary.html" id="members"
-                  ><i class="fa-solid fa-floppy-disk"></i>Your Vocabulary</a
-                >
-                <a href="./settings.html" id="settings"
-                  ><i class="fa fa-gear"></i>Settings</a
-                >
-                <a href="#" id="logout" class="logout"
-                  ><i class="fa fa-sign-out"></i>logout</a
-                >
-              </div>
-            </div>
-          </div> -->
+         
         </div>
       </div>
     </section>
@@ -389,11 +363,11 @@
       if (user) {
         // User is signed in, see docs for a list of available properties
         const uid = user.uid;
-        const UserName = document.getElementById("user_name");
+        const UserName = document.getElementById("loginMenu");
         UserName.innerHTML = user.email;
         console.log(user);        
         const loginMenu = document.getElementById("loginMenu");        
-        loginMenu.innerHTML = "User";
+        loginMenu.innerHTML = `<i class="fa fa-dashboard"></i>Dashboard`;
         loginMenu.setAttribute("href", "./dashboard.html");        
         console.log("Yes we are on Dashboard");
       }
