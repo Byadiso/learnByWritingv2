@@ -49,13 +49,7 @@
       </nav>
     </header>
     <section>
-      <div class="hero_section">
-        <div class="hero_content">
-          <h2>Our blog</h2>
-          <h1>My Latest blog</h1>
-        </div>
-      </div>
-
+      
       <!-- blogs section -->
 
       <div class="blog_section">
@@ -268,7 +262,6 @@
         if (commentContent.value.trim() !== "") {
           //add comments field to the document
           const id = e.target.dataset.uid;
-
           firebase
             .database()
             .ref("comments/")
