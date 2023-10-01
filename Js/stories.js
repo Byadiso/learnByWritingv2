@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const burger_menu = document.querySelectorAll(".burger_menu");
   const small_nav = document.querySelectorAll(".menu_nav");
+  const loading = document.getElementById("loading");
 
   const bookContainer = document.querySelector("#books_item_content");
 
@@ -28,11 +29,13 @@ document.addEventListener("DOMContentLoaded", () => {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
-        if (data) {
+        
+        
+        if (data) {          
+          loading.style.display = "none";
           data.forEach((story) => {
             const content_elt = document.createElement("DIV");
-            content_elt.innerHTML = `       
+            content_elt.innerHTML = `      
           
           <h5 class="story" data-id=${story._id}>${story.title}</h5>  
           <p class="story" data-id=${story._id}>${story.story}</p>  
@@ -45,11 +48,10 @@ document.addEventListener("DOMContentLoaded", () => {
             bookContainer.append(content_elt);
           });
         }
-
-        console.log(data);
+        
       })
       .catch((erro) => {
-        console.log(erro);
+        loading.style.display = "none";
         const content_elt = document.createElement("DIV");
         content_elt.innerHTML = `                     
         <p class="story" data-id="no-data"><em>Ops, No story found! Try again later or switch your network! </em></p>
