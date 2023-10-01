@@ -6,9 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-  const page = 1;
-  const storyPerPage = 5;
-  const skip = (page -1)* storyPerPage;
+  let start = 0;
+  let skip = 5;
+  let count = 0;
+  
   // const NextPage = currentPage + newData.length;
 
   const bookContainer = document.querySelector("#books_item_content");
@@ -30,7 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const getBooks = (storyPerPage) => {
+  const getBooks = (start,skip) => {
+    console.log(start,skip)
     fetch(myRequest)
       .then((response) => {
         // response.header("Access-Control-Allow-Origin", "*")
@@ -40,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (data) {
           loading.style.display = "none";
           load_more_button.style.display = "block";
-          const newData = data.slice(0, storyPerPage);
+          const newData = data.slice(start, skip);
           newData.forEach((story) => {
             const content_elt = document.createElement("DIV");
             content_elt.innerHTML = `   
@@ -58,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       })
       .catch((erro) => {
+        console.log(erro);
         loading.style.display = "none";
         const content_elt = document.createElement("DIV");
         content_elt.innerHTML = `                     
@@ -72,13 +75,16 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   };
 
-  getBooks(storyPerPage);
+  getBooks(start,skip);
 
 
-  // get more stories
+  // get more stories  by clicking 
   load_more_button.addEventListener("click", (e)=>{
     e.preventDefault();
-    const LoadMore=storyPerPage+skip;    
-    getBooks(LoadMore)
+    let skip =5; 
+    count++;
+    let currentStory=  6*count
+    let newSkip =  currentStory + skip      
+    getBooks(currentStory,newSkip)
   })
 });
