@@ -35,12 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
           loading.style.display = "none";
           data.forEach((story) => {
             const content_elt = document.createElement("DIV");
-            content_elt.innerHTML = `      
-          
+            content_elt.innerHTML = `   
           <h5 class="story" data-id=${story._id}>${story.title}</h5>  
           <p class="story" data-id=${story._id}>${story.story}</p>  
           <p class="story" data-id=${story._id}><strong> ${story.moral}</strong></p>        
           <p class="story" data-id=${story._id}><em>${story.author}</em></p>
+          <hr>
           `;
 
             content_elt.setAttribute("class", "book_item");
