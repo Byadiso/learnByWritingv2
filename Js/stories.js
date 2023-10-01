@@ -2,6 +2,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const burger_menu = document.querySelectorAll(".burger_menu");
   const small_nav = document.querySelectorAll(".menu_nav");
   const loading = document.getElementById("loading");
+  const load_more_button = document.getElementById("load_more_button");
+
+
+
+  const page = 1;
+  const storyPerPage = 5;
+  const skip = (page -1)* storyPerPage;
+  // const NextPage = currentPage + newData.length;
 
   const bookContainer = document.querySelector("#books_item_content");
 
@@ -11,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // const myRequest = "https://www.dbooks.org/api/recent";
 
-  const myRequest = "https://shortstories-api.onrender.com/stories"; // NO LONGER WORRKING
+  const myRequest = `https://shortstories-api.onrender.com/stories`; // NO LONGER WORRKING
 
   burger_menu.forEach((button) => {
     button.addEventListener("click", (e) => {
@@ -22,18 +30,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const getBooks = () => {
+  const getBooks = (storyPerPage) => {
     fetch(myRequest)
       .then((response) => {
         // response.header("Access-Control-Allow-Origin", "*")
         return response.json();
       })
       .then((data) => {
-        
-        
-        if (data) {          
+        if (data) {
           loading.style.display = "none";
-          data.forEach((story) => {
+          load_more_button.style.display = "block";
+          const newData = data.slice(0, storyPerPage);
+          newData.forEach((story) => {
             const content_elt = document.createElement("DIV");
             content_elt.innerHTML = `   
           <h5 class="story" data-id=${story._id}>${story.title}</h5>  
@@ -48,7 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
             bookContainer.append(content_elt);
           });
         }
-        
       })
       .catch((erro) => {
         loading.style.display = "none";
@@ -59,12 +66,19 @@ document.addEventListener("DOMContentLoaded", () => {
         content_elt.setAttribute("class", "story_item error_display");
 
         // show error block in center
-
         bookContainer.setAttribute("class", "error_block ");
         bookContainer.removeAttribute("id", "books_item_content");
         bookContainer.append(content_elt);
       });
   };
 
-  getBooks();
+  getBooks(storyPerPage);
+
+
+  // get more stories
+  load_more_button.addEventListener("click", (e)=>{
+    e.preventDefault();
+    const LoadMore=storyPerPage+skip;    
+    getBooks(LoadMore)
+  })
 });

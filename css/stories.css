@@ -140,12 +140,31 @@ i {
     display: flex;
     justify-content: center;
     align-items: center;  
+    flex-direction: column;
 }
 
 .story_item{
   border-bottom: 4px solid var(--colorforWeakGreyBackground);
 }
 
+/* load more buttton */
+#load_more_button{
+    background-color: var(--blueColor);
+    color: var(--whiteColor);
+    border: none;
+    padding: 10px;
+    border-radius: 15px;
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+
+#load_more_button:hover{
+    cursor: pointer;
+}
+
+.hide{
+    display: none;
+}
 
 
 

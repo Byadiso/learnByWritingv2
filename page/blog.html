@@ -133,69 +133,80 @@
     const app = initializeApp(firebaseConfig);
     const database = getDatabase();
     const auth = getAuth();
+    const blogPerPage = 9;
+
+    //my add blog button
+    const addButton = document.getElementById("addBlog");
+    const blogAdmin = document.getElementById("blog_admin");
 
     //function to get inpu value
     function getInputValue(id) {
       return document.getElementById(id).value;
     }
 
-    //my add blog button
-    const addButton = document.getElementById("addBlog");
-    const blogAdmin = document.getElementById("blog_admin");
+    // Retrieve all the data from data base
 
-    //read data from database () firebase
-    const blogs = ref(database, "blogs/");
+    const getBlog = (blogPerPage) => {
+      //read data from database () firebase
+      const blogs = ref(database, "blogs/");
+      onValue(blogs, (snapshot) => {
+        const data = snapshot.val();
+        // check if there is an error
+        checkError(blogs);
+        let blogsArray = [];
 
-    onValue(blogs, (snapshot) => {
-      const data = snapshot.val();
-
-      // check if there is an error
-      checkError();
-
-      let blogsArray = [];
-
-      for (var [key, value] of Object.entries(data)) {
-        var obj = {
-          id: value.id,
-          title: value.title,
-          body: value.body,
-          Image: value.Image,
-          uid_key: key,
-        };
-
-        blogsArray.push(obj);
-
-        const content_elt = document.createElement("DIV");
-        content_elt.innerHTML = `
-        <div class="blog_image blog" data-id=${obj.uid_key}>
-          <img src=${value.Image} alt="blog image blog" data-id=${obj.uid_key}>
-        </div>
-        <h3 class="blog" data-id=${obj.uid_key}>${value.title}</h3>
-        <p class="blog" data-id=${obj.uid_key}>${firstSentence(value.body)}</p>
-        <p  data-id=${obj.uid_key} class="readme_button blog">Read more...</p>
-        `;
-
-        content_elt.setAttribute("class", "blog_item");
-        content_elt.setAttribute("data-id", obj.uid_key);
-
-        blogAdmin.setAttribute("id", "blog_admin");
-        blogAdmin.removeAttribute("class", "error_block");
-
-        blogAdmin.append(content_elt);
-
-        if (content_elt) {
-          
-          const loading = document.getElementById("loading");
-          loading.style.display = "none";
+        for (var [key, value] of Object.entries(data)) {
+          var obj = {
+            id: value.id,
+            title: value.title,
+            body: value.body,
+            Image: value.Image,
+            uid_key: key,
+          };
+          blogsArray.push(obj);
         }
-      }
 
-      console.log(blogsArray);
+        //  fetch only 6 per page
 
-      const dataSave = JSON.stringify(blogsArray);
-      // save to localStorage
-      localStorage.setItem("data", dataSave);
-    });
+        const newData = blogsArray.slice(0, blogPerPage);
+
+        newData.forEach((obj) => {
+          const content_elt = document.createElement("DIV");
+          content_elt.innerHTML = `
+           <div class="blog_image blog" data-id=${obj.uid_key}>
+             <img src=${obj.Image} alt="blog image blog" data-id=${obj.uid_key}>
+           </div>
+           <h3 class="blog" data-id=${obj.uid_key}>${obj.title}</h3>
+           <p class="blog" data-id=${obj.uid_key}>${firstSentence(obj.body)}</p>
+           <p  data-id=${
+             obj.uid_key
+           } class="readme_button blog">Read more...</p>
+           `;
+
+          content_elt.setAttribute("class", "blog_item");
+          content_elt.setAttribute("data-id", obj.uid_key);
+
+          blogAdmin.setAttribute("id", "blog_admin");
+          blogAdmin.removeAttribute("class", "error_block");
+
+          blogAdmin.append(content_elt);
+
+          if (content_elt) {
+            const loading = document.getElementById("loading");
+            loading.style.display = "none";
+          }
+
+          // const dataSave = JSON.stringify(blogsArray);
+          // // save to localStorage
+          // localStorage.setItem("data", dataSave);
+        });
+      });
+    };
+
+    // call that function to retrive all the data
+    getBlog(9);
+
+    // let make small pagination
 
     // check if user is logged in
     onAuthStateChanged(auth, (user) => {
@@ -221,16 +232,15 @@
     }
 
     // check error first
-    function checkError() {
+    function checkError(blogs) {
       if (Error) {
         const loading = document.getElementById("loading");
         loading.style.display = "none";
-        console.log("say something there is an error loading");
         const content_elt = document.createElement("DIV");
 
-        content_elt.innerHTML = `                     
-        <p class="story" data-id="no-data"><em>Ops, No blog found! Try again later or switch your network! </em></p>
-        `;
+        content_elt.innerHTML = `
+           <p class="story" data-id="no-data"><em>Ops, No blog found! Try again later or switch your network! </em></p>
+           `;
         content_elt.setAttribute("class", "book_item error_display");
         content_elt.style.display = "block";
         blogAdmin.removeAttribute("id", "blog_admin");
