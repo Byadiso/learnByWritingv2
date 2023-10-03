@@ -44,12 +44,13 @@
           <a href="./vocabulary.html" class="menu_nav">
             <i class="fa fa-list"></i>Vocabulary Lists</a
           >
-          <a href="./login.html" class="menu_nav " id="loginMenu"> <i class="fa fa-user"></i>User</a>
+          <a href="./login.html" class="menu_nav" id="loginMenu">
+            <i class="fa fa-user"></i>User</a
+          >
         </div>
       </nav>
     </header>
     <section>
-      
       <!-- blogs section -->
 
       <div class="blog_section">
@@ -93,10 +94,7 @@
             </div>
 
             <hr />
-            
           </div>
-
-         
         </div>
       </div>
     </section>
@@ -107,7 +105,6 @@
         <p><i class="fa fa-copyright"></i>2023 Ngana Tech</p>
       </div>
     </footer>
-    
   </body>
 
   <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
@@ -141,7 +138,7 @@
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
 
-    import FIREBASE_API_KEY from  '../Js/apikey.js';
+    import FIREBASE_API_KEY from "../Js/apikey.js";
 
     // Your web app's Firebase configuration
     const firebaseConfig = {
@@ -154,11 +151,10 @@
     };
 
     // Initialize Firebase
-    
+
     const app = firebase.initializeApp(firebaseConfig);
     const database = getDatabase(initializeApp(firebaseConfig));
     const auth = getAuth();
-    
 
     //my id in the localStorage
     const blog_id = JSON.parse(localStorage.getItem("id"));
@@ -203,7 +199,7 @@
       window.addEventListener("load", function () {
         count + 1;
         localStorage.setItem("count", count);
-        
+
         console.log("Blog visited " + count);
       });
 
@@ -334,10 +330,8 @@
           <div class="comment_bottom_section">
             <span class="comment_time">Comment added on ${
               value.content ? date + "/" + mth + "/" + yr : " "
-            }</span>
-            
-          </div>
-         
+            }</span>            
+          </div>         
           </div>
          
          `;
@@ -358,10 +352,10 @@
         const uid = user.uid;
         const UserName = document.getElementById("loginMenu");
         UserName.innerHTML = user.email;
-        console.log(user);        
-        const loginMenu = document.getElementById("loginMenu");        
+        console.log(user);
+        const loginMenu = document.getElementById("loginMenu");
         loginMenu.innerHTML = `<i class="fa fa-dashboard"></i>Dashboard`;
-        loginMenu.setAttribute("href", "./dashboard.html");        
+        loginMenu.setAttribute("href", "./dashboard.html");
         console.log("Yes we are on Dashboard");
       }
       if (user == undefined) {
