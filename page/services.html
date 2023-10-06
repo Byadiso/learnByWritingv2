@@ -112,7 +112,7 @@
   <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
   <script type="module">
     // Import the functions you need from the SDKs you need
-    import FIREBASE_API_KEY from  '../Js/apikey.js';
+    import {FIREBASE_API_KEY} from  '../Js/apikey.js';
 
     // Your web app's Firebase configuration
     const firebaseConfig = {
@@ -130,87 +130,6 @@
 
     console.log(firebase);
 
-    // Initialize Firebase
-    // const app = initializeApp(firebaseConfig);
-    // const database = getDatabase(app);
-    // const auth = getAuth();
-    // const storage = getStorage(app);
-
-    // const addButton = document.getElementById("addBlog");
-
-    // addButton.addEventListener("click", (e) => {
-    //   e.preventDefault();
-
-    //   // image variable
-    //   const image = document.getElementById("image").files[0];
-    //   const imageName = image.name;
-
-    //   //refernce a collection
-    //   const storageRef = sRef(storage, "images/" + imageName);
-    //   // const imagesRef = ref("images/" + imageName);
-
-    //   // upload image to selected  storage reference
-    //   var uploadTask = firebase.storage.put("image");
-
-    //   uploadTask.on(
-    //     "state_changed",
-    //     function (snapshot) {
-    //       var progress =
-    //         (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-    //       console.log("Upload is " + progress + "done");
-    //     },
-    //     function (error) {
-    //       console.log(error.message);
-    //     },
-    //     function () {
-    //       // handle successfully upload here..
-    //       uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
-    //         // getimage downloaded url here and upload to the database
-
-    //         const title = getInputValue("title");
-    //         const body = getInputValue("body");
-
-    //         set(
-    //           ref(database, "blogs/" + title),
-    //           {
-    //             title: title,
-    //             body: body,
-    //             Image: downloadURL,
-    //           },
-    //           function (error) {
-    //             if (error) {
-    //               console.log("error whie uploading");
-    //             } else {
-    //               console.log("successfully uploaded");
-    //             }
-    //           }
-    //         );
-    //       });
-
-    // //function to get inpu value
-
-    // function getInputValue(id) {
-    //   return document.getElementById(id).value;
-    // }
-
-    // //my add blog button
-    // // const addButton = document.getElementById("addBlog");
-
-    // // addButton.addEventListener("click", (e) => {
-    // //   e.preventDefault();
-
-    // //   const title = getInputValue("title");
-    // //   const body = getInputValue("body");
-
-    // //   set(ref(database, "blogs/" + title), {
-    // //     title: title,
-    // //     body: body,
-    // //     Image: image,
-    // //   });
-
-    //     console.log("blog added successully");
-    //   }
-    // );
-    // });
+   
   </script>
 </html>

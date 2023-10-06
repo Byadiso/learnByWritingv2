@@ -31,7 +31,7 @@
           <h2 class="ngana_logo">
             <a href="../index.html" class="menu_nav">LearnByWriting</a>
           </h2>
-         
+
           <a href="./stories.html" class="menu_nav">
             <i class="fa fa-book"></i>Stories</a
           >
@@ -47,7 +47,9 @@
               ><i class="fa fa-user"></i>User</a
             >
             <div class="dropdown-content">
-              <a href="./dashboard.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+              <a href="./dashboard.html"
+                ><i class="fa fa-dashboard"></i> Dashboard</a
+              >
               <a href="./logout.html"> <i class="fa fa-sign-out"></i>logout</a>
             </div>
           </div>
@@ -59,20 +61,26 @@
       <div class="vocabulary_main">
         <div class="vocabulary_content">
           <!-- Search box for vocabulary-->
+
           <div class="header_vocabulary">
             <h3>Vocabulary Lists</h3>
             <p>
               Explore our library of over
               <span id="number_of_vocabulary">0</span> curated lists.
             </p>
-            <div class="vocabulary_search">
+            <label for="search">Search your world</label>
+            <input type="search" name="search" id="search" />
+            <button id="submit">Search</button>
+            <p id="error" style="color: red"></p>
+            <div id="search_content"></div>
+            <!-- <div class="vocabulary_search">
               <i class="fa fa-search"></i>
               <input
                 type="text"
                 placeholder="search vocabulary list"
                 name="search"
               />
-            </div>
+            </div> -->
           </div>
 
           <div class="sample_vocabulary">
@@ -178,7 +186,10 @@
   <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-database.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-storage.js"></script>
-  <!-- <script src="../Js/singleBlog.js" defer></script> -->
+  <script src="../Js/search.js"  type="module" defer >
+
+    
+  </script>
 
   <!-- <script src="../Js/tinymce/tinymce.min.js"></script> -->
 
@@ -203,7 +214,7 @@
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
 
-    import FIREBASE_API_KEY from  '../Js/apikey.js';
+    import {FIREBASE_API_KEY} from "../Js/apikey.js";
 
     // Your web app's Firebase configuration
     const firebaseConfig = {
@@ -576,15 +587,5 @@
       }
     });
   </script>
-
-  <!-- adding tiny myce -->
-
-  <script>
-    console.log(tinymce);
-    tinymce.init({
-      selector: "#body",
-      width: 450,
-      height: 250,
-    });
-  </script>
+  
 </html>
