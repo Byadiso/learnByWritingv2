@@ -1,6 +1,5 @@
-import {RapidAPI_Key} from './apikey.js'
+import { RapidAPI_Key } from "./apikey.js";
 document.addEventListener("DOMContentLoaded", () => {
- 
   const searchResult = document.getElementById("search_content");
   const search = document.getElementById("search");
   const submit = document.getElementById("submit");
@@ -39,13 +38,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const getWord = async (word) => {
     if (word != "") {
-      
       const url = `https://wordsapiv1.p.rapidapi.com/words/${word}`;
       const options = {
         method: "GET",
         headers: {
-          "X-RapidAPI-Key":
-          RapidAPI_Key,
+          "X-RapidAPI-Key": RapidAPI_Key,
           "X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com",
         },
       };
@@ -57,10 +54,9 @@ document.addEventListener("DOMContentLoaded", () => {
         data.forEach((element) => {
           const definition = document.createElement("p");
           definition.innerHTML =
-            word.charAt(0).toUpperCase() +
-            word.slice(1) +
-            ": " +
-            element.definition;
+            `<strong>
+            "${word.charAt(0).toUpperCase() + word.slice(1) }"
+                         : </strong>` + element.definition.charAt(0).toUpperCase()+element.definition.slice(1) ;
           searchResult.append(definition);
         });
       } catch (error) {

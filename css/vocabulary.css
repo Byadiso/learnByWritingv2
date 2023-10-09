@@ -140,7 +140,6 @@ i {
 
 
 
-
 /* vocabulary */
 .vocabulary_item {
     display: flex;
@@ -154,6 +153,17 @@ i {
     align-items: center;
     flex: 1;
 }
+
+.submit{
+    border: 1px solid var(--whiteColor);
+    background-color:var(--blueColor);
+    justify-content: flex-end;
+    color: var(--whiteColor);
+    border-radius: 3px;
+    padding: 10px;
+    margin: 10px;
+}
+
 .vocabulary_search{
     display: flex;
     justify-content: center;
@@ -166,11 +176,12 @@ i {
 }
 .vocabulary_search input{
     border: 2px solid var(--colorforWeakGrey);
-    border-radius: 200px;
+    border-radius: 10px;
     width: 100%;
     padding: 10px;
     padding-left: 25px;
     background-color: transparent;
+    color: var(--textColorGreyParagraph);
 }
 
 /* Vocabulary main list  */
