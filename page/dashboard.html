@@ -227,8 +227,7 @@
     //get users
     const users = ref(database, "users/");
     onValue(users, (snapshot) => {
-      const data = snapshot.val();
-      console.log(data);
+      const data = snapshot.val();      
       let blogsArray = [];
     });
 
@@ -239,7 +238,6 @@
     onValue(blogs, (snapshot) => {
       // check if there is an error
       checkError();
-
       const data = snapshot.val();
 
       let blogsArray = [];
@@ -254,8 +252,7 @@
           uid_key: key,
         };
 
-        blogsArray.push(obj);
-        console.log(obj.uid_key);
+        blogsArray.push(obj);        
 
         const content_elt = document.createElement("DIV");
         content_elt.innerHTML = `
@@ -281,10 +278,10 @@
         blogAdmin.append(content_elt);
       }
 
-      const dataSave = JSON.stringify(blogsArray);
+      // const dataSave = JSON.stringify(blogsArray);
 
-      // save to localStorage
-      localStorage.setItem("data", dataSave);
+      // // save to localStorage
+      // localStorage.setItem("data", dataSave);
     });
 
     addButton.addEventListener("click", (e) => {
@@ -335,7 +332,7 @@
                   if (error) {
                     console.log("error whie uploading");
                   } else {
-                    console.log("successfully uploaded");
+                    // console.log("successfully uploaded");
 
                     const alert_message_add_blog = document.getElementById(
                       "alert_message_add_blog"
@@ -357,7 +354,7 @@
           function getInputValue(id) {
             return document.getElementById(id).value;
           }
-          console.log("blog added successully");
+          // console.log("blog added successully");
         }
       );
     });

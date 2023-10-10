@@ -113,7 +113,7 @@
       onAuthStateChanged,
     } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
 
-    import {FIREBASE_API_KEY} from "../Js/apikey.js";
+    import { FIREBASE_API_KEY } from "../Js/apikey.js";
 
     // Your web app's Firebase configuration
     const firebaseConfig = {
@@ -128,12 +128,30 @@
     // Initialize Firebase
     const app = firebase.initializeApp(firebaseConfig);
     const database = getDatabase(initializeApp(firebaseConfig));
-    const auth = getAuth();
+    // const auth = getAuth();
+     const auth = firebase.auth()
+    console.log(auth)
 
     const addButton = document.getElementById("addBlog");
     const cancelButton = document.getElementById("cancel_Button");
     const form = document.getElementById("form_blog");
     const message_error = document.getElementById("message_error");
+
+    // check if user is logged in
+   onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        const uid = user.uid;
+        const loginMenu = document.getElementById("loginMenu");
+        loginMenu.innerHTML = `<i class="fa fa-user"></i>${user.email}`;
+        loginMenu.setAttribute("href", "./user.html");
+        // console.log("this is logged user " + loggedUser + " logged in")
+      }
+      if (user == undefined) {
+        // User is signed out
+        location.href = "./login.html";
+      }
+    });
 
     //get users
     const users = ref(database, "users/");
@@ -165,52 +183,52 @@
     }
 
     // the fetch data
+    // onValue(blogs, (snapshot) => {
+    //   const data = snapshot.val();
 
-    onValue(blogs, (snapshot) => {
-      const data = snapshot.val();
+    //   let blogsArray = [];
 
-      let blogsArray = [];
+    //   for (var [key, value] of Object.entries(data)) {
+    //     console.log(key);
+    //     var obj = {
+    //       id: value.id,
+    //       title: value.title,
+    //       body: value.body,
+    //       Image: value.Image,
+    //       uid_key: key,
+    //     };
 
-      for (var [key, value] of Object.entries(data)) {
-        console.log(key);
-        var obj = {
-          id: value.id,
-          title: value.title,
-          body: value.body,
-          Image: value.Image,
-          uid_key: key,
-        };
+    //     blogsArray.push(obj);
+    //     console.log(obj.uid_key);
 
-        blogsArray.push(obj);
-        console.log(obj.uid_key);
+    //     const content_elt = document.createElement("DIV");
+    //     content_elt.innerHTML = `
+    //     <div class="blog_image blog" data-id=${value.id}>
+    //       <img src=${value.Image} alt="blog image blog" data-id=${value.id}>
+    //     </div>
 
-        const content_elt = document.createElement("DIV");
-        content_elt.innerHTML = `
-        <div class="blog_image blog" data-id=${value.id}>
-          <img src=${value.Image} alt="blog image blog" data-id=${value.id}>
-        </div>
+    //       <h3 class="blog" data-id=${value.id}>${value.title}</h3>
+    //       <div class="dashboard_bottom">
+    //     <i class="fa fa-trash admin_control_button removeBlog" id="removeBlog" data-uid=${obj.uid_key}></i><p class="removeBlog" data-uid=${obj.uid_key}>Delete</p>
+    //     <i class="fa fa-edit admin_control_button editBlog" id="editBlog" data-uid=${obj.uid_key}></i><p class="editBlog" data-uid=${obj.uid_key}>Edit</p>
 
-          <h3 class="blog" data-id=${value.id}>${value.title}</h3>
-          <div class="dashboard_bottom">
-        <i class="fa fa-trash admin_control_button removeBlog" id="removeBlog" data-uid=${obj.uid_key}></i><p class="removeBlog" data-uid=${obj.uid_key}>Delete</p>
-        <i class="fa fa-edit admin_control_button editBlog" id="editBlog" data-uid=${obj.uid_key}></i><p class="editBlog" data-uid=${obj.uid_key}>Edit</p>
+    //     </div>
+    //     `;
+    //     if (content_elt) {
+    //       console.log("yeseee");
+    //     }
 
-        </div>
-        `;
-        if (content_elt) {
-          console.log("yeseee");
-        }
+    //     content_elt.setAttribute("class", "blog_item");
+    //     content_elt.setAttribute("data-id", value.uid_key);
+    //   }
 
-        content_elt.setAttribute("class", "blog_item");
-        content_elt.setAttribute("data-id", value.uid_key);
-      }
+    //   const dataSave = JSON.stringify(blogsArray);
 
-      const dataSave = JSON.stringify(blogsArray);
+    //   // save to localStorage
+    //   localStorage.setItem("data", dataSave);
+    // });
 
-      // save to localStorage
-      localStorage.setItem("data", dataSave);
-    });
-
+    // add blog here
     addButton.addEventListener("click", (e) => {
       e.preventDefault();
 
@@ -295,21 +313,6 @@
           console.log("blog added successully");
         }
       );
-    });
-
-    // check if user is logged in
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // User is signed in, see docs for a list of available properties
-        const uid = user.uid;        
-        const loginMenu = document.getElementById("loginMenu");
-        loginMenu.innerHTML = `<i class="fa fa-user"></i>${user.email}`;
-        loginMenu.setAttribute("href", "./user.html");        
-      }
-      if (user == undefined) {
-        // User is signed out
-        location.href = "./login.html";
-      }
     });
 
     // for edit and delete item from firebase

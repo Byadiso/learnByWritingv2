@@ -44,6 +44,7 @@
                   placeholder="Password"
                   id="password_login"
                 />
+                <p id="error"></p>
                 <div class="login_register">
                   <input
                     class="login"
@@ -99,12 +100,11 @@
       createUserWithEmailAndPassword,
       signInWithEmailAndPassword,
     } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
-    // import { initializeApp } from "firebase/app";
 
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
 
-    import {FIREBASE_API_KEY} from "../Js/apikey.js";
+    import { FIREBASE_API_KEY } from "../Js/apikey.js";
 
     // Your web app's Firebase configuration
     const firebaseConfig = {
@@ -120,25 +120,32 @@
     const app = firebase.initializeApp(firebaseConfig);
     const database = getDatabase(initializeApp(firebaseConfig));
     const auth = getAuth();
-
-    //refernce a collection
-    // const loginRef = database.ref("User");
+    const error_message = document.getElementById("error");
+    const email = document.querySelector('[name="email"]');
+    const password = document.querySelector('[name="password"]');
 
     //my login button
 
-    // const registerSubmit = document.getElementById("registerSubmit");
     const loginSubmit = document.getElementById("loginSubmit");
 
     //function to get inpu value
-
     function getInputValue(id) {
       return document.getElementById(id).value;
     }
 
-    // register
+    // when entering details clear error message
+    email.addEventListener("keyup", (e) => {
+      e.preventDefault();
+      error_message.style.display = "none";
+    });
+    password.addEventListener("keyup", (e) => {
+      e.preventDefault();
+      error_message.style.display = "none";
+    });
 
     // login feature
     loginSubmit.addEventListener("click", (e) => {
+      error_message.style.display = "block";
       e.preventDefault();
       const email = getInputValue("email_login");
       const password = getInputValue("password_login");
@@ -152,9 +159,9 @@
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          alert("User logged successfully");
+          localStorage.setItem("user", user.uid);
+          // alert("User logged successfully");
           window.location.href = "../page/dashboard.html";
-
           const dt = new Date();
           firebase
             .database()
@@ -166,10 +173,10 @@
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          alert(errorMessage);
+         
+          error_message.innerHTML = "Password or Email is wrong";
+          // alert(errorMessage);
         });
-
-      //if user logged show some file
     });
 
     onAuthStateChanged(auth, (user) => {

@@ -129,6 +129,7 @@
     logoutButton.addEventListener("click", (e) => {
       e.preventDefault();
       auth.signOut().then(() => {
+        localStorage.clear();
         console.log("User logged out");
 
         setTimeout(() => {

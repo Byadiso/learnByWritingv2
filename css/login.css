@@ -246,6 +246,10 @@ input[type=text], input[type=password], textarea {
 
 }
 
+#error{
+    color: var(--error);
+}
+
 .hide {
     display: none;
 }

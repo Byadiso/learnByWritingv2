@@ -68,23 +68,19 @@
               Explore our library of over
               <span id="number_of_vocabulary">0</span> curated lists.
             </p>
-            <div  class="vocabulary_search"> 
-              
+            <div class="vocabulary_search">
               <!-- <i class="fa fa-search"></i> -->
-              <input type="search" name="search" id="search" placeholder="Search your world"/>
+              <input
+                type="search"
+                name="search"
+                id="search"
+                placeholder="Search your world"
+              />
               <button id="submit" class="submit">Search</button>
               <p id="error" style="color: red"></p>
             </div>
-            
+
             <div id="search_content"></div>
-            <!-- <div class="vocabulary_search">
-              <i class="fa fa-search"></i>
-              <input
-                type="text"
-                placeholder="search vocabulary list"
-                name="search"
-              />
-            </div> -->
           </div>
 
           <div class="sample_vocabulary">
@@ -190,10 +186,7 @@
   <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-database.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-storage.js"></script>
-  <script src="../Js/search.js"  type="module" defer >
-
-    
-  </script>
+  <script src="../Js/search.js" type="module" defer></script>
 
   <!-- <script src="../Js/tinymce/tinymce.min.js"></script> -->
 
@@ -218,7 +211,7 @@
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
 
-    import {FIREBASE_API_KEY} from "../Js/apikey.js";
+    import { FIREBASE_API_KEY } from "../Js/apikey.js";
 
     // Your web app's Firebase configuration
     const firebaseConfig = {
@@ -591,5 +584,4 @@
       }
     });
   </script>
-  
 </html>

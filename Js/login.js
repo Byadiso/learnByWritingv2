@@ -6,11 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const password = document.querySelector('[name="password"]');
   const email = document.querySelector('[name="email"]');
   const alert_message_login = document.querySelector("#alert_message_login");
+  const errorDisplay = document.querySelector('#error');
   const alert_message_register = document.querySelector(
     "#alert_message_register"
   );
 
-  console.log("yes we are on login page");
+ 
 
   registerButton.forEach((button) => {
     button.addEventListener("click", (e) => {
@@ -18,9 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // order matter here
       registerForm.classList.remove("hide");
-      // loginForm.classList.add("hide");
-
-      // toggleLogginRegister(loginForm, registerForm);
 
       // check for empty values
 
@@ -30,13 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loginButton.forEach((button) => {
     button.addEventListener("click", (e) => {
-      console.log("let bring login form");
-
       // order matter here
       loginForm.classList.remove("hide");
-      // registerForm.classList.add("hide");
-      // toggleLogginRegister(loginForm, registerForm);
-
       checkMyValue(email, password, alert_message_login);
     });
   });
@@ -46,13 +39,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // checking function
 
   const checkMyValue = (emailInput, passwordInput, messageBlock) => {
-    if (!emailInput.value && !passwordInput.value) {     
-        messageBlock.style.background = "red";
-        messageBlock.innerHTML = "first add something";
-        setTimeout(() => {
-          messageBlock.style.display = "none";
-        }, 3000);
-      console.log("first add something");      
+    if (!emailInput.value && !passwordInput.value) {
+      messageBlock.style.background = "red";
+      messageBlock.innerHTML = "first add something";
+      setTimeout(() => {
+        messageBlock.style.display = "none";
+      }, 3000);
+      console.log("first add something");
     } else if (!emailInput.value) {
       emailInput.style.border = "1px solid red";
       messageBlock.style.background = "red";
@@ -69,12 +62,11 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         messageBlock.style.display = "none";
       }, 3000);
-    } 
+    }
 
     if (emailInput.value && passwordInput.value) {
       console.log("let do login");
       // window.location.href = "../html/dashboard.html";
     }
   };
- 
 });
