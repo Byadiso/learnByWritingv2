@@ -170,8 +170,7 @@
               last_login: dt,
             });
         })
-        .catch((error) => {
-          const errorCode = error.code;
+        .catch((error) => {          
           const errorMessage = error.message;
          
           error_message.innerHTML = "Password or Email is wrong";

@@ -6,12 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const password = document.querySelector('[name="password"]');
   const email = document.querySelector('[name="email"]');
   const alert_message_login = document.querySelector("#alert_message_login");
-  const errorDisplay = document.querySelector('#error');
+  const errorDisplay = document.querySelector("#error");
   const alert_message_register = document.querySelector(
     "#alert_message_register"
   );
-
- 
 
   registerButton.forEach((button) => {
     button.addEventListener("click", (e) => {
@@ -65,8 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (emailInput.value && passwordInput.value) {
-      console.log("let do login");
-      // window.location.href = "../html/dashboard.html";
+      console.log("let do login")      
     }
   };
 });

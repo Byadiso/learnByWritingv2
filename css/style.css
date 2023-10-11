@@ -10,12 +10,12 @@
     --blueColorBC: #d7f4fde3;
     --blueColorWhite: #e4f6fc88;
     --blueColorWhiteLess: #e7f7fc;
-    --redColorWhiteLess:#fdeded;
+    --redColorWhiteLess: #fdeded;
     --redColor: #fa1717;
-    --GreenColorWhiteLess: #f1faf0; 
+    --GreenColorWhiteLess: #f1faf0;
     --GreenColor: #36c729;
     --OrangeColor: #be530bef;
-    --OrangeColorBlack : #713209ef;
+    --OrangeColorBlack: #713209ef;
     --OrangeColorWhite: #977761ef;
     --BlackBC: #5ca4bc;
     --colorHover: #0f4e8d;
@@ -96,40 +96,45 @@ body {
     padding: 20px;
     font-size: 16px;
     border: none;
-  }
-  
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-  
-    /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #f1f1f1;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1;
-    }
-    
-    /* Links inside the dropdown */
-    .dropdown-content a {
-      color: black;
-      padding: 10px 16px;
-      text-decoration: none;
-      display: block;
-    }
-    
-    /* Change color of dropdown links on hover */
-    .dropdown-content a:hover {background-color: #ddd;}
-    
-    /* Show the dropdown menu on hover */
-    .dropdown:hover .dropdown-content {display: block; margin: 14px;}
-    
-    /* Change the background color of the dropdown button when the dropdown content is shown */
-    /* .dropdown:hover .dropbtn {background-color: var(--textColorGrey);} */
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+    margin: 14px;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+/* .dropdown:hover .dropbtn {background-color: var(--textColorGrey);} */
 
 
 /* hero section */
@@ -139,52 +144,55 @@ body {
     align-items: center;
     display: flex;
     flex-direction: column;
-    padding: 50px;    
+    padding: 50px;
 }
 
-.hero_section_header{
+.hero_section_header {
     display: flex;
     justify-content: center;
     flex-direction: row;
     padding: 2px;
 }
 
-.hero_section_header_title{    
+.hero_section_header_title {
     display: flex;
     justify-content: flex-start;
 }
 
-.hero_section_header_blue{
+.hero_section_header_blue {
     background-color: var(--blueColorWhiteLess);
     color: var(--blueColor);
 }
 
-.hero_section_header_red{
+.hero_section_header_red {
     background-color: var(--redColorWhiteLess);
     color: var(--redColor);
 }
 
-.hero_section_header_green{
+.hero_section_header_green {
     background-color: var(--GreenColorWhiteLess);
     color: var(--GreenColor);
 }
+
 .hero_section_header_blue, .hero_section_header_green, .hero_section_header_red:hover {
     cursor: pointer;
 }
 
-.hero_section_header div{
+.hero_section_header div {
+    display: flex;
+    flex-wrap: wrap;
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
 }
 
-.main_content{
+.main_content {
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--blueColor);
     background-color: var(--whiteColor);
-    padding: 50px;    
+    padding: 50px;
 }
 
 
@@ -242,6 +250,7 @@ body {
 i {
     color: #29b4e2;
 }
+
 /* who I am section */
 .who_section {
     display: block;
@@ -703,12 +712,12 @@ input[type=text], input[type=password], textarea {
 
 /* footer */
 
-footer .copyright{
+footer .copyright {
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--whiteColor);
-    background-color: grey;
+    /* background-color: grey; */
 }
 
 .social_media i {
@@ -734,6 +743,8 @@ footer .copyright{
         justify-content: center;
         align-items: center;
         background-color: var(--colorforWeakGrey);
+        justify-content: space-around;
+        flex-direction: column;
     }
 
     .nav_small {
@@ -742,6 +753,23 @@ footer .copyright{
 
     .small_device {
         display: none;
+    }
+
+    .hero_section_header {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .hero_section_header div .fa {
+        padding: 5px;
+    }
+
+    .main_content {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
     }
 
     .burger_menu {
@@ -855,14 +883,12 @@ for ipods and tables */
         font-size: 30px;
     }
 
-    .hire_now {
-        padding: 15px;
-    }
+
 
     .menu {
         display: flex;
         justify-content: space-around;
-        /* flex-direction: column; */
+        flex-direction: column;
         margin-bottom: 10px;
     }
 
