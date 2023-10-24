@@ -183,6 +183,20 @@ i {
     background-color: transparent;
     color: var(--textColorGreyParagraph);
 }
+.vocabulary_search button:hover{
+    cursor: pointer;
+}
+
+.Add_vocabulary_Btn:hover{
+    cursor: pointer;
+}
+.Add_vocabulary_Btn{
+    color: var(--blueColor);
+    background-color: var(--whiteColor);
+    border-radius: 2px;
+    border: 1px solid var(--blueColor);
+
+}
 
 /* Vocabulary main list  */
 
