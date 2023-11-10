@@ -6,8 +6,9 @@
 /* my variables style */
 
 :root {
-    --blueColor: #5ca4bc;
-    --blueColorBC: #d7f4fde3;
+    --blueColor: #0b3af6;
+    --blackColorHeader: rgb(0, 0, 0);
+    --blueColorBC: #02090be3;
     --blueColorWhite: #e4f6fc88;
     --blueColorWhiteLess: #e7f7fc;
     --redColorWhiteLess: #fdeded;
@@ -37,7 +38,7 @@
     --linkColor: rgb(0, 0, 0);
     --lowerBackground: #f3f3f3;
     --colorActive: #29b4e2;
-    ;
+  
 }
 
 /* all styles  ---------------------------*/
@@ -55,7 +56,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: var(--whiteColor);
+    background-color: var(--blueColor);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -69,7 +70,7 @@ body {
 
 .main_nav {
     color: var(--textColorWhite);
-    background-color: var(--colorforWeakGrey);
+    background-color: var(--blackColorHeader);
 }
 
 .menu .fa {
@@ -210,146 +211,10 @@ i {
     font-family: "Montserrat", serif;
 }
 
-/* who I am section */
-.who_section {
-    display: block;
-    align-items: center;
-    justify-content: center
-}
-
-.main_who_items {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--textColorGreyParagraph);
+section{
+    background-color: var(--whiteColor);
     margin: 20px;
-}
-
-.who_header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: var(--textColorGreyParagraph)
-}
-
-.who_header p {
-    color: var(--colorforWeakGrey)
-}
-
-.main_who_items img {
-    Width: 15%;
-    height: 100%;
-    border-radius: 20px;
-    padding: 10px;
-    margin: 20px
-}
-
-.main_who_items p {
-    color: var(--colorforWeakGrey);
-}
-
-/* 
-    servicesection */
-
-
-.service_section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: var(--textColorGrey);
-    background: var(--lowerBackground);
-
-}
-
-.Service_header {
-    margin: 20px;
-}
-
-.service_content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.Service_form_header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--whiteColor);
-
-
-}
-
-.service_text, .service_image {
-    cursor: pointer;
-}
-
-.text_L {
-    background: var(--textColorGrey);
-    padding-left: 100px;
-    padding-right: 30px;
-}
-
-.text_R {
-    background: var(--blueColor);
-    padding-left: 50px;
-    padding-right: 30px;
-}
-
-.Service_form_header h4 {
-    margin-left: 5px;
-}
-
-.service_form_item {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    background: var(--textColorGrey);
-    padding: 20px;
-}
-
-.service_form_item .hire_now {
-    margin: 20px;
-    cursor: pointer;
-}
-
-.service_item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 20px;
-    margin-bottom: 20px;
-
-}
-
-.service_text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-    height: 145px;
-    border: 1px solid var(--textColorGreyParagraph);
-    color: var(--blueColor);
-    padding: 25px;
-}
-
-.service_text:hover {
-
-
-    background: var(--blueColor);
-    color: var(--whiteColor);
-    padding: 25px;
-    border: none;
-}
-
-.service_image img {
-    width: 200px;
-    height: 145px;
-
+    margin-bottom: 70px;
 }
 
 /* 
@@ -495,8 +360,14 @@ input[type=text], input[type=password], textarea {
     flex-direction: row;
 }
 
+
+.dashboard_bottom i{
+color: var(--redColor);
+}
+
+
 #removeBlog {
-    color: red;
+    color: var(--redColor);
 
 }
 
@@ -511,7 +382,7 @@ input[type=text], input[type=password], textarea {
 }
 
 #removeBlog, #editBlog {
-    margin-left: 30px;
+    margin-left: 10px;
     padding: 5px;
     cursor: pointer;
 }
@@ -539,8 +410,8 @@ input[type=text], input[type=password], textarea {
 }
 
 .blog_image {
-    margin-right: -40px;
-    padding: 10px;
+    /* /* margin-right: -40px; */
+    padding-top: 10px; 
 }
 
 .blog_image img {
@@ -772,8 +643,11 @@ footer .copyright {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--whiteColor);
-    background-color: grey;
+    color: var(--whiteColor);  
+}
+
+footer{
+    background-color: var(--blackColorHeader);
 }
 
 .social_media i {
@@ -827,59 +701,16 @@ footer .copyright {
         min-width: 130px;
     }
 
-    .statistic_section {
-        background-color: var(--whiteColor);
+    .blog_item{
         display: flex;
-        /* flex-direction: column; */
-        color: var(--textColorGrey);
-        justify-content: center;
-        align-items: center;
-        padding: var(--spacing);
-        border-radius: 20px;
-        box-shadow: 0.1em 0.1em 0.2em;
-        box-shadow: none;
-        width: 100%;
-        margin-left: 5px;
-        margin-right: 10px;
-        margin-top: -35px;
-        padding: 10px
-    }
-
-
-    /* for main_who_items */
-    .main_who_items {
-        display: flex;
-        align-items: center;
-        justify-content: center;
         flex-direction: column;
-        color: var(--textColorGreyParagraph);
-        margin: 20px;
+        align-items: center;
     }
-
-    .main_who_items img {
-        width: 100%;
-    }
-
-    /* for services */
-    .service_content {
+    .blog_image .blog{
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
-    }
-
-    /* for portfolio */
-
-    .portfolio_nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .portfolio_nav h1 {
-        font-size: 1rem;
-        margin: 0px;
     }
 
     /* for footer section */
@@ -1014,7 +845,7 @@ for ipods and tables */
 
 @media (prefers-color-scheme: dark) {
     body {
-        background: #333;
+        background: var(--blueColor);
         color: white;
     }
 
