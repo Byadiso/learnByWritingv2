@@ -1,8 +1,9 @@
 /* my variables style */
 
 :root {
-    --blueColor: #5ca4bc;
-    --blueColorBC: #d7f4fde3;
+    --blueColor: #0b3af6;
+    --blackColorHeader: rgb(0, 0, 0);
+    --blueColorBC: #02090be3;
     --blueColorWhite: #e4f6fc88;
     --blueColorWhiteLess: #e7f7fc;
     --redColorWhiteLess: #fdeded;
@@ -50,7 +51,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: var(--whiteColor);
+    background-color: var(--blueColor);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -64,7 +65,7 @@ body {
 
 .main_nav {
     color: var(--textColorWhite);
-    background-color: var(--colorforWeakGreyBackground);
+    background-color: var(--blackColorHeader);
 }
 
 .menu .fa {
@@ -141,10 +142,17 @@ i {
     justify-content: center;
     align-items: center;  
     flex-direction: column;
+    background-color: var(--whiteColor);
 }
 
 .story_item{
   border-bottom: 4px solid var(--colorforWeakGreyBackground);
+}
+
+section {
+    background-color: var(--blueColor);
+    margin: 20px;
+    margin-bottom: 70px;
 }
 
 /* load more buttton */
@@ -173,13 +181,14 @@ footer .copyright {
     justify-content: center;
     align-items: center;
     color: var(--whiteColor);
-    background-color: grey;
+    
 }
 
 footer {
     position: fixed;
     left: 0;
     bottom: 0;
+    background-color: var(--blackColorHeader);
     width: 100%;
     color: white;
     text-align: center;
@@ -205,16 +214,14 @@ footer {
         flex-direction: column;
         margin-bottom: 10px;
     }
-
-    .hero_section {
-        font-size: .8rem;
+    .menu h2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 220px;
     }
 
-    .hire_text {
-        font-size: .7rem;
-        min-width: 130px;
-    }
-
+   
     .statistic_section {
         background-color: var(--whiteColor);
         display: flex;

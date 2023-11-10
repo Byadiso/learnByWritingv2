@@ -1,8 +1,9 @@
 /* my variables style */
 
 :root {
-    --blueColor: #5ca4bc;
-    --blueColorBC: #d7f4fde3;
+    --blueColor: #0b3af6;
+    --blackColorHeader: rgb(0, 0, 0);
+    --blueColorBC: #02090be3;
     --blueColorWhite: #e4f6fc88;
     --blueColorWhiteLess: #e7f7fc;
     --redColorWhiteLess: #fdeded;
@@ -65,7 +66,7 @@ body {
 
 .main_nav {
     color: var(--textColorWhite);
-    background-color: var(--colorforWeakGrey);
+    background-color: var(--blackColorHeader);
 }
 
 .menu .fa {
@@ -141,6 +142,7 @@ section {
     background-color: #fff;
     color: var(--whiteColor);
     margin: 20px;
+    margin-bottom:70px;
 }
 
 
@@ -254,16 +256,12 @@ section {
     margin: 0px;
 }
 
-.blog_item p {
-    /* width: 120px; */
-}
+
 
 .blog_item{
     margin:15px;
-    align-items: center;
-    /* display: flex;
-    justify-content: center;
-    flex-direction: column; */
+    align-items: center;    
+    
 }
 
 .blog_title h3 {
@@ -275,23 +273,19 @@ section {
 .readmore {
     float: left;
     margin: 0px;
-
 }
 
 .readme_button {
-    
-    display: flex;
-    justify-content: center;
-    color: white;
-    border-radius: 15px;
-    padding: 8px;
-    background: var(--blueColor);
-    cursor: pointer;
-    border: none;   
+        display: flex;
+        justify-content: center;
+        color: white;
+        border-radius: 15px;
+        padding: 8px;
+        width: 50%;
+        background: var(--blueColor);
+        cursor: pointer;
+        border: none;   
 }
-/* button{
-    border: none;    
-} */
 
 .readmore:hover {
     cursor: pointer;
@@ -300,14 +294,12 @@ section {
 }
 
 .blog_item_rigt {
-
     min-width: 20%;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     margin: 20px;
     outline: 1px solid var(--colorforWeakGrey);
-
 }
 
 .blog_item_left {
@@ -326,7 +318,6 @@ section {
     justify-content: center;
     flex-wrap: wrap;
     padding: 40px;
-
 }
 
 .book_item {
@@ -342,7 +333,6 @@ section {
 }
 
 /* for single blog */
-
 .single_blog .blog_item_left {
     display: flex;
     justify-content: center;
@@ -455,8 +445,6 @@ section {
 }
 
 
-
-
 /* for search input */
 .blog_search {
     display: flex;
@@ -477,10 +465,6 @@ section {
     top: 15px;
     cursor: pointer;
 }
-
-
-
-
 
 /* .................blog and dashboard................... */
 .dashboard_categories {
@@ -544,11 +528,12 @@ footer .copyright {
     justify-content: center;
     align-items: center;
     color: var(--whiteColor);
-    background-color: grey;
+    /* background-color: grey; */
 }
 
 footer {
     position: fixed;
+    background-color: var(--blackColorHeader);
     left: 0;
     bottom: 0;
     width: 100%;
@@ -578,6 +563,16 @@ footer {
         margin-bottom: 10px;
     }
 
+    .blog_item{
+        display: flex;
+        flex-direction: column;
+    }
+
+    button{
+        width: 100%;
+        height: 100%;
+        color: red;
+    }
 
 
     /* for blogs */
@@ -645,12 +640,12 @@ footer {
     }
 
     .readme_button {
-        /* padding: 10px; */
+      
         color: var(--whiteColor);
         text-decoration: none;
         background: var(--blueColor);
         cursor: pointer;
-        width: 10px;
+        width: 50%;
         border: none;
     }
 
@@ -683,7 +678,7 @@ footer {
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        background: var(--colorfooter);
+        background: var(--blackColorHeader);
         color: var(--whiteColor);
         padding: 10px;
     }
@@ -799,7 +794,7 @@ for ipods and tables */
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        background: var(--colorfooter);
+        background: var(--blackColorHeader);
         color: var(--whiteColor);
         padding: 10px;
     }
@@ -933,7 +928,7 @@ for ipods and tables */
 
 @media (prefers-color-scheme: dark) {
     body {
-        background: #333;
+        background: var(--blueColor);
         color: white;
     }
 
@@ -941,7 +936,7 @@ for ipods and tables */
 
 @media (prefers-color-scheme: light) {
     body {
-        background: #ddd;
+        background: var(--blueColor);
         color: black;
     }
 

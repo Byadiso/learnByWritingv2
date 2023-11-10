@@ -6,8 +6,9 @@
 /* my variables style */
 
 :root {
-    --blueColor: #5ca4bc;
-    --blueColorBC: #d7f4fde3;
+    --blueColor: #0b3af6;
+    --blackColorHeader: rgb(0, 0, 0);
+    --blueColorBC: #02090be3;
     --blueColorWhite: #e4f6fc88;
     --blueColorWhiteLess: #e7f7fc;
     --redColorWhiteLess: #fdeded;
@@ -69,7 +70,7 @@ body {
 
 .main_nav {
     color: var(--textColorWhite);
-    background-color: var(--colorforWeakGrey);
+    background-color: var(--blackColorHeader)
 }
 
 .menu .fa {
@@ -742,7 +743,7 @@ footer .copyright {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: var(--colorforWeakGrey);
+        background-color: var(--blackColorHeader);
         justify-content: space-around;
         flex-direction: column;
     }

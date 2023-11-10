@@ -1,11 +1,17 @@
 /* my variables style */
 
 :root {
-    --blueColor: #5ca4bc;
-    --blueColorBC: #d7f4fde3;
-    --blueColorWhite: #80dfff88;
+    --blueColor: #0b3af6;
+    --blackColorHeader: rgb(0, 0, 0);
+    --blueColorBC: #02090be3;
+    --blueColorWhite: #e4f6fc88;
+    --blueColorWhiteLess: #e7f7fc;
+    --redColorWhiteLess: #fdeded;
+    --redColor: #fa1717;
+    --GreenColorWhiteLess: #f1faf0;
+    --GreenColor: #36c729;
     --OrangeColor: #be530bef;
-    --OrangeColorBlack : #713209ef;
+    --OrangeColorBlack: #713209ef;
     --OrangeColorWhite: #977761ef;
     --BlackBC: #5ca4bc;
     --colorHover: #0f4e8d;
@@ -27,7 +33,7 @@
     --linkColor: rgb(0, 0, 0);
     --lowerBackground: #f3f3f3;
     --colorActive: #29b4e2;
-    ;
+
 }
 
 /* all styles  ---------------------------*/
@@ -59,7 +65,7 @@ body {
 
 .main_nav {
     color: var(--textColorWhite);
-    background-color: var(--colorforWeakGreyBackground);
+    background-color: var(--blackColorHeader);
 }
 
 .menu .fa {
@@ -195,7 +201,6 @@ i {
     background-color: var(--whiteColor);
     border-radius: 2px;
     border: 1px solid var(--blueColor);
-
 }
 
 /* Vocabulary main list  */
@@ -328,7 +333,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--colorfooter);
+    background: var(--blackColorHeader);
     color: var(--whiteColor);
     padding: 10px;
 }
