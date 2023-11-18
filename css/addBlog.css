@@ -1,39 +1,40 @@
 /* my variables style */
 
 :root {
-        --blueColor: #0b3af6;
-        --blackColorHeader: rgb(0, 0, 0);
-        --blueColorBC: #02090be3;
-        --blueColorWhite: #e4f6fc88;
-        --blueColorWhiteLess: #e7f7fc;
-        --redColorWhiteLess: #fdeded;
-        --redColor: #fa1717;
-        --GreenColorWhiteLess: #f1faf0;
-        --GreenColor: #36c729;
-        --OrangeColor: #be530bef;
-        --OrangeColorBlack: #713209ef;
-        --OrangeColorWhite: #977761ef;
-        --BlackBC: #5ca4bc;
-        --colorHover: #0f4e8d;
-        --whiteColor: #ffffff;
-        --activeColorHeader: rgb(97, 97, 87);
-        --buttonColor: rgb(97, 97, 87);
-        --textColorWhite: #ffffff;
-        --textColorGrey: #4A4D4E;
-        --spacing: 10px;
-        --spacingMargin: 35px;
-        --error: rgb(204, 14, 14);
-        --background-color: rgb(251 251 251);
-        --colorHoverlink: rgba(0, 0, 0, 0.123);
-        --colorfooter: #424343;
-        --textColorGreyParagraph: #818181;
-        --inputColor: #5F6466;
-        --colorforWeakGrey: #74777769;
-        --colorforWeakGreyBackground: #3c3f3fc5;
-        --linkColor: rgb(0, 0, 0);
-        --lowerBackground: #f3f3f3;
-        --colorActive: #29b4e2;
-  
+    --blueColorContrast: #0b3af6;
+    --blueColor: #29b4e2;
+    --blackColorHeader: rgb(0, 0, 0);
+    --blueColorBC: #02090be3;
+    --blueColorWhite: #e4f6fc88;
+    --blueColorWhiteLess: #e7f7fc;
+    --redColorWhiteLess: #fdeded;
+    --redColor: #fa1717;
+    --GreenColorWhiteLess: #f1faf0;
+    --GreenColor: #36c729;
+    --OrangeColor: #be530bef;
+    --OrangeColorBlack: #713209ef;
+    --OrangeColorWhite: #977761ef;
+    --BlackBC: #5ca4bc;
+    --colorHover: #0f4e8d;
+    --whiteColor: #ffffff;
+    --activeColorHeader: rgb(97, 97, 87);
+    --buttonColor: rgb(97, 97, 87);
+    --textColorWhite: #ffffff;
+    --textColorGrey: #4A4D4E;
+    --spacing: 10px;
+    --spacingMargin: 35px;
+    --error: rgb(204, 14, 14);
+    --background-color: rgb(251 251 251);
+    --colorHoverlink: rgba(0, 0, 0, 0.123);
+    --colorfooter: #424343;
+    --textColorGreyParagraph: #818181;
+    --inputColor: #5F6466;
+    --colorforWeakGrey: #74777769;
+    --colorforWeakGreyBackground: #3c3f3fc5;
+    --linkColor: rgb(0, 0, 0);
+    --lowerBackground: #f3f3f3;
+    --colorActive: #29b4e2;
+
 }
 
 /* all styles  ---------------------------*/
@@ -89,7 +90,7 @@ i {
 }
 
 /* Section */
-section{
+section {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -115,10 +116,10 @@ section{
     background-color: var(--blueColor);
     border: none;
     border-radius: 20px;
-    padding: 8px;    
-    cursor: pointer;   
+    padding: 8px;
+    cursor: pointer;
     margin-top: 20px;
-    width: 100px;   
+    width: 100px;
 }
 
 
@@ -127,15 +128,15 @@ section{
     background-color: var(--colorforWeakGrey);
     border: none;
     border-radius: 20px;
-    padding: 8px;    
-    cursor: pointer;   
+    padding: 8px;
+    cursor: pointer;
     margin-top: 20px;
-    width: 100px;   
+    width: 100px;
 }
 
 
 
-textarea{
+textarea {
     text-align: start;
     color: var(--textColorGreyParagraph);
 }
@@ -152,7 +153,7 @@ textarea{
 
 
 /* error */
-#message_error{
+#message_error {
     color: var(--redColor);
     padding: 40px;
 }
@@ -162,10 +163,10 @@ footer {
     position: fixed;
     left: 0;
     bottom: 0;
-    width: 100%;    
+    width: 100%;
     color: white;
     text-align: center;
-    }
+}
 
 footer .copyright {
     display: flex;
@@ -491,7 +492,7 @@ for ipods and tables */
         font-size: 30px;
     }
 
-    
+
     .menu {
         display: flex;
         justify-content: space-around;

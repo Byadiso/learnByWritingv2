@@ -6,7 +6,8 @@
 /* my variables style */
 
 :root {
-    --blueColor: #0b3af6;
+    --blueColorContrast: #0b3af6;
+    --blueColor: #29b4e2;
     --blackColorHeader: rgb(0, 0, 0);
     --blueColorBC: #02090be3;
     --blueColorWhite: #e4f6fc88;

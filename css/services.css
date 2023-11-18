@@ -1,7 +1,8 @@
 /* my variables style */
 
 :root{
-    --blueColor: #5BD4FB;
+    --blueColorContrast: #0b3af6;
+    --blueColor: #29b4e2;
     --colorHover:  #0f4e8d;
     --whiteColor: #ffffff;
     --activeColorHeader:rgb(97, 97, 87);
