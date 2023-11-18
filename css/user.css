@@ -145,8 +145,7 @@ footer .copyright {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--whiteColor);
-    
+    color: var(--whiteColor);    
 }
 
 footer {
@@ -188,8 +187,6 @@ cursor: pointer;
     text-decoration: none;
     color: var(--whiteColor);
 }
-
-
 
 /* for responsiveness */
 

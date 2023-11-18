@@ -6,9 +6,10 @@
 /* my variables style */
 
 :root {
-    --blueColor: #0b3af6;
+    --blueColorContrast: #0b3af6;
+    --blueColor: #29b4e2;
     --blackColorHeader: rgb(0, 0, 0);
-    --blueColorBC: #02090be3;
+    --blackColor: #02090be3;
     --blueColorWhite: #e4f6fc88;
     --blueColorWhiteLess: #e7f7fc;
     --redColorWhiteLess: #fdeded;
@@ -196,6 +197,10 @@ body {
     padding: 50px;
 }
 
+.main_content > div p{
+    color: var(--blackColor);
+}
+
 
 /* statistic section */
 
@@ -249,14 +254,17 @@ body {
 }
 
 i {
-    color: #29b4e2;
+    color: var(--blueColor);
+    margin: 5px;
 }
 
 /* who I am section */
 .who_section {
     display: block;
     align-items: center;
-    justify-content: center
+    justify-content: center;
+    /* background-color: var(--textColorGrey);  to be checked later*/
+    
 }
 
 .main_who_items {
@@ -265,6 +273,7 @@ i {
     justify-content: center;
     color: var(--blueColor);
     margin: 10px;
+    
 }
 
 .who_header {
@@ -272,7 +281,8 @@ i {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    color: var(--whiteColor)
+    color: var(--whiteColor);
+    
 }
 
 .who_header p {
@@ -721,6 +731,10 @@ footer .copyright {
     /* background-color: grey; */
 }
 
+footer{
+    background-color: var(--blackColor);
+}
+
 .social_media i {
     margin: var(--spacing);
 }
@@ -930,6 +944,7 @@ for ipods and tables */
         flex-direction: column;
         color: var(--textColorGreyParagraph);
         margin: 20px;
+        
     }
 
     .main_who_items img {
