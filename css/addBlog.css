@@ -1,7 +1,7 @@
 /* my variables style */
 
 :root {
-    --blueColorContrast: #0b3af6;
+    /* --blueColorContrast: #0b3af6; */
     --blueColor: #29b4e2;
     --blackColorHeader: rgb(0, 0, 0);
     --blueColorBC: #02090be3;
@@ -525,7 +525,7 @@ for ipods and tables */
 
 @media (prefers-color-scheme: dark) {
     body {
-        background: blue;
+        background:var(--blueColor);
         color: white;
     }
 
