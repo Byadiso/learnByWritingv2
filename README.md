@@ -2,7 +2,7 @@
 
 # LearnBywritingV2
 
-LearnBywritingV2 is a project made to improve langauge learning process via writing and reading.
+LearnBywritingV2 is a project made to improve the language learning process via writing and reading.
 
 # TABLE OF CONTENTS
 
