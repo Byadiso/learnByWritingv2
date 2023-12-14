@@ -199,6 +199,14 @@ body {
 
 .main_content > div p{
     color: var(--blackColor);
+    
+}
+.main_content div {
+    padding:20px;
+    margin: 20px;
+    /* border: 1px solid black; */
+    font-family:'Courier New', Courier, monospace; 
+
 }
 
 
@@ -259,13 +267,14 @@ i {
 }
 
 /* who I am section */
+
 .who_section {
     display: block;
     align-items: center;
     justify-content: center;
-    /* background-color: var(--textColorGrey);  to be checked later*/
     
 }
+
 
 .main_who_items {
     display: flex;
@@ -273,7 +282,7 @@ i {
     justify-content: center;
     color: var(--blueColor);
     margin: 10px;
-    
+        
 }
 
 .who_header {
@@ -784,8 +793,9 @@ footer{
         display: flex;
         justify-content: center;
         flex-direction: column;
-
+        
     }
+   
 
     .burger_menu {
         display: block;
