@@ -113,7 +113,7 @@ section {
 
 .add_blog_button {
     color: var(--whiteColor);
-    background-color: var(--blueColor);
+    background-color: var(--blueColorBC);
     border: none;
     border-radius: 20px;
     padding: 8px;
@@ -125,7 +125,7 @@ section {
 
 .cancel_button {
     color: var(--whiteColor);
-    background-color: var(--colorforWeakGrey);
+    background-color: var(--redColor);
     border: none;
     border-radius: 20px;
     padding: 8px;
@@ -150,6 +150,7 @@ textarea {
     display: none;
     justify-content: center;
 }
+
 
 
 /* error */
@@ -508,7 +509,7 @@ for ipods and tables */
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        background: var(--colorfooter);
+        /* background: var(--colorfooter); */
         color: var(--whiteColor);
         padding: 10px;
     }

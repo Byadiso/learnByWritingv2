@@ -713,8 +713,7 @@ for ipods and tables */
 
     .menu {
         display: flex;
-        justify-content: space-around;
-        /* flex-direction: column; */
+        justify-content: space-around;      
         margin-bottom: 10px;
     }
 
@@ -730,8 +729,7 @@ for ipods and tables */
 
     .statistic_section {
         background-color: var(--whiteColor);
-        display: flex;
-        /* flex-direction: column; */
+        display: flex;    
         color: var(--textColorGrey);
         justify-content: center;
         align-items: center;
@@ -794,8 +792,7 @@ for ipods and tables */
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
-        background: var(--blackColorHeader);
+        flex-direction: column; 
         color: var(--whiteColor);
         padding: 10px;
     }
@@ -826,8 +823,7 @@ for ipods and tables */
 
     .menu {
         display: flex;
-        justify-content: space-around;
-        /* flex-direction: column; */
+        justify-content: space-around;        
         margin-bottom: 10px;
     }
 
@@ -844,7 +840,6 @@ for ipods and tables */
     .statistic_section {
         background-color: var(--whiteColor);
         display: flex;
-        /* flex-direction: column; */
         color: var(--textColorGrey);
         justify-content: center;
         align-items: center;
@@ -911,10 +906,10 @@ for ipods and tables */
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
-        background: var(--colorfooter);
+        flex-direction: column;       
         color: var(--whiteColor);
         padding: 10px;
+        
     }
 
     footer div {

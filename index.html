@@ -188,42 +188,7 @@
         </div>
       </div>
 
-      <!-- Explore section -->
-<!-- 
-      <div class="portfolio_section">
-        <div class="header_portfolio">
-          <h1>Expore your world by writing everyday!</h1>
-          <p>Find below your joy to learn something new...</p>
-        </div>
-
-        <div class="portfolio_nav" id="category_to_show">
-          <h1 id="all_button" class="all_button">All</h1>
-          <h1 id="books_button" class="books_button">Books to read</h1>
-          <h1 id="blogs_button" class="blogs_button">Blog or story to ready</h1>
-          <h1 id="words_button" class="words_button">New words we read.</h1>
-        </div>
-        
-
-        <div class="portfolio_content">
-          <div class="portfolio_item books">
-            <div class="portfolio_image">
-              <img src="./images/book_read.jpg" alt="read book" />
-            </div>
-          </div>
-
-          <div class="portfolio_item blogs">
-            <div class="portfolio_image">
-              <img src="./images/story.png" alt="blog to read" />
-            </div>
-          </div>
-
-          <div class="portfolio_item words">
-            <div class="portfolio_image">
-              <img src="./images/aboutme.jpg" alt="" />
-            </div>
-          </div>
-        </div>
-      </div> -->
+      
     </section>
 
     <!-- footer info and details -->
@@ -337,53 +302,54 @@
     const categoryToShow = document.getElementById("category_to_show");
     const items = document.querySelectorAll(".portfolio_item");
 
-    categoryToShow.addEventListener("click", (e) => {
-      if (e.target.className.includes("books_button")) {
-        retrieve(e.target);
-        items.forEach((element) => {
-          if (!element.className.includes("books")) {
-            console.log(element);
-            element.classList.add("hide");
-          } else {
-            element.classList.remove("hide");
-          }
-        });
-      }
-      if (e.target.className.includes("blogs_button")) {
-        retrieve(e.target);
-        items.forEach((element) => {
-          if (!element.className.includes("blogs")) {
-            console.log(element);
-            element.classList.add("hide");
-          } else {
-            element.classList.remove("hide");
-          }
-        });
-      }
-      if (e.target.className.includes("words_button")) {
-        retrieve(e.target);
-        items.forEach((element) => {
-          if (!element.className.includes("words")) {
-            console.log(element);
-            element.classList.add("hide");
-          } else {
-            element.classList.remove("hide");
-          }
-        });
-      }
-      if (e.target.className.includes("all_button")) {
-        retrieve(e.target);
-        items.forEach((element) => {
-          if (element.className.includes("hide")) {
-            element.classList.remove("hide");
-          }
-        });
-      }
-    });
+    // categoryToShow.addEventListener("click", (e) => {
+    //   if (e.target.className.includes("books_button")) {
+    //     retrieve(e.target);
+    //     items.forEach((element) => {
+    //       if (!element.className.includes("books")) {
+    //         console.log(element);
+    //         element.classList.add("hide");
+    //       } else {
+    //         element.classList.remove("hide");
+    //       }
+    //     });
+    //   }
+    //   if (e.target.className.includes("blogs_button")) {
+    //     retrieve(e.target);
+    //     items.forEach((element) => {
+    //       if (!element.className.includes("blogs")) {
+    //         console.log(element);
+    //         element.classList.add("hide");
+    //       } else {
+    //         element.classList.remove("hide");
+    //       }
+    //     });
+    //   }
+    //   if (e.target.className.includes("words_button")) {
+    //     retrieve(e.target);
+    //     items.forEach((element) => {
+    //       if (!element.className.includes("words")) {
+    //         console.log(element);
+    //         element.classList.add("hide");
+    //       } else {
+    //         element.classList.remove("hide");
+    //       }
+    //     });
+    //   }
+    //   if (e.target.className.includes("all_button")) {
+    //     retrieve(e.target);
+    //     items.forEach((element) => {
+    //       if (element.className.includes("hide")) {
+    //         element.classList.remove("hide");
+    //       }
+    //     });
+    //   }
+    // });
 
     // check if user is logged in
     onAuthStateChanged(auth, (user) => {
       if (user) {
+        console.log(user)
         const uid = user.uid;
         const username = document.getElementById("username");
         username.innerHTML = `<i class="fa fa-user"></i>${user.email}`;
@@ -393,7 +359,7 @@
         console.log("no user");
         const dropdown = document.getElementById("dropdown");
 
-        dropdown.innerHTML = `<a href="./page/login.html"><i class="fa fa-sign-in"></i>Login </a>`;
+        dropdown.innerHTML = `<a href="./page/login.html"><i class="fa fa-sign-in"></i>Login</a>`;
       }
     });
   </script>

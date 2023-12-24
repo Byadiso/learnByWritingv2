@@ -26,7 +26,7 @@
           <h2 class="ngana_logo">
             <a href="../index.html" class="menu_nav">LearnByWriting</a>
           </h2>
-          
+
           <a href="./stories.html" class="menu_nav">
             <i class="fa fa-book"></i>Stories</a
           >
@@ -45,7 +45,11 @@
     <section>
       <!-- edit form -->
       <div class="edit_blog_form" id="form_edit">
-        <input
+        
+
+        <div>
+
+          <input
           type="text"
           name="title"
           id="title_update"
@@ -66,8 +70,10 @@
           id="image_update"
           placeholder="add image"
         />
+        </div>
 
-        <input
+        <div>
+          <input
           class="addBlog add_blog_button"
           type="submit"
           value="Update Blog"
@@ -79,15 +85,15 @@
           value="Cancel"
           id="cancel_button"
         />
+        </div>
+
+       
       </div>
 
       <div>
         <h5 id="alert_message_add_blog" class="hide">Updated successfully</h5>
-        <p id="message_error" ></p>
+        <p id="message_error"></p>
       </div>
-      
-      
-
 
       <!-- Services section -->
     </section>
@@ -126,7 +132,7 @@
       onAuthStateChanged,
     } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
 
-    import {FIREBASE_API_KEY} from "../Js/apikey.js";
+    import { FIREBASE_API_KEY } from "../Js/apikey.js";
 
     // Your web app's Firebase configuration
     const firebaseConfig = {
@@ -168,13 +174,11 @@
     const formEdit = document.getElementById("form_edit");
     const message_error = document.getElementById("message_error");
 
-
-
     //get data from locastoragee
-    let data_single = JSON.parse(localStorage.getItem("data"));
+    let data_single = JSON.parse(localStorage.getItem("data_save"));
 
     let tobeEddit = data_single.find((blog) => blog.uid_key === blogById);
-
+    
     // let see what we have here
     formEdit.style.display = "block";
     title.value = tobeEddit.title;
@@ -184,12 +188,12 @@
     updateBlogButton.addEventListener("click", (e) => {
       // image variable
       const image = document.getElementById("image_update").files[0];
-      if (image == undefined) {       
-       message_error.innerHTML = "Please add image as well or click cancel button";
+      if (image == undefined) {
+        message_error.innerHTML =
+          "Please add image as well or click cancel button";
+      } else if (image.name) {
+        message_error.style.display = "none";
       }
-     else if(image.name){
-      message_error.style.display = "none";
-     }
       const imageName = image.name;
       //refernce a collection
       const storageRef = firebase.storage().ref("images/" + imageName);
@@ -250,11 +254,10 @@
       );
     });
 
-
-    CancelButton.addEventListener("click", (e)=>{
-      e.preventDefault()
+    CancelButton.addEventListener("click", (e) => {
+      e.preventDefault();
       location.href = "./dashboard.html";
-    })
+    });
     // check if user is logged in
     onAuthStateChanged(auth, (user) => {
       if (user) {

@@ -275,10 +275,12 @@ input[type=text], input[type=password], textarea {
 
 }
 
+
 .dashboard_content {
     display: flex;
-
+    /* flex-direction: column; */
 }
+
 
 .overlay {
     position: relative;
@@ -822,6 +824,10 @@ for ipods and tables */
         margin: 0px;
     }
 
+    .dashboard_content{
+        display: flex;
+        flex-direction: column;
+    }
     /* for footer section */
 
     footer {
