@@ -1,10 +1,11 @@
 /* my variables style */
 
 :root {
-    --blueColor: #5ca4bc;
+    --blueColorContrast: #0b3af6;
+    --blueColor: #0b3af6;
     --blueColorBC: #d7f4fde3;
     --blueColorWhite: #80dfff88;
-    --BlackBC: #5ca4bc;
+    --BlackColor: #000000;
     --colorHover: #0f4e8d;
     --whiteColor: #ffffff;
     --activeColorHeader: rgb(97, 97, 87);
@@ -124,9 +125,9 @@ body {
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
-    background: var(--blueColorBC);
+    background: var(--whiteColor);
     padding: 20px;
-    border: 5px solid var(--blueColorWhite);
+    border: 5px solid var(--whiteColor);
     border-radius: 50px;
 }
 
@@ -286,7 +287,7 @@ footer .copyright{
     justify-content: center;
     align-items: center;
     color: var(--whiteColor);
-    background-color: grey;
+    background-color: var(--BlackColor);
 }
 
 
@@ -371,7 +372,7 @@ footer .copyright{
 
     /* for footer section */
 
-    footer {
+    /* footer {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -379,9 +380,9 @@ footer .copyright{
         background: var(--colorfooter);
         color: var(--whiteColor);
         padding: 10px;
-    }
+    } */
 
-    footer div {
+    /* footer div {
         margin-right: 0px;
-    }
+    } */
 }

@@ -302,50 +302,7 @@
     const categoryToShow = document.getElementById("category_to_show");
     const items = document.querySelectorAll(".portfolio_item");
 
-    // categoryToShow.addEventListener("click", (e) => {
-    //   if (e.target.className.includes("books_button")) {
-    //     retrieve(e.target);
-    //     items.forEach((element) => {
-    //       if (!element.className.includes("books")) {
-    //         console.log(element);
-    //         element.classList.add("hide");
-    //       } else {
-    //         element.classList.remove("hide");
-    //       }
-    //     });
-    //   }
-    //   if (e.target.className.includes("blogs_button")) {
-    //     retrieve(e.target);
-    //     items.forEach((element) => {
-    //       if (!element.className.includes("blogs")) {
-    //         console.log(element);
-    //         element.classList.add("hide");
-    //       } else {
-    //         element.classList.remove("hide");
-    //       }
-    //     });
-    //   }
-    //   if (e.target.className.includes("words_button")) {
-    //     retrieve(e.target);
-    //     items.forEach((element) => {
-    //       if (!element.className.includes("words")) {
-    //         console.log(element);
-    //         element.classList.add("hide");
-    //       } else {
-    //         element.classList.remove("hide");
-    //       }
-    //     });
-    //   }
-    //   if (e.target.className.includes("all_button")) {
-    //     retrieve(e.target);
-    //     items.forEach((element) => {
-    //       if (element.className.includes("hide")) {
-    //         element.classList.remove("hide");
-    //       }
-    //     });
-    //   }
-    // });
-
+   
     // check if user is logged in
     onAuthStateChanged(auth, (user) => {
       if (user) {
