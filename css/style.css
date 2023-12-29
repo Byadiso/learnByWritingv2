@@ -311,9 +311,7 @@ i {
     color: var(--whiteColor);
 }
 
-/* 
-    servicesection */
-
+/* servicesection */
 .service_section {
     display: flex;
     align-items: center;
@@ -321,7 +319,7 @@ i {
     flex-direction: column;
     color: var(--textColorGrey);
     background: var(--lowerBackground);
-
+    padding-bottom: 50px;
 }
 
 .Service_header {
@@ -339,7 +337,6 @@ i {
     justify-content: center;
     align-items: center;
     color: var(--whiteColor);
-
 }
 
 .app_link, .service_image {
@@ -407,21 +404,16 @@ i {
 }
 
 .app_link:hover {
-
-    background: var(--blueColor);
-    color: var(--whiteColor);
-    padding: 25px;
-    border: none;
+    border: 3px solid var(--blueColor);    
 }
+
 
 .app_link a {
     text-decoration: none;
     color: var(--blueColor);
 }
 
-.app_link a:hover {
-    color: var(--whiteColor);
-}
+
 
 .service_image img {
     width: 200px;
