@@ -1,9 +1,21 @@
 /* my variables style */
 
+
 :root {
-    --blueColor: #5ca4bc;
-    --blueColorBC: #d7f4fde3;
-    --blueColorWhite: #80dfff88;
+    /* --blueColorContrast: #0b3af6; */
+    --blueColorContrast: #29b4e2;
+    --blueColor: #29b4e2;
+    --blackColorHeader: rgb(0, 0, 0);
+    --blackColor: #02090be3;
+    --blueColorWhite: #e4f6fc88;
+    --blueColorWhiteLess: #e7f7fc;
+    --redColorWhiteLess: #fdeded;
+    --redColor: #fa1717;
+    --GreenColorWhiteLess: #f1faf0;
+    --GreenColor: #36c729;
+    --OrangeColor: #be530bef;
+    --OrangeColorBlack: #713209ef;
+    --OrangeColorWhite: #977761ef;
     --BlackBC: #5ca4bc;
     --colorHover: #0f4e8d;
     --whiteColor: #ffffff;
@@ -24,8 +36,9 @@
     --linkColor: rgb(0, 0, 0);
     --lowerBackground: #f3f3f3;
     --colorActive: #29b4e2;
-    ;
+
 }
+
 
 /* all styles  ---------------------------*/
 
@@ -53,9 +66,10 @@ body {
 .main_nav a{
     color: var(--whiteColor);
 }
+
 .main_nav{
 color: var(--textColorWhite);
-background-color: var(--colorforWeakGreyBackground);
+background-color: var(--blackColor);
 }
 
 .menu .fa{
@@ -73,18 +87,22 @@ background-color: var(--colorforWeakGreyBackground);
     text-decoration: none;
 }
 
-
-/* 
-    service section */
+/* Service section */
 
 
 .service_section {
+    /* position: absolute; */
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
     color: var(--textColorGrey);
-    background: var(--blueColor);
+    background: var(--blueColorContrast);
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    
+    
 }
 
 
@@ -93,11 +111,11 @@ background-color: var(--colorforWeakGreyBackground);
     justify-content: center;
     flex-direction: column;
     align-items: start;
-    background-color: var(--BlackBC);
     color: var(--whiteColor);
     width: 100%;
     margin: 60px;
 }
+
 .register_content p,h1{
   margin: 10px;
   align-items: start;
@@ -122,10 +140,11 @@ background-color: var(--colorforWeakGreyBackground);
     display: flex;
     justify-content: center;
     flex-direction: column;
-    align-items: center;
+    align-items: center;    
 }
-.login_content a{
-    color: var(--BlackBC);
+
+.login_content a{   
+    color: var(--blueColorContrast);
 }
 
 
@@ -161,12 +180,9 @@ input[type=text], input[type=password], textarea {
     margin: 8px 0;
     display: inline-block;
     background: var(--whiteColor);
-    border: 1px solid var(--blueColor);
+    border: 1px solid var(--blueColorContrast);
     
 }
-
-
-
 
 .form_login {
     border-radius: 4px;
@@ -179,7 +195,7 @@ input[type=text], input[type=password], textarea {
 
 .login, .register {
     color: var(--whiteColor);
-    background-color: var(--blueColor);
+    background-color: var(--blueColorContrast);
     border: none;
     
     padding: 8px;
@@ -202,7 +218,7 @@ input[type=text], input[type=password], textarea {
 
 .login_register a {
     text-decoration: none;
-    color: var(--blueColor);
+    /* color: var(--blueColor); */
 
 }
 
@@ -237,7 +253,14 @@ footer .copyright{
     justify-content: center;
     align-items: center;
     color: var(--whiteColor);
-    background-color: grey;
+    background-color: var(--blackColor);
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;   
+    width: 100%;  
 }
 
 
@@ -328,7 +351,7 @@ footer .copyright{
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        background: var(--colorfooter);
+        background: var(--blackColor);
         color: var(--whiteColor);
         padding: 10px;
     }
