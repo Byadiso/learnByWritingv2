@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   registerButton.forEach((button) => {
     button.addEventListener("click", (e) => {
-      console.log("let bring register form");
+      // console.log("let bring register form");
 
       // order matter here
       registerForm.classList.remove("hide");
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         messageBlock.style.display = "none";
       }, 3000);
-      console.log("first add something");
+      // console.log("first add something");
     } else if (!emailInput.value) {
       emailInput.style.border = "1px solid red";
       messageBlock.style.background = "red";

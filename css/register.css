@@ -62,6 +62,15 @@ body {
 }
 
 
+/* for errors */
+   
+#error {
+    color: var(--error);
+}
+.error{
+    color: var(--redColor);
+}
+
 /* menu  */
 .main_nav a{
     color: var(--whiteColor);
