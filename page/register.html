@@ -37,7 +37,7 @@
           <a href="./vocabulary.html" class="menu_nav">
             <i class="fa fa-list"></i>Vocabulary Lists</a
           >
-          <a href="./login.html" class="menu_nav hire_now">Login</a>
+          <a href="./login.html" class="menu_nav hire_now"><i class="fa fa-sign-in"></i>Login</a>
         </div>
       </nav>
     </header>
@@ -71,14 +71,13 @@
           <div class="Service_form">
             <h5 id="alert_message_register" class="hide"></h5>
             <div class="service_form_item form_login">
-              <!-- <label for="name">Your name</label> -->
               <input
                 type="text"
                 name="firstname"
                 id="firstname"
                 placeholder="First Name"
               />
-              <!-- <label for="name">Your name</label> -->
+
               <input
                 type="text"
                 name="lastname"
@@ -203,10 +202,8 @@
       const password = getInputValue("password-register");
 
       if (!email || !password || !lastname || !firstname) {
-
-          
-       
-          error_message.innerHTML = "Check again if you have entered all required fields";
+        error_message.innerHTML =
+          "Check again if you have entered all required fields";
         console.log("no password, email, firstname or lastname entered");
         return;
       }
@@ -288,22 +285,22 @@
 
     //   //if user logged show some file
     //   // const auth = getAuth();
-      
+
     // });
 
     onAuthStateChanged(auth, (user) => {
-        if (user) {
-          // User is signed in, see docs for a list of available properties
-          // https://firebase.google.com/docs/reference/js/firebase.User
-          const uid = user.uid;
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
 
-          console.log(user);
+        console.log(user);
 
-          // ...
-        } else {
-          // User is signed out
-          // ...
-        }
-      });
+        // ...
+      } else {
+        // User is signed out
+        // ...
+      }
+    });
   </script>
 </html>

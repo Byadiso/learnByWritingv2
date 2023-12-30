@@ -72,7 +72,12 @@ body {
 
 .menu .fa {
     margin: 10px;
+    
 }
+
+/* .menu_nav i {
+    color: var(--blueColor);
+} */
 
 .menu {
     display: flex;
@@ -509,7 +514,6 @@ for ipods and tables */
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        /* background: var(--colorfooter); */
         color: var(--whiteColor);
         padding: 10px;
     }

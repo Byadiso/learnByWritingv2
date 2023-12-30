@@ -96,6 +96,10 @@ background-color: var(--blackColor);
     text-decoration: none;
 }
 
+.menu_nav i {
+    color: var(--blueColor);
+}
+
 /* Service section */
 
 
