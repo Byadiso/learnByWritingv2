@@ -31,7 +31,7 @@
           <h2 class="ngana_logo">
             <a href="../index.html" class="menu_nav">LearnByWriting</a>
           </h2>
-          
+
           <a href="./stories.html" class="menu_nav">
             <i class="fa fa-book"></i>Stories</a
           >
@@ -203,7 +203,7 @@
       onAuthStateChanged,
     } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
 
-    import {FIREBASE_API_KEY} from "../Js/apikey.js";
+    import { FIREBASE_API_KEY } from "../Js/apikey.js";
 
     // Your web app's Firebase configuration
     const firebaseConfig = {
@@ -227,7 +227,7 @@
     //get users
     const users = ref(database, "users/");
     onValue(users, (snapshot) => {
-      const data = snapshot.val();      
+      const data = snapshot.val();
       let blogsArray = [];
     });
 
@@ -252,7 +252,7 @@
           uid_key: key,
         };
 
-        blogsArray.push(obj);        
+        blogsArray.push(obj);
 
         const content_elt = document.createElement("DIV");
         content_elt.innerHTML = `
@@ -354,7 +354,7 @@
           function getInputValue(id) {
             return document.getElementById(id).value;
           }
-          // console.log("blog added successully");
+          
         }
       );
     });
@@ -365,8 +365,6 @@
         // User is signed in, see docs for a list of available properties
         const uid = user.uid;
         const UserName = document.getElementById("user_name");
-        // UserName.innerHTML = user.email;
-
         const userMenu = document.getElementById("userMenu");
         userMenu.innerHTML = `<i class="fa fa-dashboard"></i>Dashboard`;
         userMenu.setAttribute("href", "./dashboard.html");
@@ -378,29 +376,21 @@
       }
     });
 
-    // for edit and delete item from firebase
-
-    const removeBlogButton = document.getElementById("removeBlog");
-    const editBlogButton = document.getElementById("editBlog");
-
-    // //remove blog
+    //remove blog
     blogAdmin.addEventListener("click", (e) => {
       e.preventDefault();
       let id = e.target.dataset.uid;
       const id_clicked = JSON.stringify(id);
+      let id_blog = e.target.dataset.id;
 
       // save to localStorage
       let idSave = localStorage.setItem("id", id);
       if (e.target.className.includes("removeBlog")) {
-        // if (id_clicked) {
         window.location.href = `../page/delete.html?id=${id}`;
-        // }
       } else if (e.target.className.includes("editBlog")) {
-        // if (id_clicked) {
         window.location.href = `../page/editBlog.html?id=${id}`;
-        // }
-      } else if (e.target.className.includes("blog_item")) {
-        window.location.href = `../page/single_blog.html?id=${id}`;
+      } else if (e.target.className.includes("blog")) {
+        window.location.href = `../page/single_blog.html?id=${id_blog}`;
       }
     });
 

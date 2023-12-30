@@ -130,7 +130,8 @@ document.addEventListener("DOMContentLoaded", () => {
   searchResult.addEventListener("click", (e)=>{
     if(e.target.classList.contains("Add_vocabulary_Btn")){
       e.preventDefault()
-      addVocabulary()
+      // console.log(word)
+      addVocabulary(word)
     }
 
   }
@@ -139,28 +140,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // adding vocabulary
 
-  const addVocabulary = ()=>{ 
+  const addVocabulary = (word)=>{ 
     console.log("yes let add a vocabulary")
-    // firebase
-    // .database()
-    // .ref("vocabulary/")
-    // .push()
-    // .set(
-    //   {
-    //     title: title,
-    //     body: blogText,
-    //     createdAt: serverTimestamp(),
-    //     id: id,
-    //   },
-    //   function (error) {
-    //     if (error) {
-    //       console.log("error while adding vocabulary");
-    //     } else {
-    //       console.log("successfully added");
+     firebase
+    .database()
+    .ref("vocabulary/")
+    .push()
+    .set(
+      {
+        word: word,       
+        createdAt: Date.now(),        
+      },
+      function (error) {
+        if (error) {
+          console.log("error while adding vocabulary");
+        } else {
+          console.log("successfully added");
 
-    //     }
-    //   }
-    // )
+        }
+      }
+    )
 
   }
 

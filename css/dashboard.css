@@ -384,6 +384,10 @@ color: var(--redColor);
     padding-left: 45px;
 }
 
+.blog:hover{
+    cursor: pointer;
+}
+
 #removeBlog, #editBlog {
     margin-left: 10px;
     padding: 5px;
