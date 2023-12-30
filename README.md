@@ -19,7 +19,8 @@ LearnBywritingV2 is a project made to improve the language learning process via 
 ### My live project can be access by visit this link 
 
 - Github Pages: https://byadiso.github.io/learnbywrittingV2/index.html
-- Netlify : https://learnbywritingv2.netlify.app/index.html
+- Netlify : https://learnbywrittingv2.netlify.app/
+
 
 # Build With
 
