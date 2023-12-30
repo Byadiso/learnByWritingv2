@@ -93,7 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const response = await fetch(url, options);
       const result = await response.json();
-      // console.log(result.synonyms);
     } catch (error) {
       console.error(error);
     }
