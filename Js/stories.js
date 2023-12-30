@@ -4,14 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const loading = document.getElementById("loading");
   const load_more_button = document.getElementById("load_more_button");
 
-
-
   let start = 0;
   let skip = 5;
   let count = 0;
   
-  // const NextPage = currentPage + newData.length;
-
   const bookContainer = document.querySelector("#books_item_content");
 
   // const myRequest = 'https://openlibrary.org/works/OL45804W.json'

@@ -240,7 +240,6 @@
     );
 
     //function to get input value
-
     function getInputValue(id) {
       return document.getElementById(id).value;
     }
@@ -249,13 +248,12 @@
 
     // check errors
     if ((Headers.status = 304)) {
-      // const loading = document.getElementById("loading");
-      // loading.style.display = "none";
+      
       console.log("say something there is an error loading");
       const content_elt = document.createElement("DIV");
-      // blog_admin.style.display = "flex";
+      
       content_elt.innerHTML = `                     
-        <p class="story" data-id="no-data"><em> Ops! Something went wrong, No Vocabulary found! Try again later or switch your network! </em></p>
+        <p class="story" data-id="no-data"><em> Ops! Something went wrong! Try again later or switch your network! </em></p>
         `;
       content_elt.setAttribute("class", "book_item error_display");
       vocabulary_item_content.append(content_elt);
@@ -294,11 +292,7 @@
         <div class="vocabulary_content" id="vocabulary_content">
             <p>No New vocabulary  yet</p>
         </div>
-        <div class="vocabulary_form hide">         
-          <textarea class="vocabulary" id="vocabularyDetails" name="vocabularyDetails" rows="3" cols="20" placeholder="add your vocabulary">
-          </textarea>
-          <input type="submit" value="Add a modified Vocabulary" class="vocabulary_button"/>
-        </div> 
+       
       </div>
     </div>
       `;
@@ -448,7 +442,6 @@
                             const alert_message_add_blog =
                               document.getElementById("alert_message_add_blog");
                             alert_message_add_blog.style.display = "flex";
-
                             setTimeout(() => {
                               location.href = "./dashboard.html";
                             }, 4000);
@@ -519,52 +512,54 @@
         }
 
         //logic for pagination
-        const itemsPerPage = 2;
-        const totalItems = numberOfvocabularyArray.length;
-        const totalPages = Math.ceil(totalItems / itemsPerPage);
-        let currentPage = 1;
+        // const itemsPerPage = 2;
+        // const totalItems = numberOfvocabularyArray.length;
+        // const totalPages = Math.ceil(totalItems / itemsPerPage);
+        // let currentPage = 1;
 
-        function showPage(page) {
-          const startIndex = (page - 1) * itemsPerPage;
-          console.log(numberOfvocabularyArray);
-          numberOfvocabularyArray.forEach((item, i) => {
-            if (i >= startIndex && i < startIndex + itemsPerPage) {
-              console.log("block");
-            } else {
-              console.log("none");
-            }
-          });
-          currentPage = page;
-        }
+        // function showPage(page) {
+        //   const startIndex = (page - 1) * itemsPerPage;
+        //   console.log(numberOfvocabularyArray);
+        //   numberOfvocabularyArray.forEach((item, i) => {
+        //     if (i >= startIndex && i < startIndex + itemsPerPage) {
+        //       console.log("block");
+        //     } else {
+        //       console.log("none");
+        //     }
+        //   });
+        //   currentPage = page;
+        // }
 
-        showPage(1);
-        console.log(showPage(1));
-        vocabularyContent.addEventListener("click", (e) => {
-          console.log(e.target.className);
-          if (e.target.className === "next-page") {
-            currentPage < totalPages && showPage(currentPage + 1);
-          }
-          if (e.target.className === "prev-page") {
-            currentPage > 1 && showPage(currentPage - 1);
-          }
-        });
+        // showPage(1);
+        // console.log(showPage(1));
+        // vocabularyContent.addEventListener("click", (e) => {
+        //   console.log(e.target.className);
+        //   if (e.target.className === "next-page") {
+        //     currentPage < totalPages && showPage(currentPage + 1);
+        //   }
+        //   if (e.target.className === "prev-page") {
+        //     currentPage > 1 && showPage(currentPage - 1);
+        //   }
+        // });
+
         //  console.log(totalPages, totalItems)
-        let numbersOfpage = [];
-        for (let i = 1; i <= totalPages; i++) {
-          numbersOfpage.push(i);
-        }
+        // let numbersOfpage = [];
+        // for (let i = 1; i <= totalPages; i++) {
+        //   numbersOfpage.push(i);
+        // }
 
         // console.log(numbersOfpage)
-        numberOfvocabularyArray.forEach((item) => numbersOfpage.push(item));
+
+        // numberOfvocabularyArray.forEach((item) => numbersOfpage.push(item));
 
         // logic for adding pages numbers------------
-        let pagesNumbers = document.querySelector("#pages-numbers");
-        numbersOfpage.forEach((item) => {
-          let h3 = document.createElement("h3");
-          h3.innerText = item;
-          // pagesNumbers.appendChild(h3);
-        });
-        vocabularyContent.append(pagesNumbers);
+        // let pagesNumbers = document.querySelector("#pages-numbers");
+        // numbersOfpage.forEach((item) => {
+        //   let h3 = document.createElement("h3");
+        //   h3.innerText = item;
+        //   // pagesNumbers.appendChild(h3);
+        // });
+        // vocabularyContent.append(pagesNumbers);
       }
     });
 

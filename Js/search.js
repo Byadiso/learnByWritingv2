@@ -1,38 +1,13 @@
 // importing firebaseConfiguration and other configurations
 import { RapidAPI_Key } from "./apikey.js";
 
-// import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
-// import {
-//   getDatabase,
-//   set,
-//   ref,
-//   serverTimestamp,
-//   onValue,
-// } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
-
-// import { FIREBASE_API_KEY } from "../Js/apikey.js";
-
-// const firebaseConfig = {
-//   apiKey: FIREBASE_API_KEY,
-//   authDomain: "mybrand-df7b7.firebaseapp.com",
-//   projectId: "mybrand-df7b7",
-//   storageBucket: "mybrand-df7b7.appspot.com",
-//   messagingSenderId: "1073877765217",
-//   appId: "1:1073877765217:web:7f63596f42c5d4ca18ae20",
-// };
-
- // Initialize Firebase
-//  const app = firebase.initializeApp(firebaseConfig);
-//  const database = getDatabase(initializeApp(firebaseConfig));
-
-  
-
 document.addEventListener("DOMContentLoaded", () => {
   const searchResult = document.getElementById("search_content");
   const search = document.getElementById("search");
   const submit = document.getElementById("submit");
   const errorDisplay = document.getElementById("error");
   let word = "";
+  let vocabularies =[]
 
   //   get search word
   search.addEventListener("keyup", (e) => {
@@ -79,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const response = await fetch(url, options);
         const result = await response.json();
         const data = result.results;
+        vocabularies.push(data)
         const Add_vocabulary_Btn = document.createElement("button");
         Add_vocabulary_Btn.innerHTML="Save to vocabulary list";
         Add_vocabulary_Btn.setAttribute("class", "Add_vocabulary_Btn");
@@ -117,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const response = await fetch(url, options);
       const result = await response.json();
-      console.log(result.synonyms);
+      // console.log(result.synonyms);
     } catch (error) {
       console.error(error);
     }
@@ -129,26 +105,27 @@ document.addEventListener("DOMContentLoaded", () => {
   // adding vocabulary to the page
   searchResult.addEventListener("click", (e)=>{
     if(e.target.classList.contains("Add_vocabulary_Btn")){
-      e.preventDefault()
-      // console.log(word)
-      addVocabulary(word)
+      e.preventDefault()      
+      
+      let definition = vocabularies[0][0].definition
+      console.log(definition)
+      addVocabulary(word,definition)
     }
 
   }
   )
 
-
   // adding vocabulary
-
-  const addVocabulary = (word)=>{ 
+  const addVocabulary = (word, definition)=>{ 
     console.log("yes let add a vocabulary")
      firebase
     .database()
-    .ref("vocabulary/")
+    .ref("vocabularies/")
     .push()
     .set(
       {
-        word: word,       
+        header: word,  
+        content: definition, 
         createdAt: Date.now(),        
       },
       function (error) {
@@ -162,7 +139,5 @@ document.addEventListener("DOMContentLoaded", () => {
     )
 
   }
-
-
 
 });
