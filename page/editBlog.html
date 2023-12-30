@@ -267,7 +267,7 @@
         // UserName.innerHTML = user.email;
         console.log(user);
         const loginMenu = document.getElementById("loginMenu");
-        loginMenu.innerHTML = `<i class="fa fa-user"></i>User`;
+        loginMenu.innerHTML = `<i class="fa fa-user"></i>${user.email}`;
         loginMenu.setAttribute("href", "./dashboard.html");
         console.log("Yes we are on Dashboard");
       }
