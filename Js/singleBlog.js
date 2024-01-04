@@ -1,6 +1,8 @@
 let data = { ...JSON.parse(localStorage.getItem("data")) };
 // let blogId = JSON.parse(localStorage.getItem("id"));
 
+const footer_date = document.getElementById("footer_date");
+
 let array = [];
 let myId = location.href.split("?id=")[1];
 let blogId = decodeURIComponent(myId);
@@ -72,4 +74,7 @@ let blog = array.find((item) => {
       // localStorage.setItem("sngle_data", dataSave);
     }
   }
+
+   // updated date footer
+   footer_date.innerHTML= new Date().getFullYear();
 });

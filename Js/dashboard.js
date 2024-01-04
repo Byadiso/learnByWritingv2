@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const addBlogMenu = document.getElementById("add");
   const blogAdmin = document.getElementById("blog_admin");
   const form_blog = document.getElementById("form_blog");
+  const footer_date = document.getElementById("footer_date");
 
   const name = document.querySelector('[name="name"]');
   const email = document.querySelector('[name="email"]');
@@ -29,5 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // }
     
   });
+
+
+  // updated date footer
+  footer_date.innerHTML= new Date().getFullYear();
+
 
 });

@@ -5,6 +5,7 @@
     --blueColor: #29b4e2;
     --colorHover: #0f4e8d;
     --whiteColor: #ffffff;
+    --blackColor: rgb(0, 0, 0);
     --activeColorHeader: rgb(97, 97, 87);
     --buttonColor: rgb(97, 97, 87);
     --textColorWhite: #ffffff;
@@ -216,12 +217,18 @@ footer {
     text-align: center;
 }
 
+/* footer */
+
 footer .copyright {
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--whiteColor);
-    background-color: grey;
+    /* background-color: grey; */
+}
+
+footer{
+    background-color: var(--blackColor);
 }
 
 
@@ -534,7 +541,7 @@ for ipods and tables */
 
 @media (prefers-color-scheme: dark) {
     body {
-        background: #333;
+        /* background: #333; */
         color: white;
     }
 
