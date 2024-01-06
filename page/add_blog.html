@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MyBrand</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.png">
     <link rel="stylesheet" href="../css/login.css" />
     <link rel="stylesheet" href="../css/addBlog.css" />
     <link
@@ -129,8 +130,8 @@
     const app = firebase.initializeApp(firebaseConfig);
     const database = getDatabase(initializeApp(firebaseConfig));
     // const auth = getAuth();
-     const auth = firebase.auth()
-    console.log(auth)
+    const auth = firebase.auth();
+    console.log(auth);
 
     const addButton = document.getElementById("addBlog");
     const cancelButton = document.getElementById("cancel_Button");
@@ -138,7 +139,7 @@
     const message_error = document.getElementById("message_error");
 
     // check if user is logged in
-   onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth, (user) => {
       if (user) {
         // User is signed in, see docs for a list of available properties
         const uid = user.uid;
@@ -181,8 +182,6 @@
         }
       });
     }
-
-   
 
     // add blog here
     addButton.addEventListener("click", (e) => {
@@ -270,13 +269,10 @@
         }
       );
     });
-
-    // for edit and delete item from firebase
   </script>
 
   <!-- adding tiny myce -->
-
-  <script>    
+  <script>
     tinymce.init({
       selector: "#body",
       // width: 450,
@@ -285,7 +281,6 @@
   </script>
 
   <script>
-    // console.log(tinymce);
     tinymce.init({
       selector: "#body_update",
       width: 450,
