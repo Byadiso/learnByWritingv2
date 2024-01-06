@@ -168,7 +168,7 @@
 
         //  fetch only 6 per page
 
-        const newData = blogsArray.slice(0, blogPerPage);
+        const newData = blogsArray.reverse().slice(0, blogPerPage);
 
         newData.forEach((obj) => {
           const content_elt = document.createElement("DIV");
@@ -204,9 +204,7 @@
     };
 
     // call that function to retrive all the data
-    getBlog(15);
-
-    // let make small pagination
+    getBlog(15);    
 
     // check if user is logged in
     onAuthStateChanged(auth, (user) => {
