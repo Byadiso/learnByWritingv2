@@ -66,7 +66,7 @@
 
     <footer>
       <div class="copyright">
-        <p><i class="fa fa-copyright"></i>2023 Ngana Tech</p>
+        <p><i class="fa fa-copyright"></i> <span  id="footer_date"> 2023</span> Ngana Tech</p>
       </div>
     </footer>
   </body>
@@ -75,9 +75,8 @@
   <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-database.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-storage.js"></script>
-  <script src="../Js/singleBlog.js" defer></script>
+  <script src="../Js/user.js" defer></script>
 
-  <script src="../Js/tinymce/tinymce.min.js"></script>
 
   <script type="module" defer>
     // Import the functions you need from the SDKs you need
@@ -97,8 +96,7 @@
       onAuthStateChanged,
     } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
 
-    // import { initializeApp } from "firebase/app";
-
+    
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -118,8 +116,7 @@
     // const app = initializeApp(firebaseConfig);
     const app = firebase.initializeApp(firebaseConfig);
     const database = getDatabase(initializeApp(firebaseConfig));
-    const auth = getAuth();
-    // const database = getDatabase();
+    const auth = getAuth();  
 
     //my id in the localStorage
 
@@ -155,16 +152,5 @@
         location.href = "./login.html";
       }
     });
-  </script>
-
-  <!-- adding tiny myce -->
-
-  <script>
-    console.log(tinymce);
-    tinymce.init({
-      selector: "#body",
-      width: 450,
-      height: 250,
-    });
-  </script>
+  </script>  
 </html>

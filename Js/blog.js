@@ -2,6 +2,8 @@
 
 const block = document.getElementById("blog_admin");
 
+const footer_date = document.getElementById("footer_date");
+
 block.addEventListener("click", (e) => {
   e.preventDefault();
   let id = e.target.dataset.id;
@@ -18,3 +20,7 @@ block.addEventListener("click", (e) => {
   }
   
 });
+
+
+ // updated date footer
+ footer_date.innerHTML= new Date().getFullYear();

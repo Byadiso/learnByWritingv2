@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const search = document.getElementById("search");
   const submit = document.getElementById("submit");
   const errorDisplay = document.getElementById("error");
+
+  const footer_date = document.getElementById("footer_date");
+
   let word = "";
   let vocabularies =[]
 
@@ -138,5 +141,8 @@ document.addEventListener("DOMContentLoaded", () => {
     )
 
   }
+
+  // updated date footer
+ footer_date.innerHTML= new Date().getFullYear();
 
 });

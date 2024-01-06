@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const loading = document.getElementById("loading");
   const load_more_button = document.getElementById("load_more_button");
 
+  const footer_date = document.getElementById("footer_date");
+
   let start = 0;
   let skip = 5;
   let count = 0;
@@ -83,4 +85,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let newSkip =  currentStory + skip      
     getBooks(currentStory,newSkip)
   })
+
+  // updated date footer
+ footer_date.innerHTML= new Date().getFullYear();
+ 
 });
