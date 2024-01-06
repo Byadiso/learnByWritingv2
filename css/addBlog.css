@@ -159,7 +159,7 @@ textarea {
 /* error */
 #message_error {
     color: var(--redColor);
-    padding: 40px;
+    /* padding: 40px; */
 }
 
 /* footer */
