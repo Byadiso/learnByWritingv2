@@ -145,7 +145,6 @@
     const app = initializeApp(firebaseConfig);
     const database = getDatabase();
     const auth = getAuth();
-    // const blogPerPage = 9;
 
     //my add blog button
     const addButton = document.getElementById("addBlog");
@@ -184,33 +183,32 @@
 
         //  fetch only 6 per page
         let page = location.href.split("?page=")[1];
-    let page_number = decodeURIComponent(page).replace(/['"]+/g, "");
-       let  blog_per_page = 3
-      //  let page_number = 1
-        let pages = blogsArray.length/ blog_per_page
-        let totalBlog = blogsArray.length
+        let page_number = decodeURIComponent(page).replace(/['"]+/g, "");
+        let blog_per_page = 3;
+        //  let page_number = 1
+        let pages = blogsArray.length / blog_per_page;
+        let totalBlog = blogsArray.length;
 
-        let currentPage = (blog_per_page * page_number)
-        let nextPage = (blog_per_page * page_number) + blog_per_page
-        let previousPage = currentPage - blog_per_page
+        let currentPage = blog_per_page * page_number;
+        let nextPage = blog_per_page * page_number + blog_per_page;
+        let previousPage = currentPage - blog_per_page;
 
-        pages= Math.round(pages)
+        pages = Math.round(pages);
 
-        console.log("Number of pages:" + pages)
-        console.log("Previous page:" + previousPage)
-        console.log("current page:" + currentPage)
-        console.log("next page:" + nextPage)
-        console.log("we are on page " + page_number)
+        console.log("Number of pages:" + pages);
+        console.log("Previous page:" + previousPage);
+        console.log("current page:" + currentPage);
+        console.log("next page:" + nextPage);
+        console.log("we are on page " + page_number);
 
-        
-        
+        if (page) {
+          let start = previousPage;
+          let end = currentPage;
 
-        
-        const newData = blogsArray.reverse().slice(0, blogPerPage);
-
-        newData.forEach((obj) => {
-          const content_elt = document.createElement("DIV");
-          content_elt.innerHTML = `
+          const newData = blogsArray.reverse().slice(start, end);
+          newData.forEach((obj) => {
+            const content_elt = document.createElement("DIV");
+            content_elt.innerHTML = `
            <div class="blog_image blog" data-id=${obj.uid_key}>
              <img src=${obj.Image} alt="blog image blog" data-id=${obj.uid_key}>
            </div>
@@ -221,19 +219,48 @@
            } class="readme_button blog">Read more</button>
            `;
 
-          content_elt.setAttribute("class", "blog_item");
-          content_elt.setAttribute("data-id", obj.uid_key);
+            content_elt.setAttribute("class", "blog_item");
+            content_elt.setAttribute("data-id", obj.uid_key);
 
-          blogAdmin.setAttribute("id", "blog_admin");
-          blogAdmin.removeAttribute("class", "error_block");
+            blogAdmin.setAttribute("id", "blog_admin");
+            blogAdmin.removeAttribute("class", "error_block");
 
-          blogAdmin.append(content_elt);
+            blogAdmin.append(content_elt);
 
-          if (content_elt) {
-            const loading = document.getElementById("loading");
-            loading.style.display = "none";
-          }
-        });
+            if (content_elt) {
+              const loading = document.getElementById("loading");
+              loading.style.display = "none";
+            }
+          });
+        } else {
+          const newData = blogsArray.reverse().slice(0, blogPerPage);
+          newData.forEach((obj) => {
+            const content_elt = document.createElement("DIV");
+            content_elt.innerHTML = `
+           <div class="blog_image blog" data-id=${obj.uid_key}>
+             <img src=${obj.Image} alt="blog image blog" data-id=${obj.uid_key}>
+           </div>
+           <h3 class="blog" data-id=${obj.uid_key}>${obj.title}</h3>
+           <p class="blog" data-id=${obj.uid_key}>${firstSentence(obj.body)}</p>
+           <button  data-id=${
+             obj.uid_key
+           } class="readme_button blog">Read more</button>
+           `;
+
+            content_elt.setAttribute("class", "blog_item");
+            content_elt.setAttribute("data-id", obj.uid_key);
+
+            blogAdmin.setAttribute("id", "blog_admin");
+            blogAdmin.removeAttribute("class", "error_block");
+
+            blogAdmin.append(content_elt);
+
+            if (content_elt) {
+              const loading = document.getElementById("loading");
+              loading.style.display = "none";
+            }
+          });
+        }
       });
     };
 
