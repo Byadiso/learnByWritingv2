@@ -6,20 +6,13 @@ const footer_date = document.getElementById("footer_date");
 let array = [];
 let myId = location.href.split("?id=")[1];
 let blogId = decodeURIComponent(myId);
-// console.log(typeof blogId);
+
 array = [...array, data];
 
 const blog_item_content = document.querySelector("#blog_item_content");
 let blog_single = document.createElement("DIV");
 
-// let blog = array.find((item) => {
-//   for (var [key, value] of Object.entries(item)) {
-//     console.log(key);
-//   }
-// });
 
-// console.log(blog);
-// console.log(blog);
 let blog = array.find((item) => {
   for (var [key, value] of Object.entries(item)) {
     // console.log("this is the" + value.uid_key);

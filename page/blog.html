@@ -74,12 +74,14 @@
               />
             </div>
           </div>
-          <div class="button_control">
-            <button class="page_button" data-id="1">1</button>
-            <button class="page_button" data-id="2">2</button>
-            <button class="page_button" data-id="3">3</button>
-            <button class="page_button" data-id="4">4</button>
-          </div>
+        </div>
+      </div>
+      <div class="button_control">
+        <div>
+          <button class="page_button" data-page="1">1</button>
+          <button class="page_button" data-page="2">2</button>
+          <button class="page_button" data-page="3">3</button>
+          <button class="page_button" data-page="4">4</button>
         </div>
       </div>
     </section>
@@ -95,7 +97,7 @@
       </div>
     </footer>
   </body>
-  <script src="../Js/blog.js" type="module"></script>
+  <script src="../Js/blog.js" type="module" defer></script>
 
   <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
@@ -143,7 +145,7 @@
     const app = initializeApp(firebaseConfig);
     const database = getDatabase();
     const auth = getAuth();
-    const blogPerPage = 9;
+    // const blogPerPage = 9;
 
     //my add blog button
     const addButton = document.getElementById("addBlog");
@@ -176,8 +178,31 @@
           blogsArray.push(obj);
         }
 
-        //  fetch only 6 per page
+        //save blog int localhost
 
+        // localStorage.setItem("blogs", blogsArray);
+
+        //  fetch only 6 per page
+       let  blog_per_page = 3
+       let page_number = 5
+        let pages = blogsArray.length/ blog_per_page
+        let totalBlog = blogsArray.length
+
+        let currentPage = (blog_per_page * page_number)
+        let nextPage = (blog_per_page * page_number) + blog_per_page
+        let previousPage = currentPage - blog_per_page
+
+        pages= Math.round(pages)
+
+        console.log(pages, totalBlog)
+        console.log("Previous page:" + previousPage)
+        console.log("current page:" + currentPage)
+        console.log("next page:" + nextPage)
+
+        
+        
+
+        
         const newData = blogsArray.reverse().slice(0, blogPerPage);
 
         newData.forEach((obj) => {
@@ -205,16 +230,12 @@
             const loading = document.getElementById("loading");
             loading.style.display = "none";
           }
-
-          // const dataSave = JSON.stringify(blogsArray);
-          // // save to localStorage
-          // localStorage.setItem("data", dataSave);
         });
       });
     };
 
     // call that function to retrive all the data
-    getBlog(15);
+    getBlog(100);
 
     // check if user is logged in
     onAuthStateChanged(auth, (user) => {
