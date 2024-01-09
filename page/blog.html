@@ -183,8 +183,10 @@
         // localStorage.setItem("blogs", blogsArray);
 
         //  fetch only 6 per page
+        let page = location.href.split("?page=")[1];
+    let page_number = decodeURIComponent(page).replace(/['"]+/g, "");
        let  blog_per_page = 3
-       let page_number = 5
+      //  let page_number = 1
         let pages = blogsArray.length/ blog_per_page
         let totalBlog = blogsArray.length
 
@@ -194,10 +196,11 @@
 
         pages= Math.round(pages)
 
-        console.log(pages, totalBlog)
+        console.log("Number of pages:" + pages)
         console.log("Previous page:" + previousPage)
         console.log("current page:" + currentPage)
         console.log("next page:" + nextPage)
+        console.log("we are on page " + page_number)
 
         
         

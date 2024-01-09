@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     
     element.addEventListener("click", (e)=>{
       // console.log(e.target.dataset.page)
-      window.location.href = `../page/blog.html?id=${e.target.dataset.page}`;
+      window.location.href = `../page/blog.html?page=${e.target.dataset.page}`;
 
      
       
@@ -44,8 +44,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
        
    });
 
-   var myData = localStorage.getItem('data')
-   console.log(myData);
+  //  var myData = localStorage.getItem('data')
+  //  console.log(myData);
   
       // updated date footer
       footer_date.innerHTML= new Date().getFullYear();
