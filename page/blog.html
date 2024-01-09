@@ -233,7 +233,9 @@
             }
           });
         } else {
-          const newData = blogsArray.reverse().slice(0, blogPerPage);
+          let start = 0
+          let end = 3
+          const newData = blogsArray.reverse().slice(start, end);
           newData.forEach((obj) => {
             const content_elt = document.createElement("DIV");
             content_elt.innerHTML = `
