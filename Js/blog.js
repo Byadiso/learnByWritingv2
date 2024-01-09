@@ -1,6 +1,7 @@
 // save our id to localStorage
 
 const block = document.getElementById("blog_admin");
+const page_button = document.getElementsByClassName("page_button");
 
 const footer_date = document.getElementById("footer_date");
 
@@ -24,3 +25,6 @@ block.addEventListener("click", (e) => {
 
  // updated date footer
  footer_date.innerHTML= new Date().getFullYear();
+
+//  for page logics
+

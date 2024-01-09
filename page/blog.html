@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LearnByWriting</title>
-    <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.png" />
     <link rel="stylesheet" href="../css/blog.css" />
 
     <!-- for roboto font -->
@@ -73,13 +73,12 @@
                 margin-bottom="100px"
               />
             </div>
-            <div class="button_control">
-              <button>1</button>
-              <button>2</button>
-              <button>3</button>
-              <button>4</button>
-            </div>
-            
+          </div>
+          <div class="button_control">
+            <button class="page_button" data-id="1">1</button>
+            <button class="page_button" data-id="2">2</button>
+            <button class="page_button" data-id="3">3</button>
+            <button class="page_button" data-id="4">4</button>
           </div>
         </div>
       </div>
@@ -89,7 +88,10 @@
 
     <footer>
       <div class="copyright">
-        <p><i class="fa fa-copyright"></i> <span  id="footer_date"> 2023</span> Ngana Tech</p>
+        <p>
+          <i class="fa fa-copyright"></i>
+          <span id="footer_date"> 2023</span> Ngana Tech
+        </p>
       </div>
     </footer>
   </body>
@@ -125,7 +127,7 @@
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
 
-    import {FIREBASE_API_KEY} from "../Js/apikey.js";
+    import { FIREBASE_API_KEY } from "../Js/apikey.js";
 
     // Your web app's Firebase configuration
     const firebaseConfig = {
@@ -212,7 +214,7 @@
     };
 
     // call that function to retrive all the data
-    getBlog(15);    
+    getBlog(15);
 
     // check if user is logged in
     onAuthStateChanged(auth, (user) => {
