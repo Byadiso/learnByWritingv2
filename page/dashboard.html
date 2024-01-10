@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LearnByWritingV2</title>
-    <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.png" />
     <link rel="stylesheet" href="../css/dashboard.css" />
     <!-- for roboto font -->
     <link
@@ -174,7 +174,10 @@
     <!-- footer info and details -->
     <footer>
       <div class="copyright">
-        <p><i class="fa fa-copyright"></i> <span  id="footer_date"> 2023</span> Ngana Tech</p>
+        <p>
+          <i class="fa fa-copyright"></i>
+          <span id="footer_date"> 2023</span> Ngana Tech
+        </p>
       </div>
     </footer>
   </body>
@@ -244,7 +247,7 @@
       let blogsArray = [];
 
       for (var [key, value] of Object.entries(data)) {
-        console.log(key);
+        
         var obj = {
           id: value.id,
           title: value.title,
@@ -269,7 +272,6 @@
         </div>
         `;
         if (content_elt) {
-          console.log("yeseee");
           const loading = document.getElementById("loading");
           loading.style.display = "none";
         }
@@ -333,9 +335,7 @@
                   if (error) {
                     console.log("error whie uploading");
                   } else {
-                    // console.log("successfully uploaded");
-
-                    const alert_message_add_blog = document.getElementById(
+                   const alert_message_add_blog = document.getElementById(
                       "alert_message_add_blog"
                     );
                     alert_message_add_blog.style.display = "flex";
@@ -355,27 +355,26 @@
           function getInputValue(id) {
             return document.getElementById(id).value;
           }
-          
         }
       );
     });
 
-      // check if user is logged in
-      onAuthStateChanged(auth, (user) => {
-        if (user) {
-          // User is signed in, see docs for a list of available properties
-          const uid = user.uid;
-          const UserName = document.getElementById("user_name");
-          const userMenu = document.getElementById("userMenu");
-          userMenu.innerHTML = `<i class="fa fa-dashboard"></i>Dashboard`;
-          userMenu.setAttribute("href", "./dashboard.html");
-          console.log("Yes we are on Dashboard");
-        }
-        if (user == undefined) {
-          // User is signed out
-          location.href = "./login.html";
-        }
-      });
+    // check if user is logged in
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        const uid = user.uid;
+        const UserName = document.getElementById("user_name");
+        const userMenu = document.getElementById("userMenu");
+        userMenu.innerHTML = `<i class="fa fa-dashboard"></i>Dashboard`;
+        userMenu.setAttribute("href", "./dashboard.html");
+        
+      }
+      if (user == undefined) {
+        // User is signed out
+        location.href = "./login.html";
+      }
+    });
 
     //remove blog
     blogAdmin.addEventListener("click", (e) => {
@@ -400,7 +399,7 @@
       if (Error) {
         const loading = document.getElementById("loading");
         loading.style.display = "none";
-        console.log("say something there is an error loading");
+        
         const content_elt = document.createElement("DIV");
 
         content_elt.innerHTML = `                     
@@ -421,10 +420,6 @@
         });
       }
     }
-
-
-
-    
   </script>
 
   <!-- adding tiny myce -->

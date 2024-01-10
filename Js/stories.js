@@ -30,10 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const getBooks = (start,skip) => {
-    console.log(start,skip)
+    
     fetch(myRequest)
       .then((response) => {
-        // response.header("Access-Control-Allow-Origin", "*")
+        
         return response.json();
       })
       .then((data) => {

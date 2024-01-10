@@ -1,4 +1,4 @@
-console.log("welcome to dashboard");
+
 document.addEventListener("DOMContentLoaded", () => {
   const addBlogMenu = document.getElementById("add");
   const blogAdmin = document.getElementById("blog_admin");
