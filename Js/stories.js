@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let start = 0;
   let skip = 5;
   let count = 0;
-  
+
   const bookContainer = document.querySelector("#books_item_content");
 
   // const myRequest = 'https://openlibrary.org/works/OL45804W.json'
@@ -29,11 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const getBooks = (start,skip) => {
-    
+  const getBooks = (start, skip) => {
     fetch(myRequest)
       .then((response) => {
-        
         return response.json();
       })
       .then((data) => {
@@ -73,20 +71,18 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   };
 
-  getBooks(start,skip);
+  getBooks(start, skip);
 
-
-  // get more stories  by clicking 
-  load_more_button.addEventListener("click", (e)=>{
+  // get more stories  by clicking
+  load_more_button.addEventListener("click", (e) => {
     e.preventDefault();
-    let skip =5; 
+    let skip = 5;
     count++;
-    let currentStory=  6*count
-    let newSkip =  currentStory + skip      
-    getBooks(currentStory,newSkip)
-  })
+    let currentStory = 6 * count;
+    let newSkip = currentStory + skip;
+    getBooks(currentStory, newSkip);
+  });
 
   // updated date footer
- footer_date.innerHTML= new Date().getFullYear();
- 
+  footer_date.innerHTML = new Date().getFullYear();
 });

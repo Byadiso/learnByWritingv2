@@ -12,7 +12,6 @@ array = [...array, data];
 const blog_item_content = document.querySelector("#blog_item_content");
 let blog_single = document.createElement("DIV");
 
-
 let blog = array.find((item) => {
   for (var [key, value] of Object.entries(item)) {
     // console.log("this is the" + value.uid_key);
@@ -68,6 +67,6 @@ let blog = array.find((item) => {
     }
   }
 
-   // updated date footer
-   footer_date.innerHTML= new Date().getFullYear();
+  // updated date footer
+  footer_date.innerHTML = new Date().getFullYear();
 });

@@ -143,6 +143,7 @@ i {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 10px;
 }
 
 
@@ -393,6 +394,8 @@ footer input[type=text] {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    padding-bottom: 100px;
+
 }
 
 

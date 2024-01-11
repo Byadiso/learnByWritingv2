@@ -76,13 +76,17 @@
           </div>
         </div>
       </div>
-      <div class="button_control">
-        <div>
-          <button class="page_button" data-page="1">1</button>
-          <button class="page_button" data-page="2">2</button>
-          <button class="page_button" data-page="3">3</button>
-          <button class="page_button" data-page="4">4</button>
-        </div>
+      
+      <div class="button_control" id="button_control">
+        <!-- <div>
+          <button type="button" class="page_button" data-page="1">1</button>
+          <button type="button" class="page_button" data-page="2">2</button>
+          <button type="button" class="page_button" data-page="3">3</button>
+          <button type="button" class="page_button" data-page="4">4</button>
+        </div> -->
+        
+          
+       
       </div>
     </section>
 
@@ -149,6 +153,7 @@
     //my add blog button
     const addButton = document.getElementById("addBlog");
     const blogAdmin = document.getElementById("blog_admin");
+    const button_container = document.getElementById("button_control");
 
     //function to get inpu value
     function getInputValue(id) {
@@ -200,6 +205,19 @@
         console.log("current page:" + currentPage);
         console.log("next page:" + nextPage);
         console.log("we are on page " + page_number);
+
+        for (var i = 1; i < pages+1; i++){
+          const content_buttons = document.createElement("DIV");
+          
+          content_buttons.innerHTML=`
+         <button type="button" class="page_button" data-page=${i}>${i}</button>
+         `;
+
+         button_container.append(content_buttons);
+
+        }
+
+
 
         if (page) {
           let start = previousPage;

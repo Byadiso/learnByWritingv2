@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LearnByWriting</title>
-    <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.png" />
     <link rel="stylesheet" href="../css/vocabulary.css" />
     <!-- for roboto font -->
     <link
@@ -84,8 +84,6 @@
             <div id="search_content"></div>
           </div>
 
-        
-
           <div class="vocabulary_item_content" id="vocabulary_item_content">
             <!-- vocabulary will go here -->
           </div>
@@ -156,7 +154,6 @@
               </div>
             </div>
           </div> -->
-        
         </div>
       </div>
     </section>
@@ -164,7 +161,10 @@
     <!-- footer info and details -->
     <footer>
       <div class="copyright">
-        <p><i class="fa fa-copyright"></i> <span  id="footer_date"> 2023</span> Ngana Tech</p>
+        <p>
+          <i class="fa fa-copyright"></i>
+          <span id="footer_date"> 2023</span> Ngana Tech
+        </p>
       </div>
     </footer>
   </body>
@@ -236,7 +236,7 @@
     // check errors
     if ((Headers.status = 304)) {
       const content_elt = document.createElement("DIV");
-      
+
       content_elt.innerHTML = `                     
         <p class="story" data-id="no-data"><em> Ops! Something went wrong! Try again later or switch your network! </em></p>
         `;
