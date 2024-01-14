@@ -175,6 +175,9 @@
   <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-storage.js"></script>
   <script src="../Js/search.js" type="module" defer></script>
 
+  <script src="../Js/vocabulary.js" type="module" defer></script>
+
+
   <!-- <script src="../Js/tinymce/tinymce.min.js"></script> -->
 
   <script type="module" defer>
@@ -481,9 +484,10 @@
             vocabulary.innerHTML = `
          <div class="vocabulary_box"> 
           <div id="header_vocabulary">             
-            <h4 class="vocabulary_header">"${
+            <u>
+          <h4 class="vocabulary_header" data-word=${value.header}>"${
               value.header ? value.header : "no word yet"
-            } ":</h4>   
+            } ":</h4> </u>  
             <i class="fa fa-trash deleteButton" data-uid=${key}></i>  
           </div>
             <p class="vocabulary_paragraph">${

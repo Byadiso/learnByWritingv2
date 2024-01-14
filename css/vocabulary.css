@@ -91,44 +91,49 @@ i {
 
 /* DropDown menu */
 .dropbtn {
-  color: white;
-  padding: 20px;
-  font-size: 16px;
-  border: none;
+    color: white;
+    padding: 20px;
+    font-size: 16px;
+    border: none;
 }
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
     position: relative;
     display: inline-block;
-  }
+}
 
-  /* Dropdown Content (Hidden by Default) */
+/* Dropdown Content (Hidden by Default) */
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-  }
-  
-  /* Links inside the dropdown */
-  .dropdown-content a {
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
     color: black;
     padding: 10px 16px;
     text-decoration: none;
     display: block;
-  }
-  
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #ddd;}
-  
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {display: block; margin: 14px;}
-  
-  /* Change the background color of the dropdown button when the dropdown content is shown */
-  /* .dropdown:hover .dropbtn {background-color: var(--textColorGrey);} */
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+    margin: 14px;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+/* .dropdown:hover .dropbtn {background-color: var(--textColorGrey);} */
 
 /* vocabulary header */
 .header_vocabulary {
@@ -162,9 +167,9 @@ i {
     flex: 1;
 }
 
-.submit{
+.submit {
     border: 1px solid var(--whiteColor);
-    background-color:var(--blueColor);
+    background-color: var(--blueColor);
     justify-content: flex-end;
     color: var(--whiteColor);
     border-radius: 3px;
@@ -172,17 +177,19 @@ i {
     margin: 10px;
 }
 
-.vocabulary_search{
+.vocabulary_search {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.vocabulary_search .fa{
+
+.vocabulary_search .fa {
     color: var(--colorforWeakGrey);
     margin-right: -20px;
     margin-left: 20px;
 }
-.vocabulary_search input{
+
+.vocabulary_search input {
     border: 2px solid var(--colorforWeakGrey);
     border-radius: 10px;
     width: 100%;
@@ -191,14 +198,16 @@ i {
     background-color: transparent;
     color: var(--textColorGreyParagraph);
 }
-.vocabulary_search button:hover{
+
+.vocabulary_search button:hover {
     cursor: pointer;
 }
 
-.Add_vocabulary_Btn:hover{
+.Add_vocabulary_Btn:hover {
     cursor: pointer;
 }
-.Add_vocabulary_Btn{
+
+.Add_vocabulary_Btn {
     color: var(--blueColor);
     background-color: var(--whiteColor);
     border-radius: 2px;
@@ -207,7 +216,7 @@ i {
 
 /* Vocabulary main list  */
 
-.sample_vocabulary{
+.sample_vocabulary {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -218,7 +227,8 @@ i {
     width: 80%;
     border-radius: 10px;
 }
-.sample_vocabulary_header{
+
+.sample_vocabulary_header {
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
@@ -226,7 +236,7 @@ i {
     width: 100%;
 }
 
-.sample_vocabulary_header button{
+.sample_vocabulary_header button {
     border: 1px solid var(--whiteColor);
     background-color: transparent;
     justify-content: flex-end;
@@ -235,20 +245,22 @@ i {
     padding: 5px;
 }
 
-.sample_vocabulary_content{
+.sample_vocabulary_content {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
-.card_vocabulary{
+
+.card_vocabulary {
     display: flex;
     justify-content: center;
     flex-direction: row;
-    align-items: center;  
-    
-   
+    align-items: center;
+
+
 }
-.card_vocabulary_container{
+
+.card_vocabulary_container {
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
@@ -257,8 +269,8 @@ i {
     color: var(--textColorGreyParagraph); */
     padding: 10px;
     margin: 5px;
-    border-radius: 2px;   
-    width: 100%; 
+    border-radius: 2px;
+    width: 100%;
 }
 
 .card_vocabulary_header {
@@ -272,7 +284,7 @@ i {
     /* padding: 10px; */
 }
 
-.card_vocabulary_body{
+.card_vocabulary_body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -299,6 +311,14 @@ i {
     box-shadow: 0.1em 0.1em 0.2em;
 }
 
+/* .vocabulary_box:hover {
+cursor: pointer;
+} */
+
+.vocabulary_header:hover {
+    cursor: pointer;
+}
+
 #header_vocabulary {
     /* color: var(--colorActive); */
     display: flex;
@@ -307,7 +327,7 @@ i {
     color: var(--textColorGreyParagraph);
 }
 
-.header_vocabulary {   
+.header_vocabulary {
     color: var(--textColorGreyParagraph);
 }
 
@@ -330,13 +350,26 @@ i {
     cursor: pointer;
 }
 
+#synonym_container{
+    padding-bottom: 100px;
+}
+#synonym_container>p {
+    display: inline-block;
+    color: var(--blueColor);
+}
+
+#search_content{
+    padding-bottom: 80px;
+    margin: 50px;
+}
+
 /* footer */
 footer .copyright {
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--whiteColor);
-    
+
 }
 
 footer {

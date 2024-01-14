@@ -3,6 +3,7 @@ import { RapidAPI_Key } from "./apikey.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const searchResult = document.getElementById("search_content");
+  const vocabulary_item_content = document.getElementById("vocabulary_item_content");
   const search = document.getElementById("search");
   const submit = document.getElementById("submit");
   const errorDisplay = document.getElementById("error");
@@ -16,8 +17,11 @@ document.addEventListener("DOMContentLoaded", () => {
   search.addEventListener("keyup", (e) => {
     e.preventDefault();
     word = e.target.value;
-
     clearCheck(word);
+
+    //hide avocabularies
+
+    
   });
 
   //   cleat if search is empty
@@ -26,9 +30,11 @@ document.addEventListener("DOMContentLoaded", () => {
       searchResult.style.display = "none";
       errorDisplay.style.display = "none";
       searchResult.innerHTML = "";
+      vocabulary_item_content.style.display = "block";
     } else {
       searchResult.style.display = "block";
       errorDisplay.style.display = "none";
+      vocabulary_item_content.style.display = "none";
     }
   };
 
@@ -82,26 +88,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  const getSynonmy = async () => {
-    const word = "eat";
-    const url = `https://wordsapiv1.p.rapidapi.com/words/${word}/synonyms`;
-    const options = {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": RapidAPI_Key,
-        "X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com",
-      },
-    };
+  // const getSynonmy = async () => {
+  //   const word = "eat";
+  //   const url = `https://wordsapiv1.p.rapidapi.com/words/${word}/synonyms`;
+  //   const options = {
+  //     method: "GET",
+  //     headers: {
+  //       "X-RapidAPI-Key": RapidAPI_Key,
+  //       "X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com",
+  //     },
+  //   };
 
-    try {
-      const response = await fetch(url, options);
-      const result = await response.json();
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  //   try {
+  //     const response = await fetch(url, options);
+  //     const result = await response.json();
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
-  getSynonmy();
+  // getSynonmy();
 
 
   // adding vocabulary to the page

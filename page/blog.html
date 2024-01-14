@@ -179,7 +179,7 @@
         //  fetch only 6 per page
         let page = location.href.split("?page=")[1];
         let page_number = decodeURIComponent(page).replace(/['"]+/g, "");
-        let blog_per_page = 3;
+        let blog_per_page = 6;
         //  let page_number = 1
         let pages = blogsArray.length / blog_per_page;
         let totalBlog = blogsArray.length;
@@ -239,7 +239,7 @@
           });
         } else {
           let start = 0;
-          let end = 3;
+          let end = blog_per_page;
           const newData = blogsArray.reverse().slice(start, end);
           newData.forEach((obj) => {
             const content_elt = document.createElement("DIV");
