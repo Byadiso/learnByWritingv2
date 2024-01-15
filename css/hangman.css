@@ -1,0 +1,50 @@
+#game {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+
+  .title_game{
+    color: black;
+  }
+
+#word-to-guess {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  
+  #remaining-guesses {
+    margin-bottom: 20px;
+  }
+  
+  #guess-form {
+    margin-bottom: 20px;
+  }
+  
+  #guess-form label {
+    margin-right: 10px;
+  }
+  
+  #guess-form input[type="text"] {
+    font-size: 20px;
+    padding: 5px;
+    margin-right: 10px;
+  }
+  
+  #guess-form button {
+    font-size: 20px;
+    padding: 5px 20px;
+  }
+  
+  #message {
+    font-weight: bold;
+    display: none;
+  }
+  
+
+  #reset-button {
+    font-size: 20px;
+    padding: 5px 20px;
+    margin-top: 10px;
+  }

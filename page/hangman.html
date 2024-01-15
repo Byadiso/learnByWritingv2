@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hangman</title>
+  <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div id="game">
+    <h1>Hangman</h1>
+    <div id="word-to-guess"></div>
+    <div id="remaining-guesses"></div>
+    <form id="guess-form">
+      <label for="guess-input">Make a guess:</label>
+      <input type="text" id="guess-input">
+      <button type="submit">Guess</button>
+    </form>
+    <div id="message"></div>
+    <button id="reset-button">Reset</button>
+  </div>
+  <script src="../Js/hangman.js" defer></script>
+</body>
+</html>

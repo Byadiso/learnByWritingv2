@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LearnByWriting</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+    <link rel="stylesheet" href="../css/blog.css" />
+    <link rel="stylesheet" href="../css/blog_single.css" />
+    <!-- for roboto font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--bringing Icon for footer -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/40109df241.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <nav class="main_nav">
+        <div class="menu">
+          <h2 class="ngana_logo">
+            <a href="../index.html" class="menu_nav">LearnByWriting</a>
+          </h2>
+          <a href="../index.html" class="menu_nav">
+            <i class="fa fa-search"></i>Learn</a
+          >
+          <a href="./stories.html" class="menu_nav">
+            <i class="fa fa-book"></i>Stories</a
+          >
+          <a href="./blog.html" class="menu_nav">
+            <i class="fa fa-globe"></i>Blogs</a
+          >
+          <a href="./vocabulary.html" class="menu_nav">
+            <i class="fa fa-list"></i>Vocabulary Lists</a
+          >
+          <a href="./login.html" class="menu_nav" id="loginMenu">
+            <i class="fa fa-user"></i>User</a
+          >
+        </div>
+      </nav>
+    </header>
+    <section>
+      <!-- blogs section -->
+
+      <div class="blog_section">
+        <div class="blog_content single_blog">
+          <div class="blog_item_left blog_item_left_single">
+            <div class="blog_item_content" id="blog_item_content"></div>
+
+            <!--my edit modal -->
+
+            <div class="dashboard_item_rigt hide" id="from_edit">
+              <div class="add_blog edit_modal" id="form_blog">
+                <input
+                  type="text"
+                  name="title"
+                  id="title"
+                  placeholder="add title"
+                />
+
+                <textarea
+                  type="text"
+                  name="body"
+                  id="body"
+                  placeholder="Add your content here"
+                >
+                </textarea>
+
+                <input
+                  type="file"
+                  name="image"
+                  id="image"
+                  placeholder="add image"
+                />
+
+                <input
+                  class="addBlog add_blog_button"
+                  type="submit"
+                  value="Update Blog"
+                  id="updateBlog"
+                />
+              </div>
+            </div>
+
+            <hr />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer info and details -->
+    <footer>
+      <div class="copyright">
+        <p><i class="fa fa-copyright"></i> <span  id="footer_date"> 2023</span> Ngana Tech</p>
+      </div>
+    </footer>
+  </body>
+
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-storage.js"></script>
+  <script src="../Js/singleBlog.js" defer></script>
+
+  <script src="../Js/tinymce/tinymce.min.js"></script>
+
+  <script type="module" defer>
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+    import {
+      getDatabase,
+      set,
+      ref,
+      serverTimestamp,
+      onValue,
+    } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+
+    import {
+      getAuth,
+      createUserWithEmailAndPassword,
+      signInWithEmailAndPassword,
+      onAuthStateChanged,
+    } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
+
+    // import { initializeApp } from "firebase/app";
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    import {FIREBASE_API_KEY} from "../Js/apikey.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: FIREBASE_API_KEY,
+      authDomain: "mybrand-df7b7.firebaseapp.com",
+      projectId: "mybrand-df7b7",
+      storageBucket: "mybrand-df7b7.appspot.com",
+      messagingSenderId: "1073877765217",
+      appId: "1:1073877765217:web:7f63596f42c5d4ca18ae20",
+    };
+
+    // Initialize Firebase
+
+    const app = firebase.initializeApp(firebaseConfig);
+    const database = getDatabase(initializeApp(firebaseConfig));
+    const auth = getAuth();
+
+    //my id in the localStorage
+    const blog_id = JSON.parse(localStorage.getItem("id"));
+    const blog_item_content = document.querySelector("#blog_item_content");
+
+    
+    //function to get input value
+
+    function getInputValue(id) {
+      return document.getElementById(id).value;
+    }
+
+    let myId = location.href.split("?id=")[1];
+    let blogById = decodeURIComponent(myId).replace(/['"]+/g, "");
+    const blogs = ref(database, `blogs/${blogById}`);
+
+    onValue(blogs, (snapshot) => {
+      const data = snapshot.val();
+
+      const timeStamp = data.createdAt;
+
+      const time = new Date(timeStamp);
+      var date = ("0" + time.getDate()).slice(-2);
+      var yr = time.getFullYear();
+      // extracting month from the date object as 2 digit
+      var mth = ("0" + (time.getMonth() + 1)).slice(-2);
+
+      let blogsArray = [];
+
+      console.log(data);
+
+      // For view count logics
+
+      let count = 0;
+
+      if (localStorage.getItem("count") !== null) {
+        count = localStorage.getItem("count");
+      }
+
+      localStorage.setItem("count", count);
+
+      window.addEventListener("load", function () {
+        count + 1;
+        localStorage.setItem("count", count);
+
+        console.log("Blog visited " + count);
+      });
+
+      // --------------------End here--------------------
+
+      let blog_single = document.createElement("DIV");
+      blog_single.innerHTML = `
+      <div class="blog_item_content" data-uid=${blogById}>
+
+      <div class="single_blog_image">
+        <img
+          src=${data.Image}
+          alt="photo_blog"
+        />
+      </div>
+
+      <div class="icon_blog">
+        <p><i class="fa fa-heart"></i>Like</p>
+        <p><i class="fa fa-comment"></i> <span id="comments_number"></span> comment</p>
+        <p class="dateStamp"><i class="fas fa-clock dateStamp"></i>${
+          date + "/" + mth + "/" + yr
+        }</p>
+        <p class="dateStamp"><i class="fas fa-clock dateStamp"></i>${
+          data.body.match(/\b\w+\b/g).length + " words"
+        }</p>
+      </div>
+
+      <h3 class="blog_title">
+        ${data.title}
+      </h3>
+      <p class="blog_title">
+        ${data.body}
+      </p>
+      <div class="comment_section">
+        <div class="comment_content" id="comment_content">
+            
+        </div>
+        <div class="comment_form">
+          <textarea class="comment" id="commentDetails" name="commentDetails" rows="5" cols="33" placeholder="add your comment">
+          </textarea>
+          <input type="submit" value="Add comment" class="comment_button" data-uid=${blogById} />
+        </div> 
+      </div>
+    </div>
+      `;
+      // to be added later
+      blog_item_content.append(blog_single);
+    });
+
+    //add comments content to the documents
+    blog_item_content.addEventListener("click", (e) => {
+      if (e.target.className === "comment_button") {
+        const commentContent = document.getElementById("commentDetails");
+        e.preventDefault();
+
+        if (commentContent.value.trim() !== "") {
+          //add comments field to the document
+          const id = e.target.dataset.uid;
+          firebase
+            .database()
+            .ref("comments/")
+            .push()
+            .set(
+              {
+                content: commentContent.value.trim(),
+                postID: id,
+                time: serverTimestamp(),
+              },
+              function (error) {
+                if (error) {
+                  console.log("error whie uploading");
+                } else {
+                  console.log("successfully uploaded");
+                }
+              }
+            );
+        } else {
+          return console.log("no value entered");
+        }
+      }
+    });
+
+    //load comments
+    const getComments = () => {
+      const comments = ref(database, `comments`);
+      const blog = ref(database, `blogs/${blogById}`);
+      onValue(comments, (snapshot) => {
+        const data = snapshot.val();
+
+        let commentsArray = [];
+        let numberOfComment = [];
+
+        for (var [key, value] of Object.entries(data)) {
+          var obj = {
+            id: value.id,
+            title: value.content,
+            postID: value.postID,
+            timeStamp: value.time,
+            uid_key: key,
+          };
+
+          if (value.postID === blogById) {
+            console.log(value.content + "we have them");
+            const commentContent = document.getElementById("comment_content");
+            const commentNumber = document.getElementById("comments_number");
+
+            //number of comment added so far
+            numberOfComment.push(value.postID);
+            commentNumber.innerHTML = numberOfComment.length;
+
+            /// for date
+            const timeStamp = value.time;
+
+            const time = new Date(timeStamp);
+            var date = ("0" + time.getDate()).slice(-2);
+            var yr = time.getFullYear();
+            // extracting month from the date object as 2 digit
+            var mth = ("0" + (time.getMonth() + 1)).slice(-2);
+
+            let comment = document.createElement("DIV");
+            comment.innerHTML = `
+         <div class="comment_box">
+
+          <p class="user_commented"><i class="fa fa-user"></i> Commented by Desire <i class="fa fa-trash"></i></p>
+          <p class="comment_paragraph">${
+            value.content ? value.content : " no comments yet"
+          }</p>
+          <div class="comment_bottom_section">
+            <span class="comment_time">Comment added on ${
+              value.content ? date + "/" + mth + "/" + yr : " "
+            }</span>            
+          </div>         
+          </div>
+         
+         `;
+
+            //add comments at the bottom ot the comment box
+            commentContent.append(comment);
+          }
+        }
+      });
+    };
+
+    getComments();
+
+
+    // check if user is logged in
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        const uid = user.uid;
+        const UserName = document.getElementById("loginMenu");
+ 
+        UserName.innerHTML = `<i class="fa fa-dashboard"></i>Dashboard`;
+        UserName.setAttribute("href", "./dashboard.html");
+        console.log("Yes we are on Dashboard");
+      }
+      if (user == undefined) {
+        // User is signed out
+        location.href = "./login.html";
+      }
+    });
+
+  </script>
+
+  <!-- adding tiny myce -->
+
+  <script>
+    console.log(tinymce);
+    tinymce.init({
+      selector: "#body",
+      width: 450,
+      height: 250,
+    });
+  </script>
+</html>

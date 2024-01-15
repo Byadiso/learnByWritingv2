@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LearnByWriting</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+    <link rel="stylesheet" href="../css/services.css" />
+    <!-- for roboto font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 
+    bringing Icon for footer -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="main_nav">
+        <div class="menu">
+          <h2 class="ngana_logo">
+            <a href="../index.html" class="menu_nav">LearnByWriting</a>
+          </h2>
+          <a href="../index.html" class="menu_nav">
+            <i class="fa fa-search"></i>Learn</a
+          >
+          <a href="./stories.html" class="menu_nav">
+            <i class="fa fa-book"></i>Stories</a
+          >
+          <a href="./blog.html" class="menu_nav">
+            <i class="fa fa-globe"></i>Your blog</a
+          >
+          <a href="./vocabulary.html" class="menu_nav">
+            <i class="fa fa-list"></i>Vocabulary Lists</a
+          >
+          <a href="./login.html" class="menu_nav hire_now">Login</a>
+        </div>
+      </nav>
+    </header>
+    <section>
+      <div class="hero_section">
+        <div class="hero_content">
+          <h1>I create everyday</h1>
+          <h1>Beautiful Designs</h1>
+        </div>
+      </div>
+
+      <!-- Services section -->
+
+      <div class="service_section">
+        <div class="Service_header">
+          <h2>Services</h2>
+          <p>What I Do</p>
+        </div>
+        <div class="service_content">
+          <div class="service_item">
+            <div class="service_text">
+              <h4 class="service_title">website Development</h4>
+            </div>
+          </div>
+          <div class="service_item">
+            <div class="service_text">
+              <h4 class="service_title">App Development</h4>
+            </div>
+          </div>
+          <div class="service_item">
+            <div class="service_text">
+              <h4 class="service_title">SEO Optimization</h4>
+            </div>
+          </div>
+          <div class="service_item">
+            <div class="service_text">
+              <h4 class="service_title">SEO Optimization</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer info and details -->
+
+    <footer>
+      <div class="footer support">
+        <h3>Phone support</h3>
+        <p>24 hours a day</p>
+        <p>+2507887573743</p>
+      </div>
+      <div class="footer social_media">
+        <h3>Get intouch with us</h3>
+        <i class="fa fa-facebook"></i>
+        <i class="fa fa-instagram"></i>
+        <i class="fa fa-twitter"></i>
+      </div>
+      <div class="footer subscribe">
+        <h3>Subscribe to our blog</h3>
+        <p>Singup for our offer</p>
+
+        <div class="footer_input">
+          <input type="text" name="email" id="email_subscribution" />
+          <input class="footer_submit" type="submit" value="Subscribe" />
+        </div>
+      </div>
+    </footer>
+  </body>
+
+  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import {FIREBASE_API_KEY} from  '../Js/apikey.js';
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: FIREBASE_API_KEY,
+      authDomain: "mybrand-97ee1.firebaseapp.com",
+      databaseURL:
+        "https://mybrand-97ee1-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "mybrand-97ee1",
+      storageBucket: "mybrand-97ee1.appspot.com",
+      messagingSenderId: "899192042567",
+      appId: "1:899192042567:web:7e46dd60a36eeed45bad62",
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+    console.log(firebase);
+
+   
+  </script>
+</html>

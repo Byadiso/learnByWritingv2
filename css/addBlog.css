@@ -1,0 +1,543 @@
+/* my variables style */
+
+:root {
+    /* --blueColorContrast: #0b3af6; */
+    --blueColor: #29b4e2;
+    --blackColorHeader: rgb(0, 0, 0);
+    --blueColorBC: #02090be3;
+    --blueColorWhite: #e4f6fc88;
+    --blueColorWhiteLess: #e7f7fc;
+    --redColorWhiteLess: #fdeded;
+    --redColor: #fa1717;
+    --GreenColorWhiteLess: #f1faf0;
+    --GreenColor: #36c729;
+    --OrangeColor: #be530bef;
+    --OrangeColorBlack: #713209ef;
+    --OrangeColorWhite: #977761ef;
+    --BlackBC: #5ca4bc;
+    --colorHover: #0f4e8d;
+    --whiteColor: #ffffff;
+    --activeColorHeader: rgb(97, 97, 87);
+    --buttonColor: rgb(97, 97, 87);
+    --textColorWhite: #ffffff;
+    --textColorGrey: #4A4D4E;
+    --spacing: 10px;
+    --spacingMargin: 35px;
+    --error: rgb(204, 14, 14);
+    --background-color: rgb(251 251 251);
+    --colorHoverlink: rgba(0, 0, 0, 0.123);
+    --colorfooter: #424343;
+    --textColorGreyParagraph: #818181;
+    --inputColor: #5F6466;
+    --colorforWeakGrey: #74777769;
+    --colorforWeakGreyBackground: #3c3f3fc5;
+    --linkColor: rgb(0, 0, 0);
+    --lowerBackground: #f3f3f3;
+    --colorActive: #29b4e2;
+
+}
+
+/* all styles  ---------------------------*/
+
+
+* {
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+
+/* body syles  */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    background-color: var(--blueColor);
+}
+
+/* menu */
+
+.main_nav a {
+    color: var(--whiteColor);
+}
+
+.main_nav {
+    color: var(--textColorWhite);
+    background-color: var(--blackColorHeader);
+}
+
+.menu .fa {
+    margin: 10px;
+    
+}
+
+
+
+.menu {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: var(--whiteColor);
+}
+
+.menu a {
+    text-decoration: none;
+}
+
+i {
+    color: #29b4e2;
+}
+
+/* Section */
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px;
+    margin-bottom: 70px;
+}
+
+/* for form style */
+#form_blog {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    padding: 20px;
+    margin: 20px;
+    background-color: var(--whiteColor);
+}
+
+.add_blog_button {
+    color: var(--whiteColor);
+    background-color: var(--blueColorBC);
+    border: none;
+    border-radius: 20px;
+    padding: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100px;
+}
+
+
+.cancel_button {
+    color: var(--whiteColor);
+    background-color: var(--redColor);
+    border: none;
+    border-radius: 20px;
+    padding: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100px;
+}
+
+
+
+textarea {
+    text-align: start;
+    color: var(--textColorGreyParagraph);
+}
+
+#alert_message_add_blog {
+    background: green;
+    width: 100%;
+    color: white;
+    margin-top: 50px;
+    padding: 5px;
+    display: none;
+    justify-content: center;
+}
+
+
+
+/* error */
+#message_error {
+    color: var(--redColor);
+    /* padding: 40px; */
+}
+
+/* footer */
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+footer .copyright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--whiteColor);
+    background-color: var(--blackColorHeader);
+}
+
+
+.social_media i {
+    margin: var(--spacing);
+}
+
+
+/* for responsiveness */
+
+@media only screen and (max-width: 700px) {
+    .ngana_logo {
+        margin-right: 200px;
+        font-size: 30px;
+    }
+
+    .menu {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    .hero_section {
+        font-size: .8rem;
+    }
+
+    .hire_text {
+        font-size: .7rem;
+        min-width: 130px;
+    }
+
+    .statistic_section {
+        background-color: var(--whiteColor);
+        display: flex;
+        /* flex-direction: column; */
+        color: var(--textColorGrey);
+        justify-content: center;
+        align-items: center;
+        padding: var(--spacing);
+        border-radius: 20px;
+        box-shadow: 0.1em 0.1em 0.2em;
+        box-shadow: none;
+        width: 100%;
+        margin-left: 5px;
+        margin-right: 10px;
+        margin-top: -35px;
+        padding: 10px
+    }
+
+
+    /* for main_who_items */
+    .main_who_items {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: var(--textColorGreyParagraph);
+        margin: 20px;
+    }
+
+    .main_who_items img {
+        width: 100%;
+    }
+
+    /* for services */
+    .service_content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    /* for portfolio */
+
+    .portfolio_nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .portfolio_nav h1 {
+        font-size: 1rem;
+        margin: 0px;
+    }
+
+    /* for blogs */
+
+
+
+    .blog_item_left {
+        margin: 0px;
+        padding: 0px
+    }
+
+    .blog_section {
+        margin: 0px;
+        padding: 0px
+    }
+
+
+
+    .blog_item_rigt {
+        border-left: none;
+
+    }
+
+    .blog_content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .blog_content img {
+        max-Width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        /* padding: 10px; */
+        /* margin:20px */
+    }
+
+    .blog_item_content {
+        margin: 20px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #loading {
+        width: 20px;
+        height: 20px;
+    }
+
+    .readme_button {
+        padding: 10px;
+        color: var(--whiteColor);
+        text-decoration: none;
+        background: var(--blueColor);
+        cursor: pointer;
+    }
+
+    .readme_button p {
+        color: var(--whiteColor)
+    }
+
+    /* for edit modal */
+
+    .dashboard_item_rigt {
+        max-width: 100%;
+    }
+
+
+    /* for icon */
+
+    #removeBlog, #editBlog {
+        margin-left: 20px;
+    }
+
+    .icon_blog p {
+        color: var(--colorforWeakGrey);
+        margin-right: 5px;
+        cursor: pointer;
+    }
+
+
+
+    /* for footer section */
+
+    footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: var(--blackColorHeader);
+        color: var(--whiteColor);
+        padding: 10px;
+    }
+
+    footer div {
+        margin-right: 0px;
+    }
+}
+
+
+
+
+/* 
+for ipods and tables */
+
+@media only screen and (max-width: 920px) {
+
+    body {
+        min-width: 360px;
+    }
+
+    .ngana_logo {
+        margin-right: 50px;
+        margin-left: 50px;
+        font-size: 30px;
+    }
+
+    .hire_now {
+        padding: 15px;
+    }
+
+    .menu {
+        display: flex;
+        justify-content: space-around;
+        /* flex-direction: column; */
+        margin-bottom: 10px;
+    }
+
+
+    .hero_section {
+        font-size: .8rem;
+    }
+
+    .hire_text {
+        font-size: .7rem;
+        min-width: 130px;
+    }
+
+    .statistic_section {
+        background-color: var(--whiteColor);
+        display: flex;
+        /* flex-direction: column; */
+        color: var(--textColorGrey);
+        justify-content: center;
+        align-items: center;
+        padding: var(--spacing);
+        border-radius: 20px;
+        box-shadow: 0.1em 0.1em 0.2em;
+        box-shadow: none;
+        width: 100%;
+        margin-left: 5px;
+        margin-right: 10px;
+        margin-top: -35px;
+        padding: 10px
+    }
+
+
+    /* for main_who_items */
+    .main_who_items {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: var(--textColorGreyParagraph);
+        margin: 20px;
+    }
+
+    .main_who_items img {
+        width: 100%;
+    }
+
+    /* for services */
+    .service_content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    /* for portfolio */
+
+    .portfolio_nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .portfolio_nav h1 {
+        font-size: 1rem;
+        margin: 0px;
+    }
+
+    .blog_item_content {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    /* for footer section */
+
+    footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: var(--blackColorHeader);
+        color: var(--whiteColor);
+        padding: 10px;
+    }
+
+    footer div {
+        margin-right: 0px;
+    }
+}
+
+/* 
+  for mobile */
+
+@media only screen and (max-width: 556px) {
+
+    body {
+        min-width: 360px;
+    }
+
+    .ngana_logo {
+        margin-right: 50px;
+        margin-left: 50px;
+        font-size: 30px;
+    }
+
+
+    .menu {
+        display: flex;
+        justify-content: space-around;
+        /* flex-direction: column; */
+        margin-bottom: 10px;
+    }
+
+
+    /* for footer section */
+
+    footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: var(--whiteColor);
+        padding: 10px;
+    }
+
+    footer div {
+        margin-right: 0px;
+    }
+}
+
+
+
+/* 
+  for dark mode */
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background:var(--blueColor);
+        color: white;
+    }
+
+}
+
+@media (prefers-color-scheme: light) {
+    body {
+        background: #ddd;
+        color: black;
+    }
+
+}

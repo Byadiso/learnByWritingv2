@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LearnByWriting</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+    <link rel="stylesheet" href="../css/blog.css" />
+    <link rel="stylesheet" href="../css/chatGPT.css" />
+   
+    <!-- for roboto font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 
+    bringing Icon for footer -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+     <!-- for fontawesome -->
+     <script src="https://kit.fontawesome.com/40109df241.js" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+    <header>
+      <nav class="main_nav">
+        <div class="menu">
+          <h2 class="ngana_logo">
+            <a href="../index.html" class="menu_nav">LearnByWriting</a>
+          </h2>
+          <a href="../index.html" class="menu_nav">
+            <i class="fa fa-search"></i>Learn</a
+          >
+          <a href="./stories.html" class="menu_nav">
+            <i class="fa fa-book"></i>Stories</a
+          >
+          <a href="./blog.html" class="menu_nav">
+            <i class="fa fa-globe"></i>Your blog</a
+          >
+          <a href="./vocabulary.html" class="menu_nav">
+            <i class="fa fa-list"></i>Vocabulary Lists</a
+          >
+          <a href="./login.html" class="menu_nav hire_now">Login</a>
+        </div>
+      </nav>
+    </header>
+    <section>
+      <div class="hero_section">
+        <div class="hero_content">
+          <h2>Learn with chat GPT</h2>
+          <h1>Make correction to your text</h1>
+        </div>
+      </div>
+
+      <!-- blogs section -->
+
+      <div class="blog_section">
+        <div class="blog_content">
+          <div class="blog_item_left">
+            
+            <!-- <h2>make use of ChatGPT</h2> -->
+           
+                <div id="app">
+                  <div id="chat_container"></div>
+            
+                  <form >
+                    <textarea name="prompt" rows="1" cols="1" placeholder="Tell chatGPT"></textarea>
+                    <button id="submit_input"> send your request</button>
+                  </form>
+                 
+                </div>            
+              
+            
+          </div>
+
+          <!-- for categories -->
+          <div class="blog_item_rigt">
+            <div class="blog_item">
+              <div class="blog_search">
+                <input type="text" placeholder="Search.." name="search" />
+                <i class="fa fa-search"></i>
+              </div>
+              
+              <div class="dashboard_categories">
+                <h1>Dashboard</h1>
+                <a href="./dashboard.html" id="add"><i class="fa fa-plus"></i>Add Blog</a>
+                <a href="./user.html" id="info"><i class="fa fa-info"></i>My info</a>
+                <a href="./vocabulary.html" id="vocabulary"><i class="fa-solid fa-floppy-disk"></i>Your Vocabulary</a>
+                <a href="./settings.html" id="settings"><i class="fa fa-gear"></i>Settings</a>
+                <a href="#" id="logout" class="logout"
+                  ><i class="fa fa-sign-out"></i>logout</a
+                >
+              </div>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer info and details -->
+
+    <footer>
+      <div class="footer support">
+        <h3>Phone support</h3>
+        <p>24 hours a day</p>
+        <p>+2507887573743</p>
+      </div>
+      <div class="footer social_media">
+        <h3>Get intouch with us</h3>
+        <i class="fa fa-facebook"></i>
+        <i class="fa fa-instagram"></i>
+        <i class="fa fa-twitter"></i>
+      </div>
+      <div class="footer subscribe">
+        <h3>Subscribe to our blog</h3>
+        <p>Singup for our offer</p>
+
+        <div class="footer_input">
+          <input type="text" name="email" id="email_subscribution" />
+          <input class="footer_submit" type="submit" value="Subscribe" />
+        </div>
+      </div>
+    </footer>
+  </body>
+
+  <script type="module" src="../Js/chatGPT.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-storage.js"></script>
+  <script
+    src="https://www.gstatic.com/firebasejs/8.4.3/firebase.js"
+    defer
+  ></script>
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+    import {
+      getDatabase,
+      set,
+      ref,
+      onValue,
+    } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+
+    import {
+      getAuth,
+      createUserWithEmailAndPassword,
+      signInWithEmailAndPassword,
+      onAuthStateChanged,
+    } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
+
+     // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+    import {FIREBASE_API_KEY} from  '../Js/apikey.js';
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: FIREBASE_API_KEY,
+      authDomain: "mybrand-df7b7.firebaseapp.com",
+      projectId: "mybrand-df7b7",
+      storageBucket: "mybrand-df7b7.appspot.com",
+      messagingSenderId: "1073877765217",
+      appId: "1:1073877765217:web:7f63596f42c5d4ca18ae20",
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase();
+    const auth = getAuth();    
+
+    // check if user is logged in
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const uid = user.uid; 
+      }
+     
+      if (user == undefined) {
+        // User is signed out        
+        location.href = "./login.html";
+        console.log("no user");
+      }
+    });   
+  </script>
+
+<script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      // handle form submission manually using JavaScript
+      console.log("hello from form")
+    }
+</script>
+
+
+
+
+</html>

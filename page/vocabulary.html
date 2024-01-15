@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LearnByWriting</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.png" />
+    <link rel="stylesheet" href="../css/vocabulary.css" />
+    <!-- for roboto font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- bringing Icon for footer -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/40109df241.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <nav class="main_nav">
+        <div class="menu">
+          <h2 class="ngana_logo">
+            <a href="../index.html" class="menu_nav">LearnByWriting</a>
+          </h2>
+
+          <a href="./stories.html" class="menu_nav">
+            <i class="fa fa-book"></i>Stories</a
+          >
+          <a href="./blog.html" class="menu_nav">
+            <i class="fa fa-globe"></i>Blogs</a
+          >
+          <a href="./vocabulary.html" class="menu_nav">
+            <i class="fa fa-list"></i>Vocabulary Lists</a
+          >
+
+          <div class="dropdown">
+            <a href="./user.html" class="dropbtn" id="username"
+              ><i class="fa fa-user"></i>User</a
+            >
+            <div class="dropdown-content">
+              <a href="./dashboard.html"
+                ><i class="fa fa-dashboard"></i> Dashboard</a
+              >
+              <a href="./logout.html"> <i class="fa fa-sign-out"></i>logout</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section>
+      <!-- Vocabulary section -->
+      <div class="vocabulary_main">
+        <div class="vocabulary_content">
+          <!-- Search box for vocabulary-->
+
+          <div class="header_vocabulary">
+            <h3>Vocabulary Lists</h3>
+            <p>
+              Explore our library of over
+              <span id="number_of_vocabulary">0</span> curated lists.
+            </p>
+            <div class="vocabulary_search">
+              <!-- <i class="fa fa-search"></i> -->
+              <input
+                type="search"
+                name="search"
+                id="search"
+                placeholder="Search your world"
+              />
+              <button id="submit" class="submit">Search</button>
+              <p id="error" style="color: red"></p>
+            </div>
+
+            <div id="search_content"></div>
+          </div>
+
+          <div class="vocabulary_item_content" id="vocabulary_item_content">
+            <!-- vocabulary will go here -->
+          </div>
+
+          <!-- <div class="sample_vocabulary">
+            <div class="sample_vocabulary_header">
+              <div>
+                <h1>September Sample</h1>
+                <p>Vocabulary for this month, Occassions, and Events</p>
+              </div>
+              <div class="buton">
+                <button>Explore collection</button>
+              </div>
+            </div>
+            <div class="sample_vocabulary_content">
+              <div>
+                <img src="../images/blog.jpg" width="100px" alt="" />
+              </div>
+              <div class="card_vocabulary">
+                <div class="card_vocabulary_container">
+                  <div class="card_vocabulary_header">
+                    <p>title</p>
+                  </div>
+                  <div class="card_vocabulary_body">
+                    <p>yes it is content</p>
+                  </div>
+                </div>
+                <div class="card_vocabulary_container">
+                  <div class="card_vocabulary_header">
+                    <p>title</p>
+                  </div>
+                  <div class="card_vocabulary_body">
+                    <p>yes it is content</p>
+                  </div>
+                </div>
+                <div class="card_vocabulary_container">
+                  <div class="card_vocabulary_header">
+                    <p>title</p>
+                  </div>
+                  <div class="card_vocabulary_body">
+                    <p>yes it is content</p>
+                  </div>
+                </div>
+                <div class="card_vocabulary_container">
+                  <div class="card_vocabulary_header">
+                    <p>title</p>
+                  </div>
+                  <div class="card_vocabulary_body">
+                    <p>yes it is content</p>
+                  </div>
+                </div>
+                <div class="card_vocabulary_container">
+                  <div class="card_vocabulary_header">
+                    <p>title</p>
+                  </div>
+                  <div class="card_vocabulary_body">
+                    <p>yes it is content</p>
+                  </div>
+                </div>
+                <div class="card_vocabulary_container">
+                  <div class="card_vocabulary_header">
+                    <p>title</p>
+                  </div>
+                  <div class="card_vocabulary_body">
+                    <p>yes it is content</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- footer info and details -->
+    <footer>
+      <div class="copyright">
+        <p>
+          <i class="fa fa-copyright"></i>
+          <span id="footer_date"> 2023</span> Ngana Tech
+        </p>
+      </div>
+    </footer>
+  </body>
+
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-storage.js"></script>
+  <script src="../Js/search.js" type="module" defer></script>
+
+  <script src="../Js/vocabulary.js" type="module" defer></script>
+
+
+  <!-- <script src="../Js/tinymce/tinymce.min.js"></script> -->
+
+  <script type="module" defer>
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+    import {
+      getDatabase,
+      set,
+      ref,
+      serverTimestamp,
+      onValue,
+    } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+
+    import {
+      getAuth,
+      createUserWithEmailAndPassword,
+      signInWithEmailAndPassword,
+      onAuthStateChanged,
+    } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    import { FIREBASE_API_KEY } from "../Js/apikey.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: FIREBASE_API_KEY,
+      authDomain: "mybrand-df7b7.firebaseapp.com",
+      projectId: "mybrand-df7b7",
+      storageBucket: "mybrand-df7b7.appspot.com",
+      messagingSenderId: "1073877765217",
+      appId: "1:1073877765217:web:7f63596f42c5d4ca18ae20",
+    };
+
+    // Initialize Firebase
+
+    const app = firebase.initializeApp(firebaseConfig);
+    const database = getDatabase(initializeApp(firebaseConfig));
+    const auth = getAuth();
+    const blogAdmin = document.getElementById("blog_admin");
+
+    //my id in the localStorage
+    // const blog_id = JSON.parse(localStorage.getItem("id"));
+    const vocabulary_item_content = document.querySelector(
+      "#vocabulary_item_content"
+    );
+    const vocabulary_button_text = document.querySelector(
+      "#vocabulary_button_text"
+    );
+
+    //function to get input value
+    function getInputValue(id) {
+      return document.getElementById(id).value;
+    }
+
+    const vacabularies = ref(database, `vocabularies/`);
+
+    // check errors
+    if ((Headers.status = 304)) {
+      const content_elt = document.createElement("DIV");
+
+      content_elt.innerHTML = `                     
+        <p class="story" data-id="no-data"><em> Ops! Something went wrong! Try again later or switch your network! </em></p>
+        `;
+      content_elt.setAttribute("class", "book_item error_display");
+      vocabulary_item_content.append(content_elt);
+
+      //check if everything is okey then remove the error_display
+      onValue(vacabularies, (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+          content_elt.style.display = "none";
+        }
+      });
+    }
+
+    onValue(vacabularies, (snapshot) => {
+      const data = snapshot.val();
+      if (data !== null) {
+        let vocabulary_single = document.createElement("DIV");
+        vocabulary_single.innerHTML = `
+      <div class="vocabulary_item_content" data-uid=${data.uuid}>
+   
+      <div class="vocabulary_section">
+        <div class="vocabulary_content" id="vocabulary_content">
+            
+        </div>
+        
+      </div>
+    </div>
+      `;
+        // to be added later
+        vocabulary_item_content.append(vocabulary_single);
+      } else {
+        let vocabulary_single = document.createElement("DIV");
+        vocabulary_single.innerHTML = `
+      <div class="vocabulary_item_content">   
+      <div class="vocabulary_section">
+        <div class="vocabulary_content" id="vocabulary_content">
+            <p>No New vocabulary  yet</p>
+        </div>
+       
+      </div>
+    </div>
+      `;
+        // to be added later
+        vocabulary_item_content.append(vocabulary_single);
+      }
+    });
+
+    //add vocabularies content to the documents
+
+    vocabulary_item_content.addEventListener("click", (e) => {
+      if (e.target.className === "vocabulary_button_text") {
+        console.log("yes le show add vocabulary box");
+        let vocabulary_form =
+          document.getElementsByClassName("vocabulary_form");
+      }
+
+      const id = e.target.dataset.uid;
+      if (e.target.className === "vocabulary_button") {
+        const vocabularyContent = document.getElementById("vocabularyDetails");
+        const vocabularyDetailsHeader =
+          document.getElementById("vocabulary_details");
+        e.preventDefault();
+
+        if (
+          vocabularyContent.value.trim() !== "" ||
+          vocabularyDetailsHeader.value.trim() !== ""
+        ) {
+          //add vocabularies field to the document
+          firebase
+            .database()
+            .ref("vocabularies/")
+            .push()
+            .set(
+              {
+                header: vocabularyDetailsHeader.value.trim(),
+                content: vocabularyContent.value.trim(),
+                time: serverTimestamp(),
+              },
+              function (error) {
+                if (error) {
+                  console.log("error whie uploading");
+                } else {
+                  console.log("successfully uploaded");
+                }
+              }
+            );
+        } else {
+          return console.log("no vocabulary entered");
+        }
+      }
+
+      //for delete and edit item from firebase
+      if (e.target.className.includes("deleteButton")) {
+        firebase
+          .database()
+          .ref("vocabularies/" + id)
+          .remove(function (error) {
+            if (error) {
+              console.log("delete error" + error);
+            } else {
+              window.location.href = "./vocabulary.html";
+            }
+          });
+      }
+
+      // //remove vocabulary
+      const vocabularyContent = document.getElementById("vocabulary_content");
+      vocabularyContent.addEventListener("click", (e) => {
+        //let me get my uid
+        let key = e.target.dataset.uid;
+        if (e.target.className.includes("deleteButton")) {
+          firebase
+            .database()
+            .ref("vocabulary/" + key)
+            .remove(function (error) {
+              if (error) {
+                console.log("delete error" + error);
+              } else {
+                window.location.href = "./vocabulary.html";
+              }
+            });
+        } else if (e.target.className.includes("editVocabulary")) {
+          let key = e.target.dataset.uid;
+          const updateVocabularyButton =
+            document.getElementById("updateVocabulary");
+          const title = document.getElementById("title_update");
+          const body = document.getElementById("body_update");
+          const imageEdit = document.getElementById("image_update");
+          const formEdit = document.getElementById("form_edit");
+
+          //get data from locastoragee
+          let data_single = JSON.parse(localStorage.getItem("data"));
+
+          let tobeEddit = data_single.find((elt) => elt.uid_key === key);
+          // let see what we have here
+          formEdit.style.display = "block";
+
+          title.value = tobeEddit.title;
+          const blogText = tinymce.activeEditor.setContent(tobeEddit.body);
+          imageEdit.name = tobeEddit.Image;
+
+          updateVocabularyButton.addEventListener("click", (e) => {
+            // image variable
+            const image = document.getElementById("image_update").files[0];
+            const imageName = image.name;
+            //reference a collection
+            const storageRef = firebase.storage().ref("images/" + imageName);
+            // upload image to selected  storage reference
+            var uploadTask = storageRef.put(image);
+
+            uploadTask.on(
+              "state_changed",
+              function (snapshot) {
+                var progress =
+                  (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                console.log("Upload is " + progress + "done");
+              },
+              function (error) {
+                console.log(error.message);
+              },
+              function () {
+                // handle successfully upload here..
+                uploadTask.snapshot.ref
+                  .getDownloadURL()
+                  .then(function (downloadURL) {
+                    const blogText = tinymce.activeEditor.getContent();
+                    var id = Math.floor(Math.random() * 100);
+                    firebase
+                      .database()
+                      .ref("blogs/" + key)
+                      .update(
+                        {
+                          title: title.value,
+                          body: blogText,
+                          createdAt: serverTimestamp(),
+                          vocabularys: [],
+                          Image: downloadURL,
+                          uid_key: key,
+                        },
+                        function (error) {
+                          if (error) {
+                            console.log("error whie uploading");
+                          } else {
+                            console.log("successfully uploaded");
+                            formEdit.style.display = "none";
+                            const alert_message_add_blog =
+                              document.getElementById("alert_message_add_blog");
+                            alert_message_add_blog.style.display = "flex";
+                            setTimeout(() => {
+                              location.href = "./dashboard.html";
+                            }, 4000);
+                          }
+                        }
+                      );
+                  });
+              }
+            );
+          });
+        }
+      });
+    });
+
+    //  let vocabularies
+    const vocabularies = ref(database, `vocabularies`);
+
+    onValue(vocabularies, (snapshot) => {
+      const data = snapshot.val();
+
+      if (data !== null) {
+        let numberOfvocabularyArray = [];
+        const vocabularyContent = document.getElementById("vocabulary_content");
+
+        for (var [key, value] of Object.entries(data)) {
+          var obj = {
+            // id: value.id,
+            content: value.content,
+            timeStamp: value.time,
+            uid_key: key,
+          };
+
+          if (value) {
+            const numberOfVocabulary = document.getElementById(
+              "number_of_vocabulary"
+            );
+
+            /// for date
+            const timeStamp = value.time;
+
+            numberOfvocabularyArray.push(obj);
+
+            numberOfVocabulary.innerHTML = numberOfvocabularyArray.length;
+
+            const time = new Date(timeStamp);
+            var date = ("0" + time.getDate()).slice(-2);
+            var yr = time.getFullYear();
+            // extracting month from the date object as 2 digit
+            var mth = ("0" + (time.getMonth() + 1)).slice(-2);
+
+            let vocabulary = document.createElement("DIV");
+            vocabulary.innerHTML = `
+         <div class="vocabulary_box"> 
+          <div id="header_vocabulary">             
+            <u>
+          <h4 class="vocabulary_header" data-word=${value.header}>"${
+              value.header ? value.header : "no word yet"
+            } ":</h4> </u>  
+            <i class="fa fa-trash deleteButton" data-uid=${key}></i>  
+          </div>
+            <p class="vocabulary_paragraph">${
+              value.content ? value.content : " no vocabularies yet"
+            }</p>  
+         </div>        
+         `;
+            //add vocabularies at the bottom ot the vocabulary box
+            vocabularyContent.append(vocabulary);
+          }
+        }
+
+        //logic for pagination
+        // const itemsPerPage = 2;
+        // const totalItems = numberOfvocabularyArray.length;
+        // const totalPages = Math.ceil(totalItems / itemsPerPage);
+        // let currentPage = 1;
+
+        // function showPage(page) {
+        //   const startIndex = (page - 1) * itemsPerPage;
+        //   console.log(numberOfvocabularyArray);
+        //   numberOfvocabularyArray.forEach((item, i) => {
+        //     if (i >= startIndex && i < startIndex + itemsPerPage) {
+        //       console.log("block");
+        //     } else {
+        //       console.log("none");
+        //     }
+        //   });
+        //   currentPage = page;
+        // }
+
+        // showPage(1);
+        // console.log(showPage(1));
+        // vocabularyContent.addEventListener("click", (e) => {
+        //   console.log(e.target.className);
+        //   if (e.target.className === "next-page") {
+        //     currentPage < totalPages && showPage(currentPage + 1);
+        //   }
+        //   if (e.target.className === "prev-page") {
+        //     currentPage > 1 && showPage(currentPage - 1);
+        //   }
+        // });
+
+        //  console.log(totalPages, totalItems)
+        // let numbersOfpage = [];
+        // for (let i = 1; i <= totalPages; i++) {
+        //   numbersOfpage.push(i);
+        // }
+
+        // console.log(numbersOfpage)
+
+        // numberOfvocabularyArray.forEach((item) => numbersOfpage.push(item));
+
+        // logic for adding pages numbers------------
+        // let pagesNumbers = document.querySelector("#pages-numbers");
+        // numbersOfpage.forEach((item) => {
+        //   let h3 = document.createElement("h3");
+        //   h3.innerText = item;
+        //   // pagesNumbers.appendChild(h3);
+        // });
+        // vocabularyContent.append(pagesNumbers);
+      }
+    });
+
+    // check if user is logged in
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        const username = document.getElementById("username");
+        username.innerHTML = `<i class="fa fa-user"></i>${user.email}`;
+        username.setAttribute("href", "./dashboard.html");
+      }
+      if (user == undefined) {
+        // User is signed out
+        location.href = "./login.html";
+      }
+    });
+  </script>
+</html>
