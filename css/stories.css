@@ -175,6 +175,11 @@ section {
     display: none;
 }
 
+.fa-volume-high:hover{
+    cursor: pointer;
+    color: var(--blueColorBC);
+}
+
 /* footer */
 
 footer .copyright {

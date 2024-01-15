@@ -41,8 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
           const newData = data.slice(start, skip);
           newData.forEach((story) => {
             const content_elt = document.createElement("DIV");
-            content_elt.innerHTML = `   
-          <h5 class="story" data-id=${story._id}>${story.title}</h5>  
+            content_elt.innerHTML = ` <div>   
+          <h5 class="story" data-id=${story._id}>${story.title}</h5> <i class="fa-solid fa-volume-high" data-story='${story.story.toString()}'></i>  </div>
           <p class="story" data-id=${story._id}>${story.story}</p>  
           <p class="story" data-id=${story._id}><strong> ${story.moral}</strong></p>        
           <p class="story" data-id=${story._id}><em>${story.author}</em></p>
