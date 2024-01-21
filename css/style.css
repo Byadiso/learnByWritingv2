@@ -871,7 +871,7 @@ footer{
 
     /* for footer section */
 
-    /* footer {
+    footer {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -879,7 +879,7 @@ footer{
         background: var(--blackColor);
         color: var(--whiteColor);
         padding: 10px;
-    } */
+    } 
 
     /* footer div {
         margin-right: 0px;
