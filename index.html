@@ -306,17 +306,14 @@
    
     // check if user is logged in
     onAuthStateChanged(auth, (user) => {
-      if (user) {
-        
+      if (user) {        
         const uid = user.uid;
         const username = document.getElementById("username");
         username.innerHTML = `<i class="fa fa-user"></i>${user.email}`;
         username.setAttribute("href", "./dashboard.html");
         // ...
-      } else if (user == undefined) {
-        console.log("no user");
+      } else if (user == undefined) {        
         const dropdown = document.getElementById("dropdown");
-
         dropdown.innerHTML = `<a href="./page/login.html"><i class="fa fa-sign-in"></i>Login</a>`;
       }
     });
