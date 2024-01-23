@@ -104,18 +104,14 @@ background-color: var(--blackColor);
 
 
 .service_section {
-    /* position: absolute; */
+   
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
     color: var(--textColorGrey);
     background: var(--blueColorContrast);
-    height: 100%;
-    bottom: 0;
-    left: 0;
-    
-    
+    padding: 119px;         
 }
 
 
@@ -126,7 +122,7 @@ background-color: var(--blackColor);
     align-items: start;
     color: var(--whiteColor);
     width: 100%;
-    margin: 60px;
+    margin: 20px;
 }
 
 .register_content p,h1{
@@ -146,6 +142,7 @@ background-color: var(--blackColor);
     background-color: var(--whiteColor);
     color: var(--whiteColor);
     width: 100%;
+    margin: 25px;
 }
 
 .login_content{
@@ -199,7 +196,7 @@ input[type=text], input[type=password], textarea {
 
 .form_login {
     border-radius: 4px;
-    margin: 50px;
+    margin: 35px;
 }
 
 .form_login input {
@@ -280,21 +277,59 @@ footer {
 
 /* for responsiveness */
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 720px) {
     .ngana_logo {
         margin-right: 200px;
         font-size: 30px;
+    }
+
+    section{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
     }
 
     .menu {
         display: flex;
         justify-content: center;
         flex-direction: column;
-        margin-bottom: 10px;
+        align-items: center;       
+    }
+    .menu h2{
+        padding-left: 190px;
+    }
+    .main_nav{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;   
     }
 
     .hero_section {
         font-size: .8rem;
+    }
+
+    .service_section{
+        /* padding: 0px; */
+        /* margin: 0px; */
+    }
+
+    .register_form{
+        /* margin-bottom: 75px;
+        margin-top: 75px; */
+    }
+
+    .register_content{
+        display: none;
+    }
+
+    
+
+    .form_login {
+        border-radius: 4px;
+        /* margin-right: 0px; */
+        margin: 69.563px;
     }
 
     .hire_text {
@@ -304,8 +339,7 @@ footer {
 
     .statistic_section {
         background-color: var(--whiteColor);
-        display: flex;
-        /* flex-direction: column; */
+        display: flex;       
         color: var(--textColorGrey);
         justify-content: center;
         align-items: center;
@@ -358,7 +392,6 @@ footer {
     }
 
     /* for footer section */
-
     footer {
         display: flex;
         justify-content: center;
