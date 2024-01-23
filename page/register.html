@@ -30,13 +30,13 @@
           </h2>
 
           <a href="./stories.html" class="menu_nav">
-            <i class="fa fa-book"></i>Stories</a
+            <i class="fa fa-book"></i>Your Stories</a
           >
           <a href="./blog.html" class="menu_nav">
-            <i class="fa fa-globe"></i>Your blog</a
+            <i class="fa fa-globe"></i>Your blogs</a
           >
           <a href="./vocabulary.html" class="menu_nav">
-            <i class="fa fa-list"></i>Vocabulary Lists</a
+            <i class="fa fa-list"></i>Your Vocabularies</a
           >
           <a href="./login.html" class="menu_nav hire_now"><i class="fa fa-sign-in"></i>Login</a>
         </div>
@@ -85,7 +85,7 @@
                 id="lastname"
                 placeholder="Last Name"
               />
-              <!-- <label for="name">Your Email</label> -->
+             
               <input
                 type="text"
                 name="email"
@@ -93,7 +93,7 @@
                 placeholder="Email"
                 id="email-register"
               />
-              <!-- <label for="password">Your password</label> -->
+              
               <input
                 type="password"
                 name="password"
@@ -124,7 +124,7 @@
     <!-- footer info and details -->
     <footer>
       <div class="copyright">
-        <p><i class="fa fa-copyright"></i>2023 Ngana Tech</p>
+        <p><i class="fa fa-copyright"></i> <span  id="footer_date"> 2023</span> Ngana Tech</p>
       </div>
     </footer>
   </body>
@@ -175,18 +175,14 @@
     const database = getDatabase(initializeApp(firebaseConfig));
     const auth = getAuth();
 
-    console.log(app);
-    console.log(auth);
-    //refernce a collection
-    // const loginRef = database.ref("User");
+      
 
     //my login button
-
     const registerSubmit = document.getElementById("registerSubmit");
     const error_message = document.getElementById("error");
-    // const loginSubmit = document.getElementById("loginSubmit");
+   
 
-    //function to get inpu value
+    //function to get input value
 
     function getInputValue(id) {
       return document.getElementById(id).value;
@@ -205,7 +201,7 @@
       if (!email || !password || !lastname || !firstname) {
         error_message.innerHTML =
           "Check again if you have entered all required fields";
-        console.log("no password, email, firstname or lastname entered");
+        
         return;
       }
 
@@ -234,7 +230,7 @@
             .then((user) => {
               // User data stored in Firestore successfully
               console.log("User data stored in Firestore.");
-              console.log(user);
+              
             })
             .catch((error) => {
               // Handle error
@@ -247,47 +243,12 @@
           const errorCode = error.code;
           const errorMessage = error.message;
           alert(errorMessage);
-          console.log(email.trim());
-          // ..
+          
+          
         });
     });
 
-    // login feature
-    // loginSubmit.addEventListener("click", (e) => {
-    //   e.preventDefault();
-    //   const email = getInputValue("email_login");
-    //   const password = getInputValue("password_login");
-
-    //   if (!email || !password) {
-    //     console.log("no password or email entered");
-    //     return;
-    //   }
-
-    //   signInWithEmailAndPassword(auth, email, password)
-    //     .then((userCredential) => {
-    //       // Signed in
-    //       const user = userCredential.user;
-    //       alert("User logged successfully");
-    //       window.location.href = "../html/dashboard.html";
-
-    //       const dt = new Date();
-    //       firebase
-    //         .database()
-    //         .ref("users/" + user.uid)
-    //         .update({
-    //           last_login: dt,
-    //         });
-    //     })
-    //     .catch((error) => {
-    //       const errorCode = error.code;
-    //       const errorMessage = error.message;
-    //       alert(errorMessage);
-    //     });
-
-    //   //if user logged show some file
-    //   // const auth = getAuth();
-
-    // });
+   
 
     onAuthStateChanged(auth, (user) => {
       if (user) {

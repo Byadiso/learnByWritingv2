@@ -876,19 +876,18 @@ footer{
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        background: var(--colorfooter);
+        background: var(--blackColor);
         color: var(--whiteColor);
         padding: 10px;
-    }
+    } 
 
-    footer div {
+    /* footer div {
         margin-right: 0px;
-    }
+    } */
 }
 
 /* 
 for ipods and tables */
-
 @media only screen and (max-width: 920px) {
 
     body {

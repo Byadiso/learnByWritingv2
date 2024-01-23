@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   registerButton.forEach((button) => {
     button.addEventListener("click", (e) => {
-      // console.log("let bring register form");
+      
 
       // order matter here
       registerForm.classList.remove("hide");
