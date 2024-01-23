@@ -11,6 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
     "#alert_message_register"
   );
 
+
+  const footer_date = document.getElementById("footer_date");
+
+
   registerButton.forEach((button) => {
     button.addEventListener("click", (e) => {
       // console.log("let bring register form");
@@ -66,4 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("let do login")      
     }
   };
+
+  // updated date footer
+  footer_date.innerHTML = new Date().getFullYear();
 });
