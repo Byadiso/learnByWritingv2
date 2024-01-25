@@ -181,8 +181,7 @@ footer .copyright {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--whiteColor);
-    
+    color: var(--whiteColor);    
 }
 
 footer {

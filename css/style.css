@@ -4,7 +4,6 @@
 }
 
 /* my variables style */
-
 :root {
     --blueColorContrast: #0b3af6;
     --blueColor: #29b4e2;
@@ -724,17 +723,21 @@ input[type=text], input[type=password], textarea {
 
 
 /* footer */
-
 footer .copyright {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--whiteColor);
-    /* background-color: grey; */
+    color: var(--whiteColor);  
 }
 
 footer{
-    background-color: var(--blackColor);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: var(--blackColorHeader);
+    width: 100%;
+    color: white;
+    text-align: center;
 }
 
 .social_media i {
@@ -742,19 +745,15 @@ footer{
 }
 
 
-/* for responsiveness */
-
+/* for responsiveness  mobile*/
 @media only screen and (max-width: 720px) {
-
     body {
         min-width: 360px;
     }
-
     .ngana_logo {
         margin-right: 200px;
         font-size: 30px;
     }
-
     .menu {
         display: flex;
         justify-content: center;
@@ -763,38 +762,30 @@ footer{
         justify-content: space-around;
         flex-direction: column;
     }
-
     .nav_small {
         display: inline;
     }
-
     .small_device {
         display: none;
     }
-
     .hero_section_header {
         display: flex;
         justify-content: center;
         flex-direction: column;
     }
-
     .hero_section_header div .fa {
         padding: 5px;
     }
-
     .main_content {
         display: flex;
         justify-content: center;
-        flex-direction: column;
-        
-    }
-   
+        flex-direction: column;        
+    }  
 
     .burger_menu {
         display: block;
         font-size: 30px;
     }
-
     .hide_burger {
         display: none;
     }
@@ -802,7 +793,6 @@ footer{
     .hero_section {
         font-size: .8rem;
     }
-
     .hire_text {
         font-size: .7rem;
         min-width: 130px;
@@ -810,8 +800,7 @@ footer{
 
     .statistic_section {
         background-color: var(--whiteColor);
-        display: flex;
-        /* flex-direction: column; */
+        display: flex;       
         color: var(--textColorGrey);
         justify-content: center;
         align-items: center;
@@ -851,26 +840,22 @@ footer{
 
     /* remove link style on a tag */
     a, button {
-
         all: unset;
     }
 
     /* for portfolio */
-
     .portfolio_nav {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
     }
-
     .portfolio_nav h1 {
         font-size: 1rem;
         margin: 0px;
     }
 
     /* for footer section */
-
     footer {
         display: flex;
         justify-content: center;
@@ -879,46 +864,33 @@ footer{
         background: var(--blackColor);
         color: var(--whiteColor);
         padding: 10px;
-    } 
-
-    /* footer div {
-        margin-right: 0px;
-    } */
+    }   
 }
 
 /* 
-for ipods and tables */
+for ipads and tables */
 @media only screen and (max-width: 920px) {
-
     body {
         min-width: 360px;
     }
-
     .ngana_logo {
         margin-right: 50px;
         margin-left: 50px;
         font-size: 30px;
     }
-
-
-
     .menu {
         display: flex;
         justify-content: space-around;
         flex-direction: column;
         margin-bottom: 10px;
     }
-
-
     .hero_section {
         font-size: .8rem;
     }
-
     .hire_text {
         font-size: .7rem;
         min-width: 130px;
     }
-
     .statistic_section {
         background-color: var(--whiteColor);
         display: flex;        
@@ -936,7 +908,6 @@ for ipods and tables */
         padding: 10px
     }
 
-
     /* for main_who_items */
     .main_who_items {
         display: flex;
@@ -944,8 +915,7 @@ for ipods and tables */
         justify-content: center;
         flex-direction: column;
         color: var(--textColorGreyParagraph);
-        margin: 20px;
-        
+        margin: 20px;        
     }
 
     .main_who_items img {
@@ -993,13 +963,11 @@ for ipods and tables */
 
 /* 
   for dark mode */
-
 @media (prefers-color-scheme: dark) {
     body {
         background: #333;
         color: white;
     }
-
 }
 
 @media (prefers-color-scheme: light) {
@@ -1007,5 +975,4 @@ for ipods and tables */
         background: #ddd;
         color: black;
     }
-
 }
