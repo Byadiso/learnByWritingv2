@@ -317,8 +317,6 @@ input[type=text], input[type=password], textarea {
     align-items: center;
     margin-left: 20px;
     margin-bottom: 20px;
-    /* margin:20px;
-    padding:10px */
 }
 
 .dashboard_text {
@@ -343,16 +341,7 @@ input[type=text], input[type=password], textarea {
 .dashboard_item p {
     color: var(--textColorGreyParagraph);
     width: 220px;
-    /* height:145px;   */
-
 }
-
-
-/* 
-.blog_item_content{
-    margin-right: 20px;
-    max-width: 100%;
-} */
 
 
 #blog_admin {
@@ -724,6 +713,10 @@ footer{
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+    
+    .stat_content span{
+        margin-left: 20px;
     }
 
     /* for footer section */
