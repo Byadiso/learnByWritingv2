@@ -650,11 +650,17 @@ footer .copyright {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--whiteColor);  
+    color: var(--whiteColor); 
 }
 
 footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
     background-color: var(--blackColorHeader);
+    width: 100%;
+    color: white;
+    text-align: center;
 }
 
 .social_media i {
