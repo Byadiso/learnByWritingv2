@@ -87,6 +87,7 @@ body {
 
 .menu a {
     text-decoration: none;
+    font-size: 13px;
 }
 
 
@@ -658,7 +659,6 @@ footer{
 
 
 /* for responsiveness */
-
 @media only screen and (max-width: 720px) {
 
     body {
@@ -717,23 +717,7 @@ footer{
     
     .stat_content span{
         margin-left: 20px;
-    }
-
-    /* for footer section */
-
-    footer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        background: var(--colorfooter);
-        color: var(--whiteColor);
-        padding: 10px;
-    }
-
-    footer div {
-        margin-right: 0px;
-    }
+    }   
 }
 
 /* 
@@ -758,7 +742,6 @@ for ipods and tables */
     .menu {
         display: flex;
         justify-content: space-around;
-        /* flex-direction: column; */
         margin-bottom: 10px;
     }
 
@@ -831,21 +814,7 @@ for ipods and tables */
         display: flex;
         flex-direction: column;
     }
-    /* for footer section */
 
-    footer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        background: var(--colorfooter);
-        color: var(--whiteColor);
-        padding: 10px;
-    }
-
-    footer div {
-        margin-right: 0px;
-    }
 }
 
 
